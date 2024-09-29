@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/bookstore</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password"/>
+    <property name="hibernate.hbm2ddl.auto">update</property>
+    <property name="show_sql">true</property>
+
+    <mapping class="vn.hust.bookstore.entity.Account"/>
+    <mapping class="vn.hust.bookstore.entity.Admin"/>
+    <mapping class="vn.hust.bookstore.entity.Employee"/>
+    <mapping class="vn.hust.bookstore.entity.Customer"/>
+    <mapping class="vn.hust.bookstore.entity.Product"/>
+    <mapping class="vn.hust.bookstore.entity.Book"/>
+    <mapping class="vn.hust.bookstore.entity.Stationery"/>
+    <mapping class="vn.hust.bookstore.entity.Toy"/>
+    <mapping class="vn.hust.bookstore.entity.Order"/>
+  </session-factory>
+</hibernate-configuration>
