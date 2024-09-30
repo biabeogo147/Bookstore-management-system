@@ -7,6 +7,28 @@ import vn.hust.bookstore.entity.Customer;
 import vn.hust.bookstore.util.HibernateUtil;
 
 public class AccountService {
+    public Account getAccount(String emailOrPhone) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            return session.createQuery("from Account where email = :email or phone = :phone", Account.class)
+                    .setParameter("email", emailOrPhone)
+                    .setParameter("phone", emailOrPhone)
+                    .uniqueResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public void update(Account account) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.beginTransaction();
+            session.update(account);
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public boolean login(String emailOrPhone, String password) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             Account account = session.createQuery("from Account where email = :email or phone = :phone", Account.class)
@@ -38,4 +60,6 @@ public class AccountService {
             e.printStackTrace();
         }
     }
+
+
 }

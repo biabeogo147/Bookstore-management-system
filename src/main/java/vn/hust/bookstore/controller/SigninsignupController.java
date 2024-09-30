@@ -21,7 +21,6 @@ public class SigninsignupController implements Initializable {
     AccountService accountService = new AccountService();
 
     private Parent root;
-
     private double x;
     private double y;
 
@@ -77,6 +76,9 @@ public class SigninsignupController implements Initializable {
                 stage.setX(event.getScreenX() - x);
                 stage.setY(event.getScreenY() - y);
             });
+
+            BookstoreController bookstoreController = fxmlLoader.getController();
+            bookstoreController.getAccount(accountService.getAccount(tfEmailorPhoneSignin.getText()));
 
             stage.initStyle(StageStyle.TRANSPARENT);
             stage.setScene(scene);

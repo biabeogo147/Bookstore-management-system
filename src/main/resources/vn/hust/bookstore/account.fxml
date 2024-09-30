@@ -43,9 +43,9 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="486.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="486.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vn.hust.bookstore.controller.AccountController">
    <children>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+      <AnchorPane fx:id="mainForm" prefHeight="200.0" prefWidth="200.0">
          <children>
             <BorderPane prefHeight="486.0" prefWidth="600.0">
                <top>
@@ -59,12 +59,12 @@
                                     <Font size="19.0" />
                                  </font>
                               </Label>
-                              <Button fx:id="btnClose" layoutX="552.0" layoutY="11.0" mnemonicParsing="false" textAlignment="JUSTIFY">
+                              <Button fx:id="btnClose" layoutX="552.0" layoutY="11.0" mnemonicParsing="false" onAction="#close" textAlignment="JUSTIFY">
                                  <graphic>
                                     <FontAwesomeIcon glyphName="CLOSE" selectionStart="30" textAlignment="CENTER" wrappingWidth="23.199771881103516" />
                                  </graphic>
                               </Button>
-                              <Button fx:id="btnMinimize" layoutX="512.0" layoutY="11.0" mnemonicParsing="false" textAlignment="JUSTIFY">
+                              <Button fx:id="btnMinimize" layoutX="512.0" layoutY="11.0" mnemonicParsing="false" onAction="#minimize" textAlignment="JUSTIFY">
                                  <graphic>
                                     <FontAwesomeIcon glyphName="MINUS" selectionStart="30" textAlignment="CENTER" wrappingWidth="23.199771881103516" />
                                  </graphic>
@@ -97,28 +97,28 @@
                               <Label layoutX="40.0" layoutY="179.0" text="Email" />
                               <TextField fx:id="tfEmail" layoutX="145.0" layoutY="175.0" />
                               <Label layoutX="39.0" layoutY="223.0" text="Giới tính*" />
-                              <CheckBox fx:id="cbMale" layoutX="145.0" layoutY="223.0" mnemonicParsing="false" text="Nam" />
-                              <CheckBox fx:id="cbFemale" layoutX="213.0" layoutY="223.0" mnemonicParsing="false" text="Nữ" />
+                              <CheckBox fx:id="cbMale" layoutX="145.0" layoutY="223.0" mnemonicParsing="false" onAction="#isMaleChecked" text="Nam" />
+                              <CheckBox fx:id="cbFemale" layoutX="213.0" layoutY="223.0" mnemonicParsing="false" onAction="#isFemaleChecked" text="Nữ" />
                               <Label layoutX="40.0" layoutY="265.0" text="Birthday*" />
                               <DatePicker fx:id="dpBirthday" layoutX="145.0" layoutY="261.0" />
-                              <Button fx:id="btnSave" layoutX="162.0" layoutY="311.0" mnemonicParsing="false" text="Lưu thay đổi" />
+                              <Button fx:id="btnSave" layoutX="162.0" layoutY="311.0" mnemonicParsing="false" onAction="#save" text="Lưu thay đổi" />
                            </children>
                         </AnchorPane>
                         <AnchorPane layoutY="7.0" prefHeight="56.0" prefWidth="406.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <AnchorPane layoutX="80.0" prefHeight="56.0" prefWidth="69.0" AnchorPane.topAnchor="0.0">
+                              <AnchorPane fx:id="apShopping" layoutX="80.0" onMouseClicked="#switchToShopping" prefHeight="56.0" prefWidth="69.0" AnchorPane.topAnchor="0.0">
                                  <children>
                                     <FontAwesomeIcon glyphName="HOME" layoutX="17.0" layoutY="37.0" size="3em" />
                                     <Label layoutX="9.0" layoutY="43.0" text="Mua sắm" />
                                  </children>
                               </AnchorPane>
-                              <AnchorPane layoutX="170.0" layoutY="3.0" prefHeight="56.0" prefWidth="69.0" AnchorPane.topAnchor="0.0">
+                              <AnchorPane fx:id="apCart" layoutX="170.0" layoutY="3.0" prefHeight="56.0" prefWidth="69.0" AnchorPane.topAnchor="0.0">
                                  <children>
                                     <FontAwesomeIcon glyphName="SHOPPING_CART" layoutX="18.0" layoutY="34.0" size="3em" />
                                     <Label layoutX="12.0" layoutY="44.0" text="Giỏ hàng" />
                                  </children>
                               </AnchorPane>
-                              <AnchorPane layoutX="269.0" prefHeight="56.0" prefWidth="69.0" AnchorPane.topAnchor="0.0">
+                              <AnchorPane fx:id="apAccount" layoutX="269.0" prefHeight="56.0" prefWidth="69.0" AnchorPane.topAnchor="0.0">
                                  <children>
                                     <FontAwesomeIcon glyphName="USER" layoutX="21.0" layoutY="35.0" size="3em" />
                                     <Label layoutX="9.0" layoutY="45.0" text="Tài khoản" />
@@ -134,4 +134,3 @@
       </AnchorPane>
    </children>
 </StackPane>
-
