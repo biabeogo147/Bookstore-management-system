@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.Tab?>
@@ -44,5 +45,10 @@
           </Tab>
         </tabs>
       </TabPane>
+      <Button fx:id="btnClose" layoutX="550.0" layoutY="-1.0" mnemonicParsing="false" onAction="#close" prefHeight="26.0" prefWidth="50.0">
+         <graphic>
+            <FontAwesomeIcon glyphName="CLOSE" size="1.5em" />
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>

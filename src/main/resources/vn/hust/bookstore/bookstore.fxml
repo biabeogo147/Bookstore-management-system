@@ -45,130 +45,134 @@
 
 <StackPane prefHeight="677.0" prefWidth="978.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <BorderPane prefHeight="200.0" prefWidth="200.0">
-         <center>
-          <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="260.0" prefWidth="794.0" BorderPane.alignment="CENTER">
-            <children>
-                  <AnchorPane layoutX="2.0" layoutY="65.0" prefHeight="62.0" prefWidth="589.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <AnchorPane layoutX="667.0" prefHeight="62.0" prefWidth="69.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane>
+         <children>
+            <BorderPane prefHeight="677.0" prefWidth="978.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <center>
+                <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="260.0" prefWidth="794.0" BorderPane.alignment="CENTER">
+                  <children>
+                        <AnchorPane layoutX="2.0" layoutY="65.0" prefHeight="62.0" prefWidth="589.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <FontAwesomeIcon glyphName="HOME" layoutX="17.0" layoutY="37.0" size="3em" />
-                              <Label layoutX="9.0" layoutY="43.0" text="Mua sắm" />
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane layoutX="757.0" prefHeight="62.0" prefWidth="69.0" AnchorPane.topAnchor="0.0">
-                           <children>
-                              <FontAwesomeIcon glyphName="SHOPPING_CART" layoutX="18.0" layoutY="34.0" size="3em" />
-                              <Label layoutX="12.0" layoutY="44.0" text="Giỏ hàng" />
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane layoutX="856.0" prefHeight="56.0" prefWidth="69.0" AnchorPane.topAnchor="0.0">
-                           <children>
-                              <FontAwesomeIcon glyphName="USER" layoutX="21.0" layoutY="35.0" size="3em" />
-                              <Label layoutX="9.0" layoutY="45.0" text="Tài khoản" />
-                           </children>
-                        </AnchorPane>
-                        <TextField layoutX="39.0" layoutY="19.0" prefHeight="25.0" prefWidth="580.0" />
-                        <FontAwesomeIcon glyphName="SEARCH" layoutX="46.0" layoutY="38.0" size="1.5em" />
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane layoutX="-2.0" layoutY="67.0" prefHeight="569.0" prefWidth="978.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-                     <children>
-                        <AnchorPane layoutX="700.0" layoutY="2.0" prefHeight="569.0" prefWidth="278.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <children>
-                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="84.0" layoutY="24.0" prefHeight="46.0" prefWidth="111.0" text="THÔNG TIN SÁCH" textAlignment="CENTER" />
-                              <ImageView fitHeight="251.0" fitWidth="200.0" layoutX="40.0" layoutY="76.0" pickOnBounds="true" />
-                              <Label layoutX="125.0" layoutY="357.0" text="Name" />
-                              <Label layoutX="128.0" layoutY="397.0" text="Price" />
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane prefHeight="525.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <children>
-                              <AnchorPane layoutX="250.0" layoutY="530.0" prefHeight="32.0" prefWidth="201.0">
+                              <AnchorPane layoutX="667.0" prefHeight="62.0" prefWidth="69.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="41.0" text="1" />
-                                    <Button layoutX="41.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="41.0" text="2" />
-                                    <Button layoutX="82.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="41.0" text="3" />
-                                    <Button layoutX="122.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="41.0" text="4" />
-                                    <Button layoutX="162.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="41.0" text="5" />
+                                    <FontAwesomeIcon glyphName="HOME" layoutX="17.0" layoutY="37.0" size="3em" />
+                                    <Label layoutX="9.0" layoutY="43.0" text="Mua sắm" />
                                  </children>
                               </AnchorPane>
-                              <VBox layoutX="35.0" layoutY="23.0" prefHeight="244.0" prefWidth="189.0">
+                              <AnchorPane layoutX="757.0" prefHeight="62.0" prefWidth="69.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <ImageView fitHeight="178.0" fitWidth="189.0" pickOnBounds="true" preserveRatio="true" />
-                                    <Label alignment="CENTER" prefHeight="33.0" prefWidth="189.0" text="Name" />
-                                    <Label alignment="CENTER" prefHeight="34.0" prefWidth="189.0" text="Price" />
+                                    <FontAwesomeIcon glyphName="SHOPPING_CART" layoutX="18.0" layoutY="34.0" size="3em" />
+                                    <Label layoutX="12.0" layoutY="44.0" text="Giỏ hàng" />
                                  </children>
-                              </VBox>
-                              <VBox layoutX="257.0" layoutY="23.0" prefHeight="244.0" prefWidth="189.0">
+                              </AnchorPane>
+                              <AnchorPane layoutX="856.0" prefHeight="56.0" prefWidth="69.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <ImageView fitHeight="178.0" fitWidth="189.0" pickOnBounds="true" preserveRatio="true" />
-                                    <Label alignment="CENTER" prefHeight="33.0" prefWidth="189.0" text="Name" />
-                                    <Label alignment="CENTER" prefHeight="34.0" prefWidth="189.0" text="Price" />
+                                    <FontAwesomeIcon glyphName="USER" layoutX="21.0" layoutY="35.0" size="3em" />
+                                    <Label layoutX="9.0" layoutY="45.0" text="Tài khoản" />
                                  </children>
-                              </VBox>
-                              <VBox layoutX="482.0" layoutY="23.0" prefHeight="244.0" prefWidth="189.0">
+                              </AnchorPane>
+                              <TextField layoutX="39.0" layoutY="19.0" prefHeight="25.0" prefWidth="580.0" />
+                              <FontAwesomeIcon glyphName="SEARCH" layoutX="46.0" layoutY="38.0" size="1.5em" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="-2.0" layoutY="67.0" prefHeight="569.0" prefWidth="978.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="700.0" layoutY="2.0" prefHeight="569.0" prefWidth="278.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <ImageView fitHeight="178.0" fitWidth="189.0" pickOnBounds="true" preserveRatio="true" />
-                                    <Label alignment="CENTER" prefHeight="33.0" prefWidth="189.0" text="Name" />
-                                    <Label alignment="CENTER" prefHeight="34.0" prefWidth="189.0" text="Price" />
+                                    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="84.0" layoutY="24.0" prefHeight="46.0" prefWidth="111.0" text="THÔNG TIN SÁCH" textAlignment="CENTER" />
+                                    <ImageView fitHeight="251.0" fitWidth="200.0" layoutX="40.0" layoutY="76.0" pickOnBounds="true" />
+                                    <Label layoutX="125.0" layoutY="357.0" text="Name" />
+                                    <Label layoutX="128.0" layoutY="397.0" text="Price" />
                                  </children>
-                              </VBox>
-                              <VBox layoutX="35.0" layoutY="273.0" prefHeight="244.0" prefWidth="189.0">
+                              </AnchorPane>
+                              <AnchorPane prefHeight="525.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <ImageView fitHeight="178.0" fitWidth="189.0" pickOnBounds="true" preserveRatio="true" />
-                                    <Label alignment="CENTER" prefHeight="33.0" prefWidth="189.0" text="Name" />
-                                    <Label alignment="CENTER" prefHeight="34.0" prefWidth="189.0" text="Price" />
+                                    <AnchorPane layoutX="250.0" layoutY="530.0" prefHeight="32.0" prefWidth="201.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="41.0" text="1" />
+                                          <Button layoutX="41.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="41.0" text="2" />
+                                          <Button layoutX="82.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="41.0" text="3" />
+                                          <Button layoutX="122.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="41.0" text="4" />
+                                          <Button layoutX="162.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="41.0" text="5" />
+                                       </children>
+                                    </AnchorPane>
+                                    <VBox layoutX="35.0" layoutY="23.0" prefHeight="244.0" prefWidth="189.0">
+                                       <children>
+                                          <ImageView fitHeight="178.0" fitWidth="189.0" pickOnBounds="true" preserveRatio="true" />
+                                          <Label alignment="CENTER" prefHeight="33.0" prefWidth="189.0" text="Name" />
+                                          <Label alignment="CENTER" prefHeight="34.0" prefWidth="189.0" text="Price" />
+                                       </children>
+                                    </VBox>
+                                    <VBox layoutX="257.0" layoutY="23.0" prefHeight="244.0" prefWidth="189.0">
+                                       <children>
+                                          <ImageView fitHeight="178.0" fitWidth="189.0" pickOnBounds="true" preserveRatio="true" />
+                                          <Label alignment="CENTER" prefHeight="33.0" prefWidth="189.0" text="Name" />
+                                          <Label alignment="CENTER" prefHeight="34.0" prefWidth="189.0" text="Price" />
+                                       </children>
+                                    </VBox>
+                                    <VBox layoutX="482.0" layoutY="23.0" prefHeight="244.0" prefWidth="189.0">
+                                       <children>
+                                          <ImageView fitHeight="178.0" fitWidth="189.0" pickOnBounds="true" preserveRatio="true" />
+                                          <Label alignment="CENTER" prefHeight="33.0" prefWidth="189.0" text="Name" />
+                                          <Label alignment="CENTER" prefHeight="34.0" prefWidth="189.0" text="Price" />
+                                       </children>
+                                    </VBox>
+                                    <VBox layoutX="35.0" layoutY="273.0" prefHeight="244.0" prefWidth="189.0">
+                                       <children>
+                                          <ImageView fitHeight="178.0" fitWidth="189.0" pickOnBounds="true" preserveRatio="true" />
+                                          <Label alignment="CENTER" prefHeight="33.0" prefWidth="189.0" text="Name" />
+                                          <Label alignment="CENTER" prefHeight="34.0" prefWidth="189.0" text="Price" />
+                                       </children>
+                                    </VBox>
+                                    <VBox layoutX="257.0" layoutY="273.0" prefHeight="244.0" prefWidth="189.0">
+                                       <children>
+                                          <ImageView fitHeight="178.0" fitWidth="189.0" pickOnBounds="true" preserveRatio="true" />
+                                          <Label alignment="CENTER" prefHeight="33.0" prefWidth="189.0" text="Name" />
+                                          <Label alignment="CENTER" prefHeight="34.0" prefWidth="189.0" text="Price" />
+                                       </children>
+                                    </VBox>
+                                    <VBox layoutX="482.0" layoutY="273.0" prefHeight="244.0" prefWidth="189.0">
+                                       <children>
+                                          <ImageView fitHeight="178.0" fitWidth="189.0" pickOnBounds="true" preserveRatio="true" />
+                                          <Label alignment="CENTER" prefHeight="33.0" prefWidth="189.0" text="Name" />
+                                          <Label alignment="CENTER" prefHeight="34.0" prefWidth="189.0" text="Price" />
+                                       </children>
+                                    </VBox>
                                  </children>
-                              </VBox>
-                              <VBox layoutX="257.0" layoutY="273.0" prefHeight="244.0" prefWidth="189.0">
-                                 <children>
-                                    <ImageView fitHeight="178.0" fitWidth="189.0" pickOnBounds="true" preserveRatio="true" />
-                                    <Label alignment="CENTER" prefHeight="33.0" prefWidth="189.0" text="Name" />
-                                    <Label alignment="CENTER" prefHeight="34.0" prefWidth="189.0" text="Price" />
-                                 </children>
-                              </VBox>
-                              <VBox layoutX="482.0" layoutY="273.0" prefHeight="244.0" prefWidth="189.0">
-                                 <children>
-                                    <ImageView fitHeight="178.0" fitWidth="189.0" pickOnBounds="true" preserveRatio="true" />
-                                    <Label alignment="CENTER" prefHeight="33.0" prefWidth="189.0" text="Name" />
-                                    <Label alignment="CENTER" prefHeight="34.0" prefWidth="189.0" text="Price" />
-                                 </children>
-                              </VBox>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                  </children>
+                </AnchorPane>
+               </center>
+               <top>
+                  <AnchorPane prefHeight="32.0" prefWidth="775.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane prefHeight="46.0" prefWidth="817.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <FontAwesomeIcon glyphName="BOOK" layoutX="14.0" layoutY="39.0" size="3em" wrappingWidth="13.542851448059082" />
+                              <Label layoutX="55.0" layoutY="10.0" text="Book Store">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                              </Label>
+                              <Button layoutX="931.0" layoutY="9.0" mnemonicParsing="false" textAlignment="JUSTIFY" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="9.0">
+                                 <graphic>
+                                    <FontAwesomeIcon glyphName="CLOSE" selectionStart="30" textAlignment="CENTER" wrappingWidth="23.199771881103516" />
+                                 </graphic>
+                              </Button>
+                              <Button layoutX="891.0" layoutY="9.0" mnemonicParsing="false" textAlignment="JUSTIFY" AnchorPane.rightAnchor="47.0" AnchorPane.topAnchor="9.0">
+                                 <graphic>
+                                    <FontAwesomeIcon glyphName="MINUS" selectionStart="30" textAlignment="CENTER" wrappingWidth="23.199771881103516" />
+                                 </graphic>
+                              </Button>
                            </children>
                         </AnchorPane>
                      </children>
                   </AnchorPane>
-            </children>
-          </AnchorPane>
-         </center>
-         <top>
-            <AnchorPane prefHeight="32.0" prefWidth="775.0" BorderPane.alignment="CENTER">
-               <children>
-                  <AnchorPane prefHeight="46.0" prefWidth="817.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <FontAwesomeIcon glyphName="BOOK" layoutX="14.0" layoutY="39.0" size="3em" wrappingWidth="13.542851448059082" />
-                        <Label layoutX="55.0" layoutY="10.0" text="Book Store">
-                           <font>
-                              <Font size="19.0" />
-                           </font>
-                        </Label>
-                        <Button layoutX="915.0" layoutY="11.0" mnemonicParsing="false" textAlignment="JUSTIFY">
-                           <graphic>
-                              <FontAwesomeIcon glyphName="CLOSE" selectionStart="30" textAlignment="CENTER" wrappingWidth="23.199771881103516" />
-                           </graphic>
-                        </Button>
-                        <Button layoutX="875.0" layoutY="11.0" mnemonicParsing="false" textAlignment="JUSTIFY">
-                           <graphic>
-                              <FontAwesomeIcon glyphName="MINUS" selectionStart="30" textAlignment="CENTER" wrappingWidth="23.199771881103516" />
-                           </graphic>
-                        </Button>
-                     </children>
-                  </AnchorPane>
-               </children>
-            </AnchorPane>
-         </top>
-      </BorderPane>
+               </top>
+            </BorderPane>
+         </children>
+      </AnchorPane>
    </children>
 </StackPane>

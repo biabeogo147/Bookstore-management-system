@@ -49,6 +49,13 @@ public class SigninsignupController implements Initializable {
     @FXML
     private TextField tfPhoneSiginup;
 
+    @FXML
+    private Button btnClose;
+
+    public void close() {
+        System.exit(0);
+    }
+
     public void login() throws IOException {
         if (accountService.login(tfEmailorPhoneSignin.getText(), tfPasswordSignin.getText())) {
             System.out.println("Login success");
