@@ -10,45 +10,46 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vn.hust.bookstore.controller.SigninsignupController">
-   <children>
-      <TabPane layoutX="76.0" layoutY="57.0" prefHeight="270.0" prefWidth="460.0" tabClosingPolicy="UNAVAILABLE">
-        <tabs>
-          <Tab text="Đăng nhập">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <TextField fx:id="tfEmailorPhoneSignin" layoutX="11.0" layoutY="53.0" prefHeight="25.0" prefWidth="430.0" promptText="Nhập số điện thoại/Email" />
-                        <Text layoutX="12.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Số điện thoại/Email" />
-                        <Text layoutX="11.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mật khẩu" />
-                        <PasswordField fx:id="tfPasswordSignin" layoutX="12.0" layoutY="128.0" prefHeight="25.0" prefWidth="430.0" promptText="Nhập mật khẩu" />
-                        <Button fx:id="btnSignin" layoutX="186.0" layoutY="196.0" mnemonicParsing="false" onAction="#login" prefHeight="25.0" prefWidth="80.0" text="Đăng nhập" textAlignment="CENTER" AnchorPane.leftAnchor="190.0" AnchorPane.rightAnchor="190.0" AnchorPane.topAnchor="196.0" />
-                     </children>
-                  </AnchorPane>
-            </content>
-          </Tab>
-          <Tab text="Đăng kí">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <TextField fx:id="tfPhoneSiginup" layoutX="11.0" layoutY="28.0" prefHeight="25.0" prefWidth="430.0" promptText="Nhập số điện thoại" />
-                        <Text layoutX="13.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Số điện thoại" wrappingWidth="136.13671875" />
-                        <Text layoutX="11.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mật khẩu" />
-                        <Text layoutX="14.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Xác nhận mật khẩu" />
-                        <PasswordField fx:id="tfCfPasswordSignup" layoutX="12.0" layoutY="174.0" prefHeight="25.0" prefWidth="430.0" promptText="Nhập mật khẩu" />
-                        <Button fx:id="btnSignup" layoutX="190.0" layoutY="208.0" mnemonicParsing="false" onAction="#signup" prefHeight="25.0" prefWidth="80.0" text="Đăng ký" textAlignment="CENTER" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="190.0" AnchorPane.rightAnchor="190.0" AnchorPane.topAnchor="208.0" />
-                        <TextField fx:id="tfEmailSignup" layoutX="12.0" layoutY="78.0" prefHeight="25.0" prefWidth="430.0" promptText="Nhập Email" />
-                        <Text layoutX="13.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" wrappingWidth="136.13671875" />
-                        <PasswordField fx:id="tfPasswordSignup" layoutX="11.0" layoutY="127.0" prefHeight="25.0" prefWidth="430.0" promptText="Mật khẩu" />
-                     </children>
-                  </AnchorPane>
-            </content>
-          </Tab>
-        </tabs>
-      </TabPane>
-      <Button fx:id="btnClose" layoutX="550.0" layoutY="-1.0" mnemonicParsing="false" onAction="#close" prefHeight="26.0" prefWidth="50.0">
-         <graphic>
-            <FontAwesomeIcon glyphName="CLOSE" size="1.5em" />
-         </graphic>
-      </Button>
-   </children>
+    <children>
+        <TabPane fx:id="tpSigninSignup" layoutX="76.0" layoutY="57.0" prefHeight="270.0" prefWidth="460.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab fx:id="tabSignin" text="Đăng nhập">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TextField fx:id="tfEmailorPhoneSignin" layoutX="11.0" layoutY="53.0" prefHeight="25.0" prefWidth="430.0" promptText="Nhập số điện thoại/Email" />
+                                <Text layoutX="12.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Số điện thoại/Email" />
+                                <Text layoutX="11.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mật khẩu" />
+                                <PasswordField fx:id="tfPasswordSignin" layoutX="12.0" layoutY="128.0" prefHeight="25.0" prefWidth="430.0" promptText="Nhập mật khẩu" />
+                                <Button fx:id="btnSignin" layoutX="186.0" layoutY="196.0" mnemonicParsing="false" onAction="#login" prefHeight="25.0" prefWidth="80.0" text="Đăng nhập" textAlignment="CENTER" AnchorPane.leftAnchor="190.0" AnchorPane.rightAnchor="190.0" AnchorPane.topAnchor="196.0" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="tabSignup" text="Đăng kí">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TextField fx:id="tfPhoneSignup" layoutX="11.0" layoutY="28.0" prefHeight="25.0" prefWidth="430.0" promptText="Nhập số điện thoại" />
+                                <Text layoutX="13.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Số điện thoại" wrappingWidth="136.13671875" />
+                                <Text layoutX="11.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mật khẩu" />
+                                <Text layoutX="14.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Xác nhận mật khẩu" />
+                                <PasswordField fx:id="tfCfPasswordSignup" layoutX="12.0" layoutY="174.0" prefHeight="25.0" prefWidth="430.0" promptText="Nhập mật khẩu" />
+                                <Button fx:id="btnSignup" layoutX="190.0" layoutY="208.0" mnemonicParsing="false" onAction="#signup" prefHeight="25.0" prefWidth="80.0" text="Đăng ký" textAlignment="CENTER" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="190.0" AnchorPane.rightAnchor="190.0" AnchorPane.topAnchor="208.0" />
+                                <TextField fx:id="tfEmailSignup" layoutX="12.0" layoutY="78.0" prefHeight="25.0" prefWidth="430.0" promptText="Nhập Email" />
+                                <Text layoutX="13.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" wrappingWidth="136.13671875" />
+                                <PasswordField fx:id="tfPasswordSignup" layoutX="11.0" layoutY="127.0" prefHeight="25.0" prefWidth="430.0" promptText="Mật khẩu" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+        <Button fx:id="btnClose" layoutX="550.0" layoutY="-1.0" mnemonicParsing="false" onAction="#close" prefHeight="26.0" prefWidth="50.0">
+            <graphic>
+                <FontAwesomeIcon glyphName="CLOSE" size="1.5em" />
+            </graphic>
+        </Button>
+    </children>
 </AnchorPane>
+

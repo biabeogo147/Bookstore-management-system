@@ -49,8 +49,8 @@
          <children>
             <BorderPane prefHeight="677.0" prefWidth="978.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <center>
-                <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="260.0" prefWidth="794.0" BorderPane.alignment="CENTER">
-                  <children>
+                  <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="260.0" prefWidth="794.0" BorderPane.alignment="CENTER">
+                     <children>
                         <AnchorPane layoutX="2.0" layoutY="65.0" prefHeight="62.0" prefWidth="589.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <AnchorPane layoutX="667.0" prefHeight="62.0" prefWidth="69.0" AnchorPane.topAnchor="0.0">
@@ -71,7 +71,7 @@
                                     <Label layoutX="9.0" layoutY="45.0" text="Tài khoản" />
                                  </children>
                               </AnchorPane>
-                              <TextField layoutX="39.0" layoutY="19.0" prefHeight="25.0" prefWidth="580.0" />
+                              <TextField fx:id="tfSearch" layoutX="39.0" layoutY="19.0" prefHeight="25.0" prefWidth="580.0" />
                               <FontAwesomeIcon glyphName="SEARCH" layoutX="46.0" layoutY="38.0" size="1.5em" />
                            </children>
                         </AnchorPane>
@@ -79,71 +79,71 @@
                            <children>
                               <AnchorPane layoutX="700.0" layoutY="2.0" prefHeight="569.0" prefWidth="278.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="84.0" layoutY="24.0" prefHeight="46.0" prefWidth="111.0" text="THÔNG TIN SÁCH" textAlignment="CENTER" />
-                                    <ImageView fitHeight="251.0" fitWidth="200.0" layoutX="40.0" layoutY="76.0" pickOnBounds="true" />
-                                    <Label layoutX="125.0" layoutY="357.0" text="Name" />
-                                    <Label layoutX="128.0" layoutY="397.0" text="Price" />
+                                    <Label fx:id="lblBookInfo" alignment="CENTER" contentDisplay="CENTER" layoutX="84.0" layoutY="24.0" prefHeight="46.0" prefWidth="111.0" text="THÔNG TIN SÁCH" textAlignment="CENTER" />
+                                    <ImageView fx:id="ivBookImage" fitHeight="251.0" fitWidth="200.0" layoutX="40.0" layoutY="76.0" pickOnBounds="true" />
+                                    <Label fx:id="lblBookName" layoutX="125.0" layoutY="357.0" text="Name" />
+                                    <Label fx:id="lblBookPrice" layoutX="128.0" layoutY="397.0" text="Price" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane prefHeight="525.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
                                     <AnchorPane layoutX="250.0" layoutY="530.0" prefHeight="32.0" prefWidth="201.0">
                                        <children>
-                                          <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="41.0" text="1" />
-                                          <Button layoutX="41.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="41.0" text="2" />
-                                          <Button layoutX="82.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="41.0" text="3" />
-                                          <Button layoutX="122.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="41.0" text="4" />
-                                          <Button layoutX="162.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="41.0" text="5" />
+                                          <Button fx:id="btnPage1" mnemonicParsing="false" prefHeight="32.0" prefWidth="41.0" text="1" />
+                                          <Button fx:id="btnPage2" layoutX="41.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="41.0" text="2" />
+                                          <Button fx:id="btnPage3" layoutX="82.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="41.0" text="3" />
+                                          <Button fx:id="btnPage4" layoutX="122.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="41.0" text="4" />
+                                          <Button fx:id="btnPage5" layoutX="162.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="41.0" text="5" />
                                        </children>
                                     </AnchorPane>
-                                    <VBox layoutX="35.0" layoutY="23.0" prefHeight="244.0" prefWidth="189.0">
+                                    <VBox fx:id="vbBook1" layoutX="35.0" layoutY="23.0" prefHeight="244.0" prefWidth="189.0">
                                        <children>
-                                          <ImageView fitHeight="178.0" fitWidth="189.0" pickOnBounds="true" preserveRatio="true" />
-                                          <Label alignment="CENTER" prefHeight="33.0" prefWidth="189.0" text="Name" />
-                                          <Label alignment="CENTER" prefHeight="34.0" prefWidth="189.0" text="Price" />
+                                          <ImageView fx:id="ivBook1" fitHeight="178.0" fitWidth="189.0" pickOnBounds="true" preserveRatio="true" />
+                                          <Label fx:id="lblNameBook1" alignment="CENTER" prefHeight="33.0" prefWidth="189.0" text="Name" />
+                                          <Label fx:id="lblPriceBook1" alignment="CENTER" prefHeight="34.0" prefWidth="189.0" text="Price" />
                                        </children>
                                     </VBox>
-                                    <VBox layoutX="257.0" layoutY="23.0" prefHeight="244.0" prefWidth="189.0">
+                                    <VBox fx:id="vbBook2" layoutX="257.0" layoutY="23.0" prefHeight="244.0" prefWidth="189.0">
                                        <children>
-                                          <ImageView fitHeight="178.0" fitWidth="189.0" pickOnBounds="true" preserveRatio="true" />
-                                          <Label alignment="CENTER" prefHeight="33.0" prefWidth="189.0" text="Name" />
-                                          <Label alignment="CENTER" prefHeight="34.0" prefWidth="189.0" text="Price" />
+                                          <ImageView fx:id="ivBook2" fitHeight="178.0" fitWidth="189.0" pickOnBounds="true" preserveRatio="true" />
+                                          <Label fx:id="lblNameBook2" alignment="CENTER" prefHeight="33.0" prefWidth="189.0" text="Name" />
+                                          <Label fx:id="lblPriceBook2" alignment="CENTER" prefHeight="34.0" prefWidth="189.0" text="Price" />
                                        </children>
                                     </VBox>
-                                    <VBox layoutX="482.0" layoutY="23.0" prefHeight="244.0" prefWidth="189.0">
+                                    <VBox fx:id="vbBook3" layoutX="482.0" layoutY="23.0" prefHeight="244.0" prefWidth="189.0">
                                        <children>
-                                          <ImageView fitHeight="178.0" fitWidth="189.0" pickOnBounds="true" preserveRatio="true" />
-                                          <Label alignment="CENTER" prefHeight="33.0" prefWidth="189.0" text="Name" />
-                                          <Label alignment="CENTER" prefHeight="34.0" prefWidth="189.0" text="Price" />
+                                          <ImageView fx:id="ivBook3" fitHeight="178.0" fitWidth="189.0" pickOnBounds="true" preserveRatio="true" />
+                                          <Label fx:id="lblNameBook3" alignment="CENTER" prefHeight="33.0" prefWidth="189.0" text="Name" />
+                                          <Label fx:id="lblPriceBook3" alignment="CENTER" prefHeight="34.0" prefWidth="189.0" text="Price" />
                                        </children>
                                     </VBox>
-                                    <VBox layoutX="35.0" layoutY="273.0" prefHeight="244.0" prefWidth="189.0">
+                                    <VBox fx:id="vbBook4" layoutX="35.0" layoutY="273.0" prefHeight="244.0" prefWidth="189.0">
                                        <children>
-                                          <ImageView fitHeight="178.0" fitWidth="189.0" pickOnBounds="true" preserveRatio="true" />
-                                          <Label alignment="CENTER" prefHeight="33.0" prefWidth="189.0" text="Name" />
-                                          <Label alignment="CENTER" prefHeight="34.0" prefWidth="189.0" text="Price" />
+                                          <ImageView fx:id="ivBook4" fitHeight="178.0" fitWidth="189.0" pickOnBounds="true" preserveRatio="true" />
+                                          <Label fx:id="lblNameBook4" alignment="CENTER" prefHeight="33.0" prefWidth="189.0" text="Name" />
+                                          <Label fx:id="lblPriceBook4" alignment="CENTER" prefHeight="34.0" prefWidth="189.0" text="Price" />
                                        </children>
                                     </VBox>
-                                    <VBox layoutX="257.0" layoutY="273.0" prefHeight="244.0" prefWidth="189.0">
+                                    <VBox fx:id="vbBook5" layoutX="257.0" layoutY="273.0" prefHeight="244.0" prefWidth="189.0">
                                        <children>
-                                          <ImageView fitHeight="178.0" fitWidth="189.0" pickOnBounds="true" preserveRatio="true" />
-                                          <Label alignment="CENTER" prefHeight="33.0" prefWidth="189.0" text="Name" />
-                                          <Label alignment="CENTER" prefHeight="34.0" prefWidth="189.0" text="Price" />
+                                          <ImageView fx:id="ivBook5" fitHeight="178.0" fitWidth="189.0" pickOnBounds="true" preserveRatio="true" />
+                                          <Label fx:id="lblNameBook5" alignment="CENTER" prefHeight="33.0" prefWidth="189.0" text="Name" />
+                                          <Label fx:id="lblPriceBook5" alignment="CENTER" prefHeight="34.0" prefWidth="189.0" text="Price" />
                                        </children>
                                     </VBox>
-                                    <VBox layoutX="482.0" layoutY="273.0" prefHeight="244.0" prefWidth="189.0">
+                                    <VBox fx:id="vbBook6" layoutX="482.0" layoutY="273.0" prefHeight="244.0" prefWidth="189.0">
                                        <children>
-                                          <ImageView fitHeight="178.0" fitWidth="189.0" pickOnBounds="true" preserveRatio="true" />
-                                          <Label alignment="CENTER" prefHeight="33.0" prefWidth="189.0" text="Name" />
-                                          <Label alignment="CENTER" prefHeight="34.0" prefWidth="189.0" text="Price" />
+                                          <ImageView fx:id="ivBook6" fitHeight="178.0" fitWidth="189.0" pickOnBounds="true" preserveRatio="true" />
+                                          <Label fx:id="lblNameBook6" alignment="CENTER" prefHeight="33.0" prefWidth="189.0" text="Name" />
+                                          <Label fx:id="lblPriceBook6" alignment="CENTER" prefHeight="34.0" prefWidth="189.0" text="Price" />
                                        </children>
                                     </VBox>
                                  </children>
                               </AnchorPane>
                            </children>
                         </AnchorPane>
-                  </children>
-                </AnchorPane>
+                     </children>
+                  </AnchorPane>
                </center>
                <top>
                   <AnchorPane prefHeight="32.0" prefWidth="775.0" BorderPane.alignment="CENTER">
@@ -156,12 +156,12 @@
                                     <Font size="19.0" />
                                  </font>
                               </Label>
-                              <Button layoutX="931.0" layoutY="9.0" mnemonicParsing="false" textAlignment="JUSTIFY" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="9.0">
+                              <Button fx:id="btnClose" layoutX="931.0" layoutY="9.0" mnemonicParsing="false" textAlignment="JUSTIFY" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="9.0">
                                  <graphic>
                                     <FontAwesomeIcon glyphName="CLOSE" selectionStart="30" textAlignment="CENTER" wrappingWidth="23.199771881103516" />
                                  </graphic>
                               </Button>
-                              <Button layoutX="891.0" layoutY="9.0" mnemonicParsing="false" textAlignment="JUSTIFY" AnchorPane.rightAnchor="47.0" AnchorPane.topAnchor="9.0">
+                              <Button fx:id="btnMinimize" layoutX="891.0" layoutY="9.0" mnemonicParsing="false" textAlignment="JUSTIFY" AnchorPane.rightAnchor="47.0" AnchorPane.topAnchor="9.0">
                                  <graphic>
                                     <FontAwesomeIcon glyphName="MINUS" selectionStart="30" textAlignment="CENTER" wrappingWidth="23.199771881103516" />
                                  </graphic>
@@ -176,3 +176,4 @@
       </AnchorPane>
    </children>
 </StackPane>
+

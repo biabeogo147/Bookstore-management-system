@@ -59,12 +59,12 @@
                                     <Font size="19.0" />
                                  </font>
                               </Label>
-                              <Button layoutX="552.0" layoutY="11.0" mnemonicParsing="false" textAlignment="JUSTIFY">
+                              <Button fx:id="btnClose" layoutX="552.0" layoutY="11.0" mnemonicParsing="false" textAlignment="JUSTIFY">
                                  <graphic>
                                     <FontAwesomeIcon glyphName="CLOSE" selectionStart="30" textAlignment="CENTER" wrappingWidth="23.199771881103516" />
                                  </graphic>
                               </Button>
-                              <Button layoutX="512.0" layoutY="11.0" mnemonicParsing="false" textAlignment="JUSTIFY">
+                              <Button fx:id="btnMinimize" layoutX="512.0" layoutY="11.0" mnemonicParsing="false" textAlignment="JUSTIFY">
                                  <graphic>
                                     <FontAwesomeIcon glyphName="MINUS" selectionStart="30" textAlignment="CENTER" wrappingWidth="23.199771881103516" />
                                  </graphic>
@@ -77,8 +77,8 @@
                <left>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Button layoutX="40.0" layoutY="166.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="130.0" text="Thông tin tài khoản" />
-                        <Button layoutX="40.0" layoutY="221.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="130.0" text="Đơn hàng của tôi" />
+                        <Button fx:id="btnAccountInfo" layoutX="40.0" layoutY="166.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="130.0" text="Thông tin tài khoản" />
+                        <Button fx:id="btnMyOrders" layoutX="40.0" layoutY="221.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="130.0" text="Đơn hàng của tôi" />
                         <FontAwesomeIcon glyphName="USER" layoutX="81.0" layoutY="138.0" size="5em" />
                      </children>
                   </AnchorPane>
@@ -88,20 +88,20 @@
                      <children>
                         <AnchorPane layoutX="-1.0" layoutY="58.0" prefHeight="382.0" prefWidth="407.0" AnchorPane.rightAnchor="0.0">
                            <children>
-                              <TextField layoutX="145.0" layoutY="30.0" />
+                              <TextField fx:id="tfLastName" layoutX="145.0" layoutY="30.0" />
                               <Label layoutX="43.0" layoutY="34.0" text="Họ*" />
                               <Label layoutX="41.0" layoutY="81.0" text="Tên*" />
-                              <TextField layoutX="145.0" layoutY="75.0" />
+                              <TextField fx:id="tfFirstName" layoutX="145.0" layoutY="75.0" />
                               <Label layoutX="41.0" layoutY="130.0" text="Số điện thoại" />
-                              <TextField layoutX="145.0" layoutY="126.0" />
+                              <TextField fx:id="tfPhone" layoutX="145.0" layoutY="126.0" />
                               <Label layoutX="40.0" layoutY="179.0" text="Email" />
-                              <TextField layoutX="145.0" layoutY="175.0" />
+                              <TextField fx:id="tfEmail" layoutX="145.0" layoutY="175.0" />
                               <Label layoutX="39.0" layoutY="223.0" text="Giới tính*" />
-                              <CheckBox layoutX="145.0" layoutY="223.0" mnemonicParsing="false" text="Nam" />
-                              <CheckBox layoutX="213.0" layoutY="223.0" mnemonicParsing="false" text="Nữ" />
+                              <CheckBox fx:id="cbMale" layoutX="145.0" layoutY="223.0" mnemonicParsing="false" text="Nam" />
+                              <CheckBox fx:id="cbFemale" layoutX="213.0" layoutY="223.0" mnemonicParsing="false" text="Nữ" />
                               <Label layoutX="40.0" layoutY="265.0" text="Birthday*" />
-                              <DatePicker layoutX="145.0" layoutY="261.0" />
-                              <Button layoutX="162.0" layoutY="311.0" mnemonicParsing="false" text="Lưu thay đổi" />
+                              <DatePicker fx:id="dpBirthday" layoutX="145.0" layoutY="261.0" />
+                              <Button fx:id="btnSave" layoutX="162.0" layoutY="311.0" mnemonicParsing="false" text="Lưu thay đổi" />
                            </children>
                         </AnchorPane>
                         <AnchorPane layoutY="7.0" prefHeight="56.0" prefWidth="406.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -134,3 +134,4 @@
       </AnchorPane>
    </children>
 </StackPane>
+
