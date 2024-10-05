@@ -37,6 +37,9 @@ public class SigninsignupController implements Initializable {
     private TextField tfEmailSignup;
 
     @FXML
+    private TextField tfPhoneSignup;
+
+    @FXML
     private TextField tfEmailorPhoneSignin;
 
     @FXML
@@ -44,9 +47,6 @@ public class SigninsignupController implements Initializable {
 
     @FXML
     private PasswordField tfPasswordSignup;
-
-    @FXML
-    private TextField tfPhoneSiginup;
 
     @FXML
     private Button btnClose;
@@ -91,7 +91,7 @@ public class SigninsignupController implements Initializable {
 
     public void signup() {
         if (tfPasswordSignup.getText().equals(tfCfPasswordSignup.getText())) {
-            accountService.signup(tfEmailSignup.getText(), tfPhoneSiginup.getText(), tfPasswordSignup.getText(), tfCfPasswordSignup.getText());
+            accountService.signup(tfEmailSignup.getText(), tfPhoneSignup.getText(), tfPasswordSignup.getText(), tfCfPasswordSignup.getText());
             System.out.println("Signup success");
         } else {
             System.out.println("Signup failed");

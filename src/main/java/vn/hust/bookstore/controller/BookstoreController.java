@@ -13,13 +13,20 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import vn.hust.bookstore.entity.Account;
+import vn.hust.bookstore.entity.Book;
+import vn.hust.bookstore.entity.Product;
+import vn.hust.bookstore.entity.Toy;
+import vn.hust.bookstore.service.ProductService;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class BookstoreController implements Initializable {
+
+    public ProductService productService = new ProductService();
 
     private Account account;
     private Parent root;
@@ -188,31 +195,91 @@ public class BookstoreController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Image image = new Image(Objects.requireNonNull(getClass().getResource("/image/1.png")).toExternalForm());
-        ivBook1 = new ImageView(image);
-        lblNameBook1.setText("Book 1");
-        lblPriceBook1.setText("100.000 VND");
+//        for (int i = 1; i <= 100; ++i) {
+//            Toy toy = new Toy();
+//            Book book = new Book();
+//            if (i % 2 == 0) {
+//                toy.setName("Toy " + i);
+//                toy.setPrice(100.0 * i);
+//                productService.addProduct(toy);
+//            } else {
+//                book.setName("Book " + i);
+//                book.setPrice(100.0 * i);
+//                productService.addProduct(book);
+//            }
+//        }
 
+        ImageView[] imageViews = {
+                ivBook1,
+                ivBook2,
+                ivBook3,
+                ivBook4,
+                ivBook5,
+                ivBook6
+        };
 
-        ivBook2.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/image/2.png"))));
-        lblNameBook2.setText("Book 2");
-        lblPriceBook2.setText("200.000 VND");
+        Label[] nameLabels = {
+                lblNameBook1,
+                lblNameBook2,
+                lblNameBook3,
+                lblNameBook4,
+                lblNameBook5,
+                lblNameBook6
+        };
 
-        ivBook3.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/image/3.png"))));
-        lblNameBook3.setText("Book 3");
-        lblPriceBook3.setText("300.000 VND");
+        Label[] priceLabels = {
+                lblPriceBook1,
+                lblPriceBook2,
+                lblPriceBook3,
+                lblPriceBook4,
+                lblPriceBook5,
+                lblPriceBook6
+        };
 
-        ivBook4.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/image/4.png"))));
-        lblNameBook4.setText("Book 4");
-        lblPriceBook4.setText("400.000 VND");
+        VBox[] vBoxes = {
+                vbBook1,
+                vbBook2,
+                vbBook3,
+                vbBook4,
+                vbBook5,
+                vbBook6
+        };
 
-        ivBook5.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/image/5.png"))));
-        lblNameBook5.setText("Book 5");
-        lblPriceBook5.setText("500.000 VND");
+        Button[] buttons = {
+                btnPage1,
+                btnPage2,
+                btnPage3,
+                btnPage4,
+                btnPage5
+        };
 
-        ivBook6.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/image/6.png"))));
-        lblNameBook6.setText("Book 6");
-        lblPriceBook6.setText("600.000 VND");
+        for (int i = 0; i < buttons.length; i++) {
+            int pageIndex = i;
+            buttons[i].setOnAction(event -> {
+                int start = 6 * pageIndex + 1;
+                for (int j = 0; j < imageViews.length; j++) {
+                    int productIndex = start + j;
+                    Optional<Product> product = productService.getProduct((long) productIndex);
+                    if (product.isPresent()) {
+                        String imagePath = "/image/" + (productIndex) + ".png";
+                        imageViews[j].setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream(imagePath))));
+                        nameLabels[j].setText(product.get().getName());
+                        priceLabels[j].setText(product.get().getPrice().toString());
+                        int index = j;
+                        vBoxes[j].setOnMouseClicked(vbEvent -> {
+                            Product selectedProduct = productService.getProduct((long) (start + index)).orElse(null);
+                            if (selectedProduct != null) {
+                                ivBookImage.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream(imagePath))));
+                                lblBookName.setText(selectedProduct.getName());
+                                lblBookPrice.setText(selectedProduct.getPrice().toString());
+                                lblBookInfo.setText(selectedProduct.getDescription());
+                            }
+                        });
+                    }
+                }
+            });
+        }
+        btnPage1.fire();
     }
 
 }
