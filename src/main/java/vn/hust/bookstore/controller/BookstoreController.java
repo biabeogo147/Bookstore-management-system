@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
@@ -15,6 +16,7 @@ import vn.hust.bookstore.entity.Account;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class BookstoreController implements Initializable {
@@ -186,6 +188,31 @@ public class BookstoreController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        Image image = new Image(Objects.requireNonNull(getClass().getResource("/image/1.png")).toExternalForm());
+        ivBook1 = new ImageView(image);
+        lblNameBook1.setText("Book 1");
+        lblPriceBook1.setText("100.000 VND");
+
+
+        ivBook2.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/image/2.png"))));
+        lblNameBook2.setText("Book 2");
+        lblPriceBook2.setText("200.000 VND");
+
+        ivBook3.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/image/3.png"))));
+        lblNameBook3.setText("Book 3");
+        lblPriceBook3.setText("300.000 VND");
+
+        ivBook4.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/image/4.png"))));
+        lblNameBook4.setText("Book 4");
+        lblPriceBook4.setText("400.000 VND");
+
+        ivBook5.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/image/5.png"))));
+        lblNameBook5.setText("Book 5");
+        lblPriceBook5.setText("500.000 VND");
+
+        ivBook6.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/image/6.png"))));
+        lblNameBook6.setText("Book 6");
+        lblPriceBook6.setText("600.000 VND");
     }
 
 }
