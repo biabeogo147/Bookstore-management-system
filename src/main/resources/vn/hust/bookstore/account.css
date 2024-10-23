@@ -1,6 +1,6 @@
 /* Nền tổng thể */
 .stack-pane {
-    -fx-background-color: linear-gradient(to bottom, #e1f5fe, #81d4fa);
+    -fx-background-color: #EEE8EE;
     -fx-padding: 20px;
 }
 
@@ -21,7 +21,7 @@
 /* ComboBox và TextField */
 .text-field {
     -fx-background-color: white;
-    -fx-border-color: #81d4fa;
+    -fx-border-color: #E2BEE8;
     -fx-border-radius: 5px;
     -fx-padding: 5px;
     -fx-font-size: 14px;
@@ -35,7 +35,7 @@
 
 /* Button (Nút bấm) */
 .button {
-    -fx-background-color: #42a5f5;
+    -fx-background-color: #ab47bc;
     -fx-text-fill: white;
     -fx-font-family: 'Segoe UI', sans-serif;
     -fx-font-size: 14px;
@@ -44,44 +44,32 @@
 }
 
 .button:hover {
-    -fx-background-color: #1e88e5;
+    -fx-background-color: #9c27b0;
 }
 
 .button:pressed {
-    -fx-background-color: #1565c0;
-}
-
-/* Button Close */
-.close-button {
-    -fx-background-color: #d32f2f;
-    -fx-text-fill: white;
-    -fx-font-weight: bold;
-    -fx-cursor: hand;
-    -fx-background-radius: 5;
-}
-
-.close-button:hover {
-    -fx-background-color: #b71c1c;
-}
-
-/* Button Minimize */
-.minimize-button {
-    -fx-background-color: #1976d2;
-    -fx-text-fill: white;
-    -fx-font-weight: bold;
-    -fx-cursor: hand;
-    -fx-background-radius: 5;
-}
-
-.minimize-button:hover {
-    -fx-background-color: #0d47a1;
+    -fx-background-color: #6a1b9a;
 }
 
 /* Button Save */
 .save-button {
-    -fx-background-color: #43a047;
+    -fx-background-color: #EB8C2D;
 }
 
 .save-button:hover {
-    -fx-background-color: #2e7d32;
+    -fx-background-color: #BA5A0F;
+}
+
+/* Specific styling for DatePicker navigation buttons */
+.date-picker .button {
+    -fx-background-color: transparent;  /* Remove background color */
+    -fx-padding: 2px; /* Reduce padding */
+    -fx-min-width: 20px; /* Set minimum width */
+    -fx-min-height: 20px; /* Set minimum height */
+    -fx-font-size: 12px; /* Adjust font size */
+}
+
+.date-picker .button:hover {
+    -fx-background-color: #d1c4e9;  /* Add a hover effect for the buttons */
+    -fx-background-radius: 5px;
 }

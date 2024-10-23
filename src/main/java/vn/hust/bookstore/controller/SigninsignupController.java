@@ -1,5 +1,6 @@
 package vn.hust.bookstore.controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -50,6 +51,14 @@ public class SigninsignupController implements Initializable {
 
     @FXML
     private Button btnClose;
+
+    @FXML
+    private void minimize(ActionEvent event) {
+        // Cast the button's stage to get the window
+        Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+        stage.setIconified(true); // Minimize the window
+    }
+
 
     public void close() {
         System.exit(0);

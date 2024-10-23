@@ -1,0 +1,49 @@
+/* Styling for the AnchorPane */
+.anchor-pane {
+    -fx-background-color: #EEE8EE; /* Light background */
+}
+
+/* Styling for the TabPane */
+.tab-pane {
+    -fx-background-color: white;
+}
+
+/* Styling for Tabs */
+.tab {
+    -fx-font-family: 'Segoe UI', sans-serif;
+    -fx-font-size: 16px;
+    -fx-text-fill: #4a148c;
+}
+
+/* Text Field and Password Field Styling */
+.text-field, .password-field {
+    -fx-background-color: white;
+    -fx-border-color: #8e24aa;
+    -fx-font-size: 14px;
+    -fx-font-family: 'Segoe UI', sans-serif;
+}
+
+/* Focus effect for TextField and PasswordField */
+.text-field:focused, .password-field:focused {
+    -fx-border-color: #4a148c;
+}
+
+/* Button Styling */
+.button {
+    -fx-background-color: #ab47bc;
+    -fx-text-fill: white;
+    -fx-font-family: 'Segoe UI', sans-serif;
+    -fx-font-size: 14px;
+}
+
+.button:hover {
+    -fx-background-color: #9c27b0;
+}
+
+.button:pressed {
+    -fx-background-color: #6a1b9a;
+}
+
+.close-button .fontawesome-icon {
+    -fx-fill: #4a148c;
+}

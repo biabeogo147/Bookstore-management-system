@@ -46,7 +46,7 @@
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
                         <Button fx:id="btnAccountInfo" layoutX="22.0" layoutY="166.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="165.0" text="Thông tin tài khoản" />
-                        <Button fx:id="btnMyOrders" layoutX="30.0" layoutY="220.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="149.0" text="Đơn hàng của tôi" />
+                        <Button fx:id="btnMyOrders" layoutX="21.0" layoutY="220.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="165.0" text="Đơn hàng của tôi" />
                         <FontAwesomeIcon glyphName="USER" layoutX="81.0" layoutY="138.0" size="5em" />
                      </children>
                   </AnchorPane>
@@ -56,14 +56,14 @@
                      <children>
                         <AnchorPane layoutX="-1.0" layoutY="58.0" prefHeight="382.0" prefWidth="407.0" AnchorPane.rightAnchor="0.0">
                            <children>
-                              <TextField fx:id="tfLastName" layoutX="145.0" layoutY="30.0" />
+                              <TextField fx:id="tfLastName" layoutX="145.0" layoutY="30.0" prefWidth="195.0" />
                               <Label layoutX="43.0" layoutY="34.0" text="Họ*" />
                               <Label layoutX="41.0" layoutY="81.0" text="Tên*" />
-                              <TextField fx:id="tfFirstName" layoutX="145.0" layoutY="75.0" />
+                              <TextField fx:id="tfFirstName" layoutX="145.0" layoutY="75.0" prefWidth="195.0" />
                               <Label layoutX="41.0" layoutY="130.0" text="Số điện thoại" />
-                              <TextField fx:id="tfPhone" layoutX="145.0" layoutY="126.0" />
+                              <TextField fx:id="tfPhone" layoutX="145.0" layoutY="126.0" prefHeight="31.0" prefWidth="195.0" />
                               <Label layoutX="40.0" layoutY="179.0" text="Email" />
-                              <TextField fx:id="tfEmail" layoutX="145.0" layoutY="175.0" />
+                              <TextField fx:id="tfEmail" layoutX="145.0" layoutY="175.0" prefHeight="31.0" prefWidth="195.0" />
                               <Label layoutX="39.0" layoutY="223.0" text="Giới tính*" />
                               <CheckBox fx:id="cbMale" layoutX="145.0" layoutY="223.0" mnemonicParsing="false" onAction="#isMaleChecked" text="Nam" />
                               <CheckBox fx:id="cbFemale" layoutX="213.0" layoutY="223.0" mnemonicParsing="false" onAction="#isFemaleChecked" text="Nữ" />

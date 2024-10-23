@@ -24,7 +24,7 @@
 /* ComboBox và TextField */
 .combo-box, .text-field {
     -fx-background-color: white;
-    -fx-border-color: #90caf9;
+    -fx-border-color: #E2BEE8;
     -fx-border-radius: 5px;
     -fx-padding: 5px;
     -fx-font-size: 14px;
@@ -36,24 +36,6 @@
     -fx-border-color: #0d47a1;
 }
 
-/* Button (Nút bấm) */
-.button {
-    -fx-background-color: #42a5f5;
-    -fx-text-fill: white;
-    -fx-font-family: 'Segoe UI', sans-serif;
-    -fx-font-size: 14px;
-    -fx-padding: 10px 20px;
-    -fx-background-radius: 10px;
-}
-
-.button:hover {
-    -fx-background-color: #1e88e5;
-}
-
-.button:pressed {
-    -fx-background-color: #1565c0;
-}
-
 /* Label cho các thành phần */
 .label {
     -fx-text-fill: #1a237e;
@@ -61,7 +43,7 @@
 
 /* Khung viền cho AnchorPane chứa ImageView */
 .image-pane {
-    -fx-border-color: #1a237e;  /* Màu viền xanh đậm */
+    -fx-border-color: #AC81B8;  /* Màu viền xanh đậm */
     -fx-border-width: 2;  /* Độ dày viền */
     -fx-border-radius: 5;  /* Độ bo viền */
     -fx-padding: 5;
@@ -73,29 +55,22 @@
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0);  /* Đổ bóng */
 }
 
-/* Nút đóng */
-.close-button {
-    -fx-background-color: #d32f2f;
+/* Button (Nút bấm) */
+.button {
+    -fx-background-color: #ab47bc;
     -fx-text-fill: white;
-    -fx-font-weight: bold;
-    -fx-cursor: hand;
-    -fx-background-radius: 5;
+    -fx-font-family: 'Segoe UI', sans-serif;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 10px;
 }
 
-.close-button:hover {
-    -fx-background-color: #b71c1c;
+.button:hover {
+    -fx-background-color: #9c27b0;
 }
 
-/* Nút thu nhỏ */
-.minimize-button {
-    -fx-background-color: #1976d2;
-    -fx-text-fill: white;
-    -fx-font-weight: bold;
-    -fx-cursor: hand;
-    -fx-background-radius: 5;
+.button:pressed {
+    -fx-background-color: #6a1b9a;
 }
 
-.minimize-button:hover {
-    -fx-background-color: #0d47a1;
-}
 
