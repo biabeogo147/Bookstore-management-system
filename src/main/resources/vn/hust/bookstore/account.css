@@ -1,0 +1,87 @@
+/* Nền tổng thể */
+.stack-pane {
+    -fx-background-color: linear-gradient(to bottom, #e1f5fe, #81d4fa);
+    -fx-padding: 20px;
+}
+
+/* Tiêu đề chính */
+.label {
+    -fx-font-family: 'Segoe UI', sans-serif;
+    -fx-font-size: 16px;
+    -fx-text-fill: #1a237e;
+}
+
+/* Tiêu đề lớn */
+.label[style="-fx-font-size: 19px;"] {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0d47a1;
+}
+
+/* ComboBox và TextField */
+.text-field {
+    -fx-background-color: white;
+    -fx-border-color: #81d4fa;
+    -fx-border-radius: 5px;
+    -fx-padding: 5px;
+    -fx-font-size: 14px;
+    -fx-font-family: 'Segoe UI', sans-serif;
+}
+
+/* ComboBox và TextField khi tập trung */
+.text-field:focused {
+    -fx-border-color: #0d47a1;
+}
+
+/* Button (Nút bấm) */
+.button {
+    -fx-background-color: #42a5f5;
+    -fx-text-fill: white;
+    -fx-font-family: 'Segoe UI', sans-serif;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 10px;
+}
+
+.button:hover {
+    -fx-background-color: #1e88e5;
+}
+
+.button:pressed {
+    -fx-background-color: #1565c0;
+}
+
+/* Button Close */
+.close-button {
+    -fx-background-color: #d32f2f;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-background-radius: 5;
+}
+
+.close-button:hover {
+    -fx-background-color: #b71c1c;
+}
+
+/* Button Minimize */
+.minimize-button {
+    -fx-background-color: #1976d2;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-background-radius: 5;
+}
+
+.minimize-button:hover {
+    -fx-background-color: #0d47a1;
+}
+
+/* Button Save */
+.save-button {
+    -fx-background-color: #43a047;
+}
+
+.save-button:hover {
+    -fx-background-color: #2e7d32;
+}

@@ -1,0 +1,90 @@
+/* Nền tổng thể */
+.stack-pane {
+    -fx-background-color: #EEE8EE
+}
+
+/* Tiêu đề chính */
+.label {
+    -fx-font-family: 'Segoe UI', sans-serif;
+    -fx-font-size: 16px;
+    -fx-text-fill: #4a148c;
+}
+
+/* Tiêu đề lớn */
+.label[style="-fx-font-size: 19px;"] {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #6a1b9a;
+    -fx-background-color: #f8bbd0;
+    -fx-padding: 10px;
+    -fx-border-radius: 10px;
+}
+
+/* ComboBox và TextField */
+.text-field {
+    -fx-background-color: white;
+    -fx-border-color: #8e24aa;
+    -fx-border-radius: 5px;
+    -fx-padding: 5px;
+    -fx-font-size: 14px;
+    -fx-font-family: 'Segoe UI', sans-serif;
+}
+
+/* TextField khi tập trung */
+.text-field:focused {
+    -fx-border-color: #4a148c;
+}
+
+/* Button (Nút bấm) */
+.button {
+    -fx-background-color: #ab47bc;
+    -fx-text-fill: white;
+    -fx-font-family: 'Segoe UI', sans-serif;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 10px;
+}
+
+.button:hover {
+    -fx-background-color: #9c27b0;
+}
+
+.button:pressed {
+    -fx-background-color: #6a1b9a;
+}
+
+/* Label cho các thành phần */
+.label {
+    -fx-text-fill: #252226;
+}
+
+/* Tạo khung viền cho ImageView */
+.image-view {
+    -fx-border-color: #4a148c;  /* Màu viền tím đậm */
+    -fx-border-width: 2;  /* Độ dày viền */
+    -fx-border-radius: 5;  /* Độ bo viền */
+    -fx-padding: 5;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0);  /* Đổ bóng */
+}
+
+/* Style for the product detail pane */
+.product-detail-pane {
+    -fx-background-color: linear-gradient(to bottom, #F2D1F5, #EEE8EE);
+    /*-fx-border-color: #388e3c;      Darker green border */
+    -fx-border-width: 2;           /* Border width */
+    -fx-border-radius: 10;         /* Rounded corners for the border */
+    -fx-background-radius: 10;     /* Matching background rounding */
+    -fx-padding: 10;               /* Padding inside the pane */
+}
+
+/* Adjust the text color for better visibility on the green background */
+.product-detail-pane .label {
+    -fx-text-fill: #252226;          /* White text color for visibility */
+}
+
+/* Additional styling for labels inside the product detail pane */
+.product-detail-pane .label {
+    -fx-font-family: 'Segoe UI', sans-serif;
+    -fx-font-size: 16px;
+}
+
