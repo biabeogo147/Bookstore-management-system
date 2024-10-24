@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.StackPane?>
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
-<StackPane stylesheets="@./updateProduct.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vn.hust.bookstore.controller.StockManagerController">
+<StackPane stylesheets="@updateproduct.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vn.hust.bookstore.controller.UpdateproductController">
     <children>
         <AnchorPane prefHeight="600.0" prefWidth="600.0">
             <children>
