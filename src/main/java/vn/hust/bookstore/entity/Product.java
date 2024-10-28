@@ -20,7 +20,6 @@ public class Product {
 
     private String description;  // Mô tả ngắn về sản phẩm
 
-    @ManyToOne
-    @JoinColumn(name = "order_id")
-    private Order order;  // Đơn hàng mà sản phẩm này thuộc về
+    private Long quantity;  // Số lượng sản phẩm
+
 }
