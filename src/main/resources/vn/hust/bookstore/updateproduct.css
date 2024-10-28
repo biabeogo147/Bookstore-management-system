@@ -46,7 +46,6 @@
     -fx-border-color: #AC81B8;  /* Màu viền xanh đậm */
     -fx-border-width: 2;  /* Độ dày viền */
     -fx-border-radius: 5;  /* Độ bo viền */
-    -fx-padding: 5;
     -fx-background-color: white;  /* Nền trắng bên trong */
 }
 

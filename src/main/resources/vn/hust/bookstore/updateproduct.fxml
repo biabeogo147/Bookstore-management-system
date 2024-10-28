@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import java.lang.String?>
 <?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
 
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <StackPane stylesheets="@updateproduct.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vn.hust.bookstore.controller.UpdateproductController">
     <children>
         <AnchorPane prefHeight="600.0" prefWidth="600.0">
@@ -19,13 +20,13 @@
                 <Label layoutX="20.0" layoutY="20.0" style="-fx-font-size: 24px;" text="Cập nhật sản phẩm" />
 
                 <!-- Exit and Minimize Buttons -->
-                <Button fx:id="btnClose" layoutX="931.0" layoutY="9.0" mnemonicParsing="false" onAction="#close" textAlignment="JUSTIFY" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="9.0">
+                <Button fx:id="btnClose" layoutX="931.0" layoutY="9.0" mnemonicParsing="false" onAction="#closeWindow" textAlignment="JUSTIFY" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="9.0">
                     <graphic>
                         <FontAwesomeIcon glyphName="CLOSE" selectionStart="30" textAlignment="CENTER" wrappingWidth="23.199771881103516" />
                     </graphic>
                 </Button>
 
-                <Button fx:id="btnMinimize" layoutX="836.0" layoutY="9.0" mnemonicParsing="false" onAction="#minimize" textAlignment="JUSTIFY" AnchorPane.rightAnchor="79.19999999999993" AnchorPane.topAnchor="9.0">
+                <Button fx:id="btnMinimize" layoutX="836.0" layoutY="9.0" mnemonicParsing="false" onAction="#minimizeWindow" textAlignment="JUSTIFY" AnchorPane.rightAnchor="79.19999999999993" AnchorPane.topAnchor="9.0">
                     <graphic>
                         <FontAwesomeIcon glyphName="MINUS" selectionStart="30" textAlignment="CENTER" wrappingWidth="23.199771881103516" />
                     </graphic>
@@ -33,7 +34,7 @@
 
                 <!-- Product Type Selection -->
                 <Label layoutX="20.0" layoutY="80.0" text="Loại sản phẩm:" />
-                <ComboBox fx:id="cbProductType" layoutX="160.0" layoutY="71.0" onAction="#handleProductTypeChange" prefWidth="400.0">
+                <ComboBox fx:id="cbProductType" layoutX="160.0" layoutY="71.0" onAction="#handleProductTypeChange" prefHeight="9.0" prefWidth="400.0">
                     <items>
                         <FXCollections fx:factory="observableArrayList">
                             <String fx:value="Book" />
@@ -55,49 +56,49 @@
                 <TextField fx:id="tfProductDescription" layoutX="160.0" layoutY="224.0" prefWidth="400.0" />
 
                 <!-- Book-specific Fields -->
-                <AnchorPane fx:id="bookPane" layoutX="20.0" layoutY="320.0" prefWidth="540.0">
+                <AnchorPane fx:id="bookPane" layoutX="20.0" layoutY="320.0" prefWidth="540.0" visible="false">
                     <Label layoutY="18.0" text="Nhà xuất bản:" />
                     <TextField fx:id="tfBookPublisher" layoutX="140.0" layoutY="12.0" prefWidth="400.0" />
 
                     <Label layoutY="68.0" text="Thể loại:" />
                     <TextField fx:id="tfBookGenre" layoutX="140.0" layoutY="64.0" prefWidth="400.0" />
 
-                    <Label layoutX="2.0" layoutY="131.0" text="Ngày xuất bản:" />
-                    <TextField fx:id="tfBookPublicationDate" layoutX="140.0" layoutY="125.0" prefWidth="400.0" />
+                    <Label layoutX="2.0" layoutY="120.0" text="Ngày xuất bản:" />
+               <DatePicker fx:id="tfBookPublicationDate" layoutX="140.0" layoutY="110.0" prefHeight="30.0" prefWidth="400.0" />
                 </AnchorPane>
 
                 <!-- Stationery-specific Fields (Initially Hidden) -->
-                <AnchorPane fx:id="stationeryPane" layoutX="20.0" layoutY="320.0" prefWidth="540.0" visible="false">
+                <AnchorPane fx:id="stationeryPane" layoutX="17.0" layoutY="347.0" prefWidth="540.0" visible="false">
                     <Label text="Thương hiệu:" />
-                    <TextField fx:id="tfStationeryBrand" layoutX="150.0" layoutY="0.0" prefWidth="400.0" />
+                    <TextField fx:id="tfStationeryBrand" layoutX="140.0" layoutY="0.0" prefHeight="30.0" prefWidth="400.0" />
 
                     <Label layoutY="50.0" text="Loại sản phẩm:" />
-                    <TextField fx:id="tfStationeryType" layoutX="150.0" layoutY="50.0" prefWidth="400.0" />
+                    <TextField fx:id="tfStationeryType" layoutX="140.0" layoutY="50.0" prefHeight="30.0" prefWidth="400.0" />
                 </AnchorPane>
 
                 <!-- Toy-specific Fields (Initially Hidden) -->
-                <AnchorPane fx:id="toyPane" layoutX="20.0" layoutY="320.0" prefWidth="540.0" visible="false">
+                <AnchorPane fx:id="toyPane" layoutX="17.0" layoutY="347.0" prefWidth="540.0" visible="false">
                     <Label text="Thương hiệu:" />
-                    <TextField fx:id="tfToyBrand" layoutX="150.0" layoutY="0.0" prefWidth="400.0" />
+                    <TextField fx:id="tfToyBrand" layoutX="140.0" prefHeight="30.0" prefWidth="400.0" />
 
                     <Label layoutY="50.0" text="Nhóm tuổi:" />
-                    <TextField fx:id="tfToyAgeGroup" layoutX="150.0" layoutY="50.0" prefWidth="400.0" />
+                    <TextField fx:id="tfToyAgeGroup" layoutX="140.0" layoutY="50.0" prefHeight="30.0" prefWidth="400.0" />
                 </AnchorPane>
 
                 <!-- Product Image Section -->
-                <Button fx:id="btnUploadImage" layoutX="14.0" layoutY="518.0" mnemonicParsing="false" onAction="#chooseImage" text="Chọn ảnh" />
+                <Button fx:id="btnUploadImage" layoutX="20.0" layoutY="513.0" mnemonicParsing="false" onAction="#chooseImage" text="Chọn ảnh" />
 
                 <!-- Image Preview with Border -->
                 <AnchorPane fx:id="imagePane" layoutX="160.0" layoutY="480.0" prefHeight="100.0" prefWidth="150.0" styleClass="image-pane">
-                    <children>
-                        <ImageView fx:id="ivProductImage" fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" />
-                    </children>
+               <children>
+                  <ImageView fx:id="ivChoosePicture" fitHeight="100.0" fitWidth="205.0" pickOnBounds="true" smooth="false" />
+               </children>
                 </AnchorPane>
 
                 <!-- Add/Update Product Button -->
                 <Button fx:id="btnUpdateProduct" layoutX="400.0" layoutY="518.0" mnemonicParsing="false" onAction="#updateProduct" text="Cập nhật sản phẩm" />
-                <Label layoutX="20.0" layoutY="281.0" text="Tác giả:" />
-                <TextField fx:id="tfBookAuthor" layoutX="160.0" layoutY="275.0" prefWidth="400.0" />
+                <Label layoutX="20.0" layoutY="281.0" text="Số lượng" />
+                <TextField fx:id="tfProductQuantity" layoutX="160.0" layoutY="275.0" prefWidth="400.0" />
             </children>
         </AnchorPane>
     </children>

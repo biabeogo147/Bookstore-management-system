@@ -6,6 +6,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import vn.hust.bookstore.entity.Book;
+import vn.hust.bookstore.entity.Toy;
+import vn.hust.bookstore.service.ProductService;
 
 public class JavaFXApp extends Application {
 
@@ -19,7 +22,21 @@ public class JavaFXApp extends Application {
 
     @Override
     public void init() throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vn/hust/bookstore/signinsignup.fxml"));
+        for (int i = 1; i <= 100; ++i) {
+            Toy toy = new Toy();
+            Book book = new Book();
+            ProductService productService = new ProductService();
+            if (i % 2 == 0) {
+                toy.setName("Toy " + i);
+                toy.setPrice(100.0 * i);
+                productService.addProduct(toy);
+            } else {
+                book.setName("Book " + i);
+                book.setPrice(100.0 * i);
+                productService.addProduct(book);
+            }
+        }
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vn/hust/bookstore/updateproduct.fxml"));
         root = fxmlLoader.load();
     }
 

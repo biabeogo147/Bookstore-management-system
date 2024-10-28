@@ -7,7 +7,7 @@ import vn.hust.bookstore.util.HibernateUtil;
 import java.util.Optional;
 
 public class ProductService {
-    public void addProduct(Product product) {
+    public Optional<Product> addProduct(Product product) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
             session.persist(product);
@@ -15,16 +15,18 @@ public class ProductService {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return Optional.ofNullable(product);
     }
 
-    public void updateProduct(Product product) {
+    public Optional<Product> updateProduct(Product product) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
-            session.update(product);
+            session.merge(product);
             session.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return Optional.ofNullable(product);
     }
 
     public Optional<Product> getProduct(Long id) {
