@@ -27,7 +27,6 @@ public class UpdateproductController {
 
     private File selectedFile;
 
-
     @FXML
     private AnchorPane bookPane;
 

@@ -36,7 +36,7 @@ public class JavaFXApp extends Application {
                 productService.addProduct(book);
             }
         }
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vn/hust/bookstore/updateproduct.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vn/hust/bookstore/signinsignup.fxml"));
         root = fxmlLoader.load();
     }
 
