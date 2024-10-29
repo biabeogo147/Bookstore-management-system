@@ -171,19 +171,21 @@ public class UpdateproductController {
         Long id = product.get().getId();
 
         if (selectedFile != null) {
-            File destDir = new File("src/main/resources/image");
+            File destDir = new File("src/main/resources/images");
+            if (!destDir.exists()) {
+                destDir.mkdirs(); // Tạo thư mục nếu chưa tồn tại
+            }
 
             File destFile = new File(destDir, id + ".png");
-            try (FileInputStream fis = new FileInputStream(selectedFile);
-                 FileOutputStream fos = new FileOutputStream(destFile)) {
-                Files.copy(fis, destFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
-                System.out.println("Image saved to resources/image");
+            try {
+                Files.copy(selectedFile.toPath(), destFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                System.out.println("Image saved to resources/images");
             } catch (IOException e) {
                 e.printStackTrace();
-                System.out.println("Failed to save image to resources/image");
+                System.out.println(e);
             }
         } else {
-            System.out.println("No image selected to save");
+            System.out.println("No images selected to save");
         }
     }
 

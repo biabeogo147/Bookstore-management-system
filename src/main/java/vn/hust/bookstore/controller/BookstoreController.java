@@ -13,9 +13,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import vn.hust.bookstore.entity.Account;
-import vn.hust.bookstore.entity.Book;
 import vn.hust.bookstore.entity.Product;
-import vn.hust.bookstore.entity.Toy;
 import vn.hust.bookstore.service.ProductService;
 
 import java.io.IOException;
@@ -261,7 +259,7 @@ public class BookstoreController implements Initializable {
                     int productIndex = start + j;
                     Optional<Product> product = productService.getProduct((long) productIndex);
                     if (product.isPresent()) {
-                        String imagePath = "/image/" + (productIndex) + ".png";
+                        String imagePath = "/images/" + (productIndex) + ".png";
                         imageViews[j].setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream(imagePath))));
                         nameLabels[j].setText(product.get().getName());
                         priceLabels[j].setText(product.get().getPrice().toString());

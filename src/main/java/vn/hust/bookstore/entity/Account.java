@@ -15,13 +15,13 @@ public class Account {
     @Id
     @GeneratedValue(generator = "increment")
     private Long id;
-    private boolean isMale;
+    private String phone;
     private String password;
     private String email;
-    private String phone;
     private String lastName;
     private String firstName;
-    private Long status;
+    private boolean isMale;
     private Date birthday;
+    private Long status;
     private Date timeCreated;
 }

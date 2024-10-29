@@ -72,6 +72,24 @@
                               <Button fx:id="btnSave" layoutX="162.0" layoutY="311.0" mnemonicParsing="false" onAction="#save" styleClass="save-button" text="Lưu thay đổi" />
                            </children>
                         </AnchorPane>
+                        <AnchorPane fx:id="apShopping" layoutX="83.0" layoutY="1.0" onMouseClicked="#switchToShopping" prefHeight="62.0" prefWidth="69.0">
+                           <children>
+                              <FontAwesomeIcon glyphName="HOME" layoutX="17.0" layoutY="37.0" size="3em" />
+                              <Label layoutX="9.0" layoutY="43.0" text="Mua sắm" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="apCart" layoutX="179.0" layoutY="1.0" prefHeight="62.0" prefWidth="69.0">
+                           <children>
+                              <FontAwesomeIcon glyphName="SHOPPING_CART" layoutX="18.0" layoutY="34.0" size="3em" />
+                              <Label layoutX="12.0" layoutY="44.0" text="Giỏ hàng" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="apAccount" layoutX="274.0" prefHeight="56.0" prefWidth="69.0">
+                           <children>
+                              <FontAwesomeIcon glyphName="USER" layoutX="21.0" layoutY="35.0" size="3em" />
+                              <Label layoutX="9.0" layoutY="45.0" text="Tài khoản" />
+                           </children>
+                        </AnchorPane>
                      </children>
                   </AnchorPane>
                </center>

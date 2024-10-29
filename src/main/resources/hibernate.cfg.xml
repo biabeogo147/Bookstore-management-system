@@ -21,6 +21,6 @@
     <mapping class="vn.hust.bookstore.entity.Stationery"/>
     <mapping class="vn.hust.bookstore.entity.Toy"/>
     <mapping class="vn.hust.bookstore.entity.Order"/>
-    <mapping class="vn.hust.bookstore.entity.Productin"/>
+    <mapping class="vn.hust.bookstore.entity.BatchRecord"/>
   </session-factory>
 </hibernate-configuration>

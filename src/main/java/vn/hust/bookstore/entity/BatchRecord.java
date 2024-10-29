@@ -9,7 +9,7 @@ import java.util.Date;
 @Entity
 @Getter
 @Setter
-public class Productin {
+public class BatchRecord {
     @Id
     @GeneratedValue(generator = "increment")
     private Long id;
