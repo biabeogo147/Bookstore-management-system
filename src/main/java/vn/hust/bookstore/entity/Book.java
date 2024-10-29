@@ -3,7 +3,7 @@ package vn.hust.bookstore.entity;
 import jakarta.persistence.Entity;
 import lombok.Getter;
 import lombok.Setter;
-import java.util.Date;
+import java.sql.Date;
 
 @Entity
 @Getter
