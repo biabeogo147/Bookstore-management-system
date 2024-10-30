@@ -18,6 +18,7 @@ public class BatchRecord {
     @JoinColumn(name = "product")
     private Product product;
 
+    private Double inPrice;
     private Long inQuantity;
     private Date inDate;
 }

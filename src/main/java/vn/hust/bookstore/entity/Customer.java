@@ -13,4 +13,6 @@ public class Customer extends Account {
     private String address;
     @OneToMany(cascade = CascadeType.ALL)
     private List<Order> purchaseHistory;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Product> cart;
 }
