@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+
+<StackPane stylesheets="@./orderHistory.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vn.hust.bookstore.controller.OrderHistoryController">
+    <children>
+        <AnchorPane prefHeight="600.0" prefWidth="900.0">
+            <children>
+                <!-- Header -->
+                <Label layoutX="20.0" layoutY="20.0" style="-fx-font-size: 24px;" text="Lịch sử mua hàng" />
+                <Button fx:id="btnBackToCart" layoutX="730.0" layoutY="20.0" mnemonicParsing="false" onAction="#goBackToCart" text="Quay lại giỏ hàng" />
+
+                <!-- Order History Table -->
+                <TableView fx:id="orderTable" layoutX="20.0" layoutY="80.0" prefHeight="500.0" prefWidth="860.0">
+                    <columns>
+                        <TableColumn fx:id="colOrderID" prefWidth="100.0" text="Mã đơn hàng" />
+                        <TableColumn fx:id="colOrderDate" prefWidth="200.0" text="Ngày đặt hàng" />
+                        <TableColumn fx:id="colOrderTotal" prefWidth="150.0" text="Tổng tiền ($)" />
+                        <TableColumn fx:id="colOrderItems" prefWidth="400.0" text="Danh sách sản phẩm" />
+                    </columns>
+                </TableView>
+            </children>
+        </AnchorPane>
+    </children>
+</StackPane>

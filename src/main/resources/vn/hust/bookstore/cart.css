@@ -1,0 +1,77 @@
+/* Background for the sidebar */
+.left-pane {
+    -fx-background-color: linear-gradient(to bottom, #F2D1F5, #EEE8EE);
+    /*-fx-border-color: #388e3c;      Darker green border */
+    -fx-border-width: 2;           /* Border width */
+    -fx-border-radius: 10;         /* Rounded corners for the border */
+    -fx-background-radius: 10;     /* Matching background rounding */
+    -fx-padding: 10;
+}
+
+/* Icon and label style in the sidebar */
+.left-pane .font-awesome-icon {
+    -fx-fill: white;
+    -fx-font-size: 24px;
+}
+
+.left-pane .label {
+    -fx-text-fill: black;
+    -fx-font-family: 'Segoe UI', sans-serif;
+    -fx-font-size: 14px;
+}
+
+/* Main content styling */
+.center-pane {
+    -fx-padding: 20px;
+    -fx-background-color: #EEE8EE;
+    -fx-border-color: #8e24aa;
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+
+/* Table styling */
+.cart-table {
+    -fx-border-color: #8e24aa;
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+}
+
+.cart-table .column-header {
+    -fx-background-color: #ab47bc;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+.cart-table .cell {
+    -fx-font-size: 12px;
+    -fx-padding: 5px;
+}
+
+/* Total price section */
+.total-section {
+    -fx-font-family: 'Segoe UI', sans-serif;
+    -fx-font-size: 16px;
+    -fx-text-fill: #333333;
+    -fx-font-weight: bold;
+}
+
+/* Button styles */
+.action-button {
+    -fx-background-color: #ab47bc;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-family: 'Segoe UI', sans-serif;
+    -fx-padding: 8px 20px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+.action-button:hover {
+    -fx-background-color: #9c27b0;
+}
+
+.action-button:pressed {
+    -fx-background-color: #6a1b9a;
+}

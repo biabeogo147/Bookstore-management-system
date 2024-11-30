@@ -1,0 +1,32 @@
+/* Nút quay lại giỏ hàng */
+#btnBackToCart {
+    -fx-background-color: #ab47bc;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-family: 'Segoe UI', sans-serif;
+    -fx-padding: 8px 20px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+#btnBackToCart:hover {
+    -fx-background-color: #9c27b0;
+}
+
+#btnBackToCart:pressed {
+    -fx-background-color: #6a1b9a;
+}
+
+/* Bảng lịch sử mua hàng */
+.order-table {
+    -fx-border-color: #8e24aa;
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+}
+
+.order-table .column-header {
+    -fx-background-color: #ab47bc;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane stylesheets="@./cart.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vn.hust.bookstore.controller.CartController">
+    <children>
+        <AnchorPane fx:id="mainForm" prefHeight="600.0" prefWidth="900.0">
+            <children>
+                <BorderPane prefHeight="600.0" prefWidth="900.0">
+                    <left>
+                        <AnchorPane prefHeight="600.0" prefWidth="200.0" styleClass="left-pane" BorderPane.alignment="CENTER">
+                            <children>
+                                <AnchorPane fx:id="apShopping" layoutX="14.0" layoutY="20.0" onMouseClicked="#switchToShopping" prefHeight="62.0" prefWidth="69.0" />
+                                <AnchorPane fx:id="apCart" layoutX="14.0" layoutY="100.0" onMouseClicked="#switchToCart" prefHeight="62.0" prefWidth="69.0" />
+                                <AnchorPane fx:id="apAccount" layoutX="14.0" layoutY="180.0" onMouseClicked="#switchToAccount" prefHeight="62.0" prefWidth="69.0" />
+                                <AnchorPane fx:id="apOrderHistory" layoutX="14.0" layoutY="260.0" onMouseClicked="#viewOrderHistory" prefHeight="62.0" prefWidth="69.0" />
+
+                                <FontAwesomeIcon glyphName="HOME" layoutX="87.0" layoutY="56.0" size="3em" />
+                                <Label layoutX="79.0" layoutY="62.0" styleClass="label" text="Mua sắm" />
+                                <FontAwesomeIcon glyphName="SHOPPING_CART" layoutX="84.0" layoutY="135.0" size="3em" />
+                                <Label layoutX="76.0" layoutY="141.0" styleClass="label" text="Giỏ hàng" />
+                                <FontAwesomeIcon glyphName="USER" layoutX="89.0" layoutY="211.0" size="3em" />
+                                <Label layoutX="77.0" layoutY="220.0" styleClass="label" text="Tài khoản" />
+                                <FontAwesomeIcon glyphName="HISTORY" layoutX="89.0" layoutY="285.0" size="3em" />
+                                <Label layoutX="83.0" layoutY="291.0" styleClass="label" text="Lịch sử" />
+                            </children>
+                        </AnchorPane>
+                    </left>
+                    <center>
+                        <AnchorPane prefHeight="600.0" prefWidth="700.0" styleClass="center-pane" BorderPane.alignment="CENTER">
+                            <children>
+                                <!-- TableView for cart items -->
+                                <TableView fx:id="cartTable" layoutX="50.0" layoutY="22.0" prefHeight="429.0" prefWidth="601.0" styleClass="cart-table">
+                                    <columns>
+                                        <TableColumn fx:id="colItemName" prefWidth="200.0" styleClass="column-header" text="Item Name" />
+                                        <TableColumn fx:id="colQuantity" prefWidth="100.0" styleClass="column-header" text="Quantity" />
+                                        <TableColumn fx:id="colPrice" prefWidth="150.0" styleClass="column-header" text="Price ($)" />
+                                        <TableColumn fx:id="colTotal" prefWidth="150.0" styleClass="column-header" text="Total ($)" />
+                                    </columns>
+                                </TableView>
+
+                                <!-- Total price section -->
+                                <Label fx:id="lblTotal" layoutX="450.0" layoutY="460.0" styleClass="total-section" text="Total: $0.00" />
+
+                                <!-- Action buttons -->
+                                <Button fx:id="btnCheckout" layoutX="550.0" layoutY="490.0" mnemonicParsing="false" onAction="#checkoutCart" styleClass="action-button" text="Checkout" />
+                                <Button fx:id="btnClearCart" layoutX="444.0" layoutY="490.0" mnemonicParsing="false" onAction="#clearCart" styleClass="action-button" text="Clear Cart" />
+                            </children>
+                        </AnchorPane>
+                    </center>
+               <top>
+                  <AnchorPane prefHeight="0.0" prefWidth="817.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <FontAwesomeIcon glyphName="BOOK" layoutX="14.0" layoutY="39.0" size="3em" wrappingWidth="13.542851448059082" />
+                        <Label layoutX="55.0" layoutY="10.0" text="Book Store">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="btnClose" layoutX="931.0" layoutY="9.0" mnemonicParsing="false" onAction="#close" textAlignment="JUSTIFY" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="9.0">
+                           <graphic>
+                              <FontAwesomeIcon glyphName="CLOSE" selectionStart="30" textAlignment="CENTER" wrappingWidth="23.199771881103516" />
+                           </graphic>
+                        </Button>
+                        <Button fx:id="btnMinimize" layoutX="800.0" layoutY="9.0" mnemonicParsing="false" onAction="#minimize" textAlignment="JUSTIFY" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="9.0">
+                           <graphic>
+                              <FontAwesomeIcon glyphName="MINUS" selectionStart="30" textAlignment="CENTER" wrappingWidth="23.199771881103516" />
+                           </graphic>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+               </top>
+                </BorderPane>
+            </children>
+        </AnchorPane>
+    </children>
+</StackPane>
