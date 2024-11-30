@@ -12,10 +12,9 @@ import java.util.List;
 @Setter
 @Table(name = "orders")
 public class Order {
-
     @Id
     @GeneratedValue(generator = "increment")
-    private Long id;   // Mã định danh đơn hàng
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
@@ -24,13 +23,9 @@ public class Order {
     @OneToMany(cascade = CascadeType.ALL)
     private List<Product> items;
 
-    private Double totalPrice;  // Tổng giá trị đơn hàng
-
-    private String status;  // Trạng thái của đơn hàng (Pending, Processing, Delivered, etc.)
-
-    private Date orderDate;  // Ngày đặt hàng
-
-    private String paymentMethod;  // Phương thức thanh toán (Credit Card, Cash, etc.)
-
-    private Date paymentDate;  // Ngày thanh toán được thực hiện
+    private Double totalPrice;
+    private String status;
+    private Date orderDate;
+    private String paymentMethod;
+    private Date paymentDate;
 }

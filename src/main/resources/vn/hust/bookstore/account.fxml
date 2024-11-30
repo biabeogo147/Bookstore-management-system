@@ -78,15 +78,15 @@
                               <Label layoutX="9.0" layoutY="43.0" text="Mua sắm" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="apCart" layoutX="179.0" layoutY="1.0" prefHeight="62.0" prefWidth="69.0">
+                        <AnchorPane fx:id="apCart" layoutX="179.0" layoutY="1.0" onMouseClicked="#switchToCart" prefHeight="62.0" prefWidth="69.0">
                            <children>
-                              <FontAwesomeIcon glyphName="SHOPPING_CART" layoutX="18.0" layoutY="34.0" size="3em" />
+                              <FontAwesomeIcon glyphName="SHOPPING_CART" layoutX="20.0" layoutY="34.0" size="3em" />
                               <Label layoutX="12.0" layoutY="44.0" text="Giỏ hàng" />
                            </children>
                         </AnchorPane>
                         <AnchorPane fx:id="apAccount" layoutX="274.0" prefHeight="56.0" prefWidth="69.0">
                            <children>
-                              <FontAwesomeIcon glyphName="USER" layoutX="21.0" layoutY="35.0" size="3em" />
+                              <FontAwesomeIcon glyphName="USER" layoutX="25.0" layoutY="35.0" size="3em" />
                               <Label layoutX="9.0" layoutY="45.0" text="Tài khoản" />
                            </children>
                         </AnchorPane>

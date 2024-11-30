@@ -15,4 +15,5 @@ module vn.hust.bookstore {
     exports vn.hust.bookstore;
     exports vn.hust.bookstore.entity;
     exports vn.hust.bookstore.controller;
+    exports vn.hust.bookstore.service;
 }

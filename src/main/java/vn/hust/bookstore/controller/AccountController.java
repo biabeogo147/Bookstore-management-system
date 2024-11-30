@@ -13,7 +13,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import vn.hust.bookstore.entity.Account;
+import vn.hust.bookstore.entity.Customer;
 import vn.hust.bookstore.service.AccountService;
+import vn.hust.bookstore.service.CustomerService;
 
 import java.io.IOException;
 import java.net.URL;
@@ -22,7 +24,7 @@ import java.util.ResourceBundle;
 public class AccountController implements Initializable {
 
     AccountService accountService = new AccountService();
-    private Account account;
+    private Customer customer;
     private Parent root;
     private double x;
     private double y;
@@ -76,13 +78,13 @@ public class AccountController implements Initializable {
     private TextField tfPhone;
 
     public void save() {
-        account.setEmail(tfEmail.getText());
-        account.setFirstName(tfFirstName.getText());
-        account.setLastName(tfLastName.getText());
-        account.setPhone(tfPhone.getText());
-        account.setBirthday(java.sql.Date.valueOf(dpBirthday.getValue()));
-        account.setMale(cbMale.isSelected());
-        accountService.update(account);
+        customer.setEmail(tfEmail.getText());
+        customer.setFirstName(tfFirstName.getText());
+        customer.setLastName(tfLastName.getText());
+        customer.setPhone(tfPhone.getText());
+        customer.setBirthday(java.sql.Date.valueOf(dpBirthday.getValue()));
+        customer.setMale(cbMale.isSelected());
+        accountService.update(customer);
     }
 
     public void isMaleChecked() {
@@ -97,14 +99,14 @@ public class AccountController implements Initializable {
         }
     }
 
-    public void getAccount(Account account) {
-        this.account = account;
-        tfEmail.setText(account.getEmail() != null ? account.getEmail() : "");
-        tfFirstName.setText(account.getFirstName() != null ? account.getFirstName() : "");
-        tfLastName.setText(account.getLastName() != null ? account.getLastName() : "");
-        tfPhone.setText(account.getPhone() != null ? account.getPhone() : "");
-        dpBirthday.setValue(account.getBirthday() != null ? account.getBirthday().toLocalDate() : null);
-        if (account.isMale()) {
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+        tfEmail.setText(customer.getEmail() != null ? customer.getEmail() : "");
+        tfFirstName.setText(customer.getFirstName() != null ? customer.getFirstName() : "");
+        tfLastName.setText(customer.getLastName() != null ? customer.getLastName() : "");
+        tfPhone.setText(customer.getPhone() != null ? customer.getPhone() : "");
+        dpBirthday.setValue(customer.getBirthday() != null ? customer.getBirthday().toLocalDate() : null);
+        if (customer.isMale()) {
             cbMale.setSelected(true);
         } else {
             cbFemale.setSelected(true);
@@ -131,7 +133,34 @@ public class AccountController implements Initializable {
         });
 
         BookstoreController bookstoreController = fxmlLoader.getController();
-        bookstoreController.getAccount(account);
+        bookstoreController.setCustomer(customer);
+
+        stage.initStyle(StageStyle.TRANSPARENT);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void switchToCart() throws IOException {
+        mainForm.getScene().getWindow().hide();
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vn/hust/bookstore/cart.fxml"));
+        root = fxmlLoader.load();
+
+        Stage stage = new Stage();
+        Scene scene = new Scene(root);
+
+        root.setOnMousePressed(event -> {
+            x = event.getSceneX();
+            y = event.getSceneY();
+        });
+
+        root.setOnMouseDragged(event -> {
+            stage.setX(event.getScreenX() - x);
+            stage.setY(event.getScreenY() - y);
+        });
+
+        CartController cartController = fxmlLoader.getController();
+        cartController.setCustomer(this.customer);
 
         stage.initStyle(StageStyle.TRANSPARENT);
         stage.setScene(scene);

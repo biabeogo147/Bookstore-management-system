@@ -39,4 +39,15 @@ public class ProductService {
         return Optional.ofNullable(product);
     }
 
+    public Optional<Product> getProduct(String name) {
+        Product product = null;
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            product = session.createQuery("from Product where name = :name", Product.class)
+                    .setParameter("name", name)
+                    .getSingleResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return Optional.ofNullable(product);
+    }
 }

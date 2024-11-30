@@ -18,19 +18,27 @@
                     <left>
                         <AnchorPane prefHeight="600.0" prefWidth="200.0" styleClass="left-pane" BorderPane.alignment="CENTER">
                             <children>
-                                <AnchorPane fx:id="apShopping" layoutX="14.0" layoutY="20.0" onMouseClicked="#switchToShopping" prefHeight="62.0" prefWidth="69.0" />
-                                <AnchorPane fx:id="apCart" layoutX="14.0" layoutY="100.0" onMouseClicked="#switchToCart" prefHeight="62.0" prefWidth="69.0" />
-                                <AnchorPane fx:id="apAccount" layoutX="14.0" layoutY="180.0" onMouseClicked="#switchToAccount" prefHeight="62.0" prefWidth="69.0" />
-                                <AnchorPane fx:id="apOrderHistory" layoutX="14.0" layoutY="260.0" onMouseClicked="#viewOrderHistory" prefHeight="62.0" prefWidth="69.0" />
-
-                                <FontAwesomeIcon glyphName="HOME" layoutX="87.0" layoutY="56.0" size="3em" />
-                                <Label layoutX="79.0" layoutY="62.0" styleClass="label" text="Mua sắm" />
-                                <FontAwesomeIcon glyphName="SHOPPING_CART" layoutX="84.0" layoutY="135.0" size="3em" />
-                                <Label layoutX="76.0" layoutY="141.0" styleClass="label" text="Giỏ hàng" />
-                                <FontAwesomeIcon glyphName="USER" layoutX="89.0" layoutY="211.0" size="3em" />
-                                <Label layoutX="77.0" layoutY="220.0" styleClass="label" text="Tài khoản" />
-                                <FontAwesomeIcon glyphName="HISTORY" layoutX="89.0" layoutY="285.0" size="3em" />
-                                <Label layoutX="83.0" layoutY="291.0" styleClass="label" text="Lịch sử" />
+                                <AnchorPane fx:id="apShopping" layoutX="70.0" layoutY="20.0" onMouseClicked="#switchToShopping" prefHeight="62.0" prefWidth="69.0">
+                           <children>
+      
+                                                  <FontAwesomeIcon glyphName="HOME" layoutX="16.0" layoutY="37.0" size="3em" />
+                                      <Label layoutX="7.0" layoutY="43.0" styleClass="label" text="Mua sắm" />
+                           </children></AnchorPane>
+                                <AnchorPane fx:id="apCart" layoutX="68.0" layoutY="101.0" prefHeight="62.0" prefWidth="69.0">
+                           <children>
+                                      <FontAwesomeIcon glyphName="SHOPPING_CART" layoutX="15.0" layoutY="35.0" size="3em" />
+                                      <Label layoutX="7.0" layoutY="41.0" styleClass="label" text="Giỏ hàng" />
+                           </children></AnchorPane>
+                                <AnchorPane fx:id="apAccount" layoutX="68.0" layoutY="180.0" onMouseClicked="#switchToAccount" prefHeight="62.0" prefWidth="69.0">
+                           <children>
+                                      <FontAwesomeIcon glyphName="USER" layoutX="19.0" layoutY="33.0" size="3em" />
+                                      <Label layoutX="4.0" layoutY="42.0" styleClass="label" text="Tài khoản" />
+                           </children></AnchorPane>
+                                <AnchorPane fx:id="apOrderHistory" layoutX="66.0" layoutY="260.0" onMouseClicked="#viewOrderHistory" prefHeight="62.0" prefWidth="69.0">
+                           <children>
+                                      <FontAwesomeIcon glyphName="HISTORY" layoutX="18.0" layoutY="34.0" size="3em" />
+                                      <Label layoutX="12.0" layoutY="41.0" styleClass="label" text="Lịch sử" />
+                           </children></AnchorPane>
                             </children>
                         </AnchorPane>
                     </left>

@@ -11,6 +11,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import vn.hust.bookstore.entity.Customer;
 import vn.hust.bookstore.service.AccountService;
 
 import java.io.IOException;
@@ -54,9 +55,8 @@ public class SigninsignupController implements Initializable {
 
     @FXML
     private void minimize(ActionEvent event) {
-        // Cast the button's stage to get the window
         Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
-        stage.setIconified(true); // Minimize the window
+        stage.setIconified(true);
     }
 
 
@@ -87,7 +87,7 @@ public class SigninsignupController implements Initializable {
             });
 
             BookstoreController bookstoreController = fxmlLoader.getController();
-            bookstoreController.getAccount(accountService.getAccount(tfEmailorPhoneSignin.getText()));
+            bookstoreController.setCustomer((Customer) accountService.getAccount(tfEmailorPhoneSignin.getText()));
 
             stage.initStyle(StageStyle.TRANSPARENT);
             stage.setScene(scene);

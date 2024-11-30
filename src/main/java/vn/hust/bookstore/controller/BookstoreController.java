@@ -1,6 +1,5 @@
 package vn.hust.bookstore.controller;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -9,14 +8,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import vn.hust.bookstore.entity.Account;
-import vn.hust.bookstore.entity.Product;
-import vn.hust.bookstore.service.ProductService;
+import vn.hust.bookstore.entity.*;
+import vn.hust.bookstore.service.*;
 
 import java.io.IOException;
 import java.net.URL;
@@ -27,8 +24,9 @@ import java.util.ResourceBundle;
 public class BookstoreController implements Initializable {
 
     public ProductService productService = new ProductService();
+    public CustomerService customerService = new CustomerService();
 
-    private Account account;
+    private Customer customer;
     private Parent root;
     private double x;
     private double y;
@@ -47,6 +45,9 @@ public class BookstoreController implements Initializable {
 
     @FXML
     private Button btnMinimize;
+
+    @FXML
+    private Button btnAddToCart;
 
     @FXML
     private Button btnPage1;
@@ -153,8 +154,36 @@ public class BookstoreController implements Initializable {
     @FXML
     private VBox vbBook6;
 
-    public void getAccount(Account account) {
-        this.account = account;
+    public void addToCart() {
+        if (customer == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Please login to add to cart");
+            alert.showAndWait();
+        } else {
+            String name = lblBookName.getText();
+            System.out.println(name);
+
+            Product product = productService.getProduct(name).orElse(null);
+            if (product != null) {
+                boolean canAdd = customerService.addToCart(customer, product);
+                if (!canAdd) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Error");
+                    alert.setHeaderText("Product already in cart");
+                    alert.showAndWait();
+                } else {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Success");
+                    alert.setHeaderText("Add to cart successfully");
+                    alert.showAndWait();
+                }
+            }
+        }
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     public void switchToAccount() throws IOException {
@@ -177,14 +206,38 @@ public class BookstoreController implements Initializable {
         });
 
         AccountController accountController = fxmlLoader.getController();
-        accountController.getAccount(account);
+        accountController.setCustomer(customer);
 
         stage.initStyle(StageStyle.TRANSPARENT);
         stage.setScene(scene);
         stage.show();
     }
 
-    public void switchToCart(MouseEvent mouseEvent) {
+    public void switchToCart() throws IOException {
+        mainForm.getScene().getWindow().hide();
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vn/hust/bookstore/cart.fxml"));
+        root = fxmlLoader.load();
+
+        Stage stage = new Stage();
+        Scene scene = new Scene(root);
+
+        root.setOnMousePressed(event -> {
+            x = event.getSceneX();
+            y = event.getSceneY();
+        });
+
+        root.setOnMouseDragged(event -> {
+            stage.setX(event.getScreenX() - x);
+            stage.setY(event.getScreenY() - y);
+        });
+
+        CartController cartController = fxmlLoader.getController();
+        cartController.setCustomer(this.customer);
+
+        stage.initStyle(StageStyle.TRANSPARENT);
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void minimize() {
@@ -192,28 +245,12 @@ public class BookstoreController implements Initializable {
         stage.setIconified(true);
     }
 
-
-
     public void close() {
         System.exit(0);
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-//        for (int i = 1; i <= 100; ++i) {
-//            Toy toy = new Toy();
-//            Book book = new Book();
-//            if (i % 2 == 0) {
-//                toy.setName("Toy " + i);
-//                toy.setPrice(100.0 * i);
-//                productService.addProduct(toy);
-//            } else {
-//                book.setName("Book " + i);
-//                book.setPrice(100.0 * i);
-//                productService.addProduct(book);
-//            }
-//        }
-
         ImageView[] imageViews = {
                 ivBook1,
                 ivBook2,
@@ -285,17 +322,5 @@ public class BookstoreController implements Initializable {
             });
         }
         btnPage1.fire();
-    }
-
-    @FXML
-    private void addToCart() {
-        // Lấy thông tin sản phẩm từ giao diện
-        String productName = lblBookName.getText();
-        String productPrice = lblBookPrice.getText();
-
-        // Hiển thị thông báo (hoặc thực hiện thêm sản phẩm vào giỏ hàng)
-        System.out.println("Thêm vào giỏ hàng: " + productName + " - Giá: " + productPrice);
-
-        // TODO: Thực hiện logic thêm sản phẩm vào giỏ hàng (ví dụ: lưu vào danh sách giỏ hàng hoặc cơ sở dữ liệu)
     }
 }

@@ -9,14 +9,9 @@ import java.sql.Date;
 @Getter
 @Setter
 public class Book extends Product {
-
-    private String title;  // Tên sách
-
-    private String author;  // Tác giả của cuốn sách
-
-    private String publisher;  // Nhà xuất bản của cuốn sách
-
-    private String genre;  // Thể loại của sách
-
-    private Date publicationDate;  // Ngày xuất bản của sách
+    private String title;
+    private String author;
+    private String publisher;
+    private String genre;
+    private Date publicationDate;
 }

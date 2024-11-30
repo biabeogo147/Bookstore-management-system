@@ -8,8 +8,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Stationery extends Product {
-
-    private String brand;  // Thương hiệu của sản phẩm văn phòng phẩm
-
-    private String type;  // Loại sản phẩm văn phòng phẩm (Bút, giấy, v.v.)
+    private String brand;
+    private String type;
 }

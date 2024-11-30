@@ -9,17 +9,11 @@ import lombok.Setter;
 @Setter
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Product {
-
     @Id
     @GeneratedValue(generator = "increment")
-    private Long id;  // Mã định danh sản phẩm
-
-    private String name;  // Tên sản phẩm
-
-    private Double price;  // Giá sản phẩm
-
-    private String description;  // Mô tả ngắn về sản phẩm
-
-    private Long quantity;  // Số lượng sản phẩm
-
+    private Long id;
+    private String name;
+    private Double price;
+    private String description;
+    private Long quantity;
 }
