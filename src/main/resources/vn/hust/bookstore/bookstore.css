@@ -88,3 +88,25 @@
     -fx-font-size: 16px;
 }
 
+/* Styling cho nút Thêm vào giỏ hàng */
+.add-to-cart-button {
+    -fx-background-color: #5c6bc0; /* Màu xanh nhẹ */
+    -fx-text-fill: white;
+    -fx-font-family: 'Segoe UI', sans-serif;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 10px 20px;
+    -fx-cursor: hand;
+}
+
+.add-to-cart-button:hover {
+    -fx-background-color: #3949ab;
+}
+
+.add-to-cart-button:pressed {
+    -fx-background-color: #303f9f;
+}
+
+

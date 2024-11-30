@@ -1,5 +1,6 @@
 package vn.hust.bookstore.controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -8,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -182,10 +184,15 @@ public class BookstoreController implements Initializable {
         stage.show();
     }
 
+    public void switchToCart(MouseEvent mouseEvent) {
+    }
+
     public void minimize() {
         Stage stage = (Stage) mainForm.getScene().getWindow();
         stage.setIconified(true);
     }
+
+
 
     public void close() {
         System.exit(0);
@@ -280,4 +287,15 @@ public class BookstoreController implements Initializable {
         btnPage1.fire();
     }
 
+    @FXML
+    private void addToCart() {
+        // Lấy thông tin sản phẩm từ giao diện
+        String productName = lblBookName.getText();
+        String productPrice = lblBookPrice.getText();
+
+        // Hiển thị thông báo (hoặc thực hiện thêm sản phẩm vào giỏ hàng)
+        System.out.println("Thêm vào giỏ hàng: " + productName + " - Giá: " + productPrice);
+
+        // TODO: Thực hiện logic thêm sản phẩm vào giỏ hàng (ví dụ: lưu vào danh sách giỏ hàng hoặc cơ sở dữ liệu)
+    }
 }

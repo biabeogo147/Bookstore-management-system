@@ -27,5 +27,6 @@ public class CartController {
     }
 
     public void minimize(ActionEvent actionEvent) {
+        
     }
 }

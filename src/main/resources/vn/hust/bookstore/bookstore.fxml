@@ -59,7 +59,7 @@
                                     <Label layoutX="9.0" layoutY="43.0" text="Mua sắm" />
                                  </children>
                               </AnchorPane>
-                              <AnchorPane fx:id="apCart" layoutX="800.0" layoutY="-0.19999999999999996" prefHeight="62.0" prefWidth="69.0" AnchorPane.topAnchor="-0.19999999999999996">
+                              <AnchorPane fx:id="apCart" layoutX="800.0" layoutY="-0.19999999999999996" onMouseClicked="#switchToCart" prefHeight="62.0" prefWidth="69.0" AnchorPane.topAnchor="-0.19999999999999996">
                                  <children>
                                     <FontAwesomeIcon glyphName="SHOPPING_CART" layoutX="18.0" layoutY="34.0" size="3em" />
                                     <Label layoutX="12.0" layoutY="44.0" text="Giỏ hàng" />
@@ -77,12 +77,13 @@
                         </AnchorPane>
                         <AnchorPane layoutX="-2.0" layoutY="67.0" prefHeight="664.0" prefWidth="978.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                            <children>
-                              <AnchorPane styleClass="product-detail-pane" layoutX="700.0" layoutY="2.0" prefHeight="569.0" prefWidth="278.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <AnchorPane layoutX="700.0" layoutY="2.0" prefHeight="569.0" prefWidth="278.0" styleClass="product-detail-pane" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <Label fx:id="lblBookInfo" alignment="CENTER" contentDisplay="CENTER" layoutX="61.0" layoutY="14.0" prefHeight="46.0" prefWidth="169.0" text="THÔNG TIN SÁCH" textAlignment="CENTER" />
+                                    <Label fx:id="lblBookInfo" alignment="CENTER" contentDisplay="CENTER" layoutX="61.0" layoutY="14.0" prefHeight="46.0" prefWidth="169.0" text="THÔNG TIN SẢN PHẨM" textAlignment="CENTER" />
                                     <ImageView fx:id="ivBookImage" fitHeight="251.0" fitWidth="200.0" layoutX="39.0" layoutY="60.0" pickOnBounds="true" smooth="false" />
                                     <Label fx:id="lblBookName" layoutX="125.0" layoutY="354.0" text="Name" />
                                     <Label fx:id="lblBookPrice" layoutX="128.0" layoutY="397.0" text="Price" />
+                                    <Button fx:id="btnAddToCart" layoutX="61.0" layoutY="460.0" mnemonicParsing="false" onAction="#addToCart" prefHeight="40.0" prefWidth="167.0" styleClass="add-to-cart-button" text="Thêm vào giỏ hàng" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane layoutY="-9.0" prefHeight="676.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
