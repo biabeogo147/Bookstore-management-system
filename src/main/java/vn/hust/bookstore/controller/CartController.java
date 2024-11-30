@@ -19,4 +19,13 @@ public class CartController {
 
     public void switchToAccount(MouseEvent mouseEvent) {
     }
+
+    public void viewOrderHistory(MouseEvent mouseEvent) {
+    }
+
+    public void close(ActionEvent actionEvent) {
+    }
+
+    public void minimize(ActionEvent actionEvent) {
+    }
 }
