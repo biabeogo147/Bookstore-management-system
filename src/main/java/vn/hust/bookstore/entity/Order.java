@@ -10,7 +10,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-@Table(name = "orders")
+@Table(name = "order_history")
 public class Order {
     @Id
     @GeneratedValue(generator = "increment")
@@ -20,11 +20,17 @@ public class Order {
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "order_products",
+            joinColumns = @JoinColumn(name = "order_id"),
+            inverseJoinColumns = @JoinColumn(name = "product_id")
+    )
     private List<Product> items;
 
     private Double totalPrice;
     private String status;
+    private String address;
     private Date orderDate;
     private String paymentMethod;
     private Date paymentDate;

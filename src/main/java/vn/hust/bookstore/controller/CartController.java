@@ -13,18 +13,20 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import vn.hust.bookstore.entity.Customer;
 import vn.hust.bookstore.entity.Product;
+import vn.hust.bookstore.service.CustomerService;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class CartController implements Initializable {
+
+    public CustomerService customerService = new CustomerService();
 
     private Customer customer;
     private Parent root;
@@ -65,10 +67,7 @@ public class CartController implements Initializable {
     private TableColumn<?, ?> colPrice;
 
     @FXML
-    private TableColumn<?, ?> colQuantity;
-
-    @FXML
-    private TableColumn<?, ?> colTotal;
+    private TableColumn<?, ?> colDescription;
 
     @FXML
     private Label lblTotal;
@@ -90,10 +89,15 @@ public class CartController implements Initializable {
         }
     }
 
-    public void checkoutCart(ActionEvent actionEvent) {
+    public void checkoutCart() {
+        customerService.addOrder(customer);
+        clearCart();
     }
 
-    public void clearCart(ActionEvent actionEvent) {
+    public void clearCart() {
+        customerService.clearCart(customer);
+        customer = customerService.getCustomer(customer.getId());
+        populateCart();
     }
 
     public void switchToShopping() throws IOException {
@@ -150,7 +154,31 @@ public class CartController implements Initializable {
         stage.show();
     }
 
-    public void viewOrderHistory(MouseEvent mouseEvent) {
+    public void viewOrderHistory() throws IOException {
+        mainForm.getScene().getWindow().hide();
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vn/hust/bookstore/OrderHistory.fxml"));
+        root = fxmlLoader.load();
+
+        Stage stage = new Stage();
+        Scene scene = new Scene(root);
+
+        root.setOnMousePressed(event -> {
+            x = event.getSceneX();
+            y = event.getSceneY();
+        });
+
+        root.setOnMouseDragged(event -> {
+            stage.setX(event.getScreenX() - x);
+            stage.setY(event.getScreenY() - y);
+        });
+
+        OrderHistoryController orderHistoryController = fxmlLoader.getController();
+        orderHistoryController.setCustomer(customer);
+
+        stage.initStyle(StageStyle.TRANSPARENT);
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void minimize() {
@@ -166,7 +194,6 @@ public class CartController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         colItemName.setCellValueFactory(new PropertyValueFactory<>("name"));
         colPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
-        colQuantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
-        colTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
+        colDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
     }
 }

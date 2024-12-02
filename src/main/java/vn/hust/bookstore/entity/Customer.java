@@ -11,7 +11,7 @@ import java.util.List;
 @Setter
 public class Customer extends Account {
     private String address;
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Order> purchaseHistory;
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Product> cart;

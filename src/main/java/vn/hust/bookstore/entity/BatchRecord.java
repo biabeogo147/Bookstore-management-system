@@ -15,7 +15,7 @@ public class BatchRecord {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "product")
+    @JoinColumn(name = "product_id")
     private Product product;
 
     private Double inPrice;

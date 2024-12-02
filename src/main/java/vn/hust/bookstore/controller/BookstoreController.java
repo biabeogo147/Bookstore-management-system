@@ -17,6 +17,7 @@ import vn.hust.bookstore.service.*;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -154,6 +155,39 @@ public class BookstoreController implements Initializable {
     @FXML
     private VBox vbBook6;
 
+    public void addProduct() {
+        for (int i = 1; i <= 30; i++) {
+            switch (i % 3) {
+                case 0:
+                    Book book = new Book();
+                    book.setName("Book " + i);
+                    book.setPrice((double) i * 1000);
+                    book.setGenre("Genre " + i);
+                    book.setAuthor("Author " + i);
+                    book.setPublisher("Publisher " + i);
+                    book.setPublicationDate(new Date(System.currentTimeMillis()));
+                    productService.addProduct(book);
+                    break;
+                case 1:
+                    Toy toy = new Toy();
+                    toy.setName("Toy " + i);
+                    toy.setPrice((double) i * 1000);
+                    toy.setBrand("Brand " + i);
+                    toy.setAgeGroup("Age Group " + i);
+                    productService.addProduct(toy);
+                    break;
+                case 2:
+                    Stationery stationery = new Stationery();
+                    stationery.setName("Stationery " + i);
+                    stationery.setPrice((double) i * 1000);
+                    stationery.setBrand("Brand " + i);
+                    stationery.setType("Type " + i);
+                    productService.addProduct(stationery);
+                    break;
+            }
+        }
+    }
+
     public void addToCart() {
         if (customer == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -173,6 +207,7 @@ public class BookstoreController implements Initializable {
                     alert.setHeaderText("Product already in cart");
                     alert.showAndWait();
                 } else {
+                    customer = customerService.getCustomer(customer.getId());
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Success");
                     alert.setHeaderText("Add to cart successfully");
@@ -184,6 +219,9 @@ public class BookstoreController implements Initializable {
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
+        //customerService.addOrder(customer);
+        //customerService.clearCart(customer);
+        //this.customer = customerService.getCustomer(customer.getId());
     }
 
     public void switchToAccount() throws IOException {
@@ -251,6 +289,7 @@ public class BookstoreController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        //addProduct();
         ImageView[] imageViews = {
                 ivBook1,
                 ivBook2,

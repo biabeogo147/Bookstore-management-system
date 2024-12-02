@@ -9,7 +9,7 @@
 
 <StackPane stylesheets="@./orderHistory.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vn.hust.bookstore.controller.OrderHistoryController">
     <children>
-        <AnchorPane prefHeight="600.0" prefWidth="900.0">
+        <AnchorPane fx:id="mainForm" prefHeight="600.0" prefWidth="900.0">
             <children>
                 <!-- Header -->
                 <Label layoutX="20.0" layoutY="20.0" style="-fx-font-size: 24px;" text="Lịch sử mua hàng" />
@@ -21,7 +21,7 @@
                         <TableColumn fx:id="colOrderID" prefWidth="100.0" text="Mã đơn hàng" />
                         <TableColumn fx:id="colOrderDate" prefWidth="200.0" text="Ngày đặt hàng" />
                         <TableColumn fx:id="colOrderTotal" prefWidth="150.0" text="Tổng tiền ($)" />
-                        <TableColumn fx:id="colOrderItems" prefWidth="400.0" text="Danh sách sản phẩm" />
+                        <TableColumn fx:id="colOrderItems" prefWidth="409.0" text="Danh sách sản phẩm" />
                     </columns>
                 </TableView>
             </children>

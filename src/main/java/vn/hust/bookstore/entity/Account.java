@@ -11,7 +11,7 @@ import java.sql.Date;
 @Setter
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name = "account_type")
-public class Account {
+public abstract class Account {
     @Id
     @GeneratedValue(generator = "increment")
     private Long id;
