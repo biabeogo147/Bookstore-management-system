@@ -75,3 +75,29 @@
 .action-button:pressed {
     -fx-background-color: #6a1b9a;
 }
+
+/* Shipping Address Label */
+.address-label {
+    -fx-font-family: 'Segoe UI', sans-serif;
+    -fx-font-size: 16px;
+    -fx-text-fill: #333333;
+    -fx-font-weight: bold;
+}
+
+/* Shipping Address TextField */
+.address-textfield {
+    -fx-font-family: 'Segoe UI', sans-serif;
+    -fx-font-size: 14px;
+    -fx-padding: 8px;
+    -fx-background-color: #ffffff;
+    -fx-border-color: #8e24aa;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-text-fill: #333333;
+}
+
+/* Focused state for Address TextField */
+.address-textfield:focused {
+    -fx-border-color: #ab47bc;
+    -fx-background-color: #f3e5f5;
+}

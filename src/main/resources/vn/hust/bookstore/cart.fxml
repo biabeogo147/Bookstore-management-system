@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.StackPane?>
@@ -56,6 +57,12 @@
 
                                 <!-- Total price section -->
                                 <Label fx:id="lblTotal" layoutX="450.0" layoutY="460.0" styleClass="total-section" text="Total: $0.00" />
+
+                                <!-- Shipping Address Label -->
+                                <Label layoutX="50.0" layoutY="460.0" styleClass="address-label" text="Địa chỉ giao hàng:" />
+
+                                <!-- Shipping Address TextField -->
+                                <TextField fx:id="txtShippingAddress" layoutX="50.0" layoutY="489.0" prefHeight="36.0" prefWidth="362.0" promptText="Nhập địa chỉ giao hàng..." styleClass="address-textfield" />
 
                                 <!-- Action buttons -->
                                 <Button fx:id="btnCheckout" layoutX="550.0" layoutY="490.0" mnemonicParsing="false" onAction="#checkoutCart" styleClass="action-button" text="Checkout" />

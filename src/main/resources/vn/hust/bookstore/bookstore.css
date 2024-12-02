@@ -88,6 +88,22 @@
     -fx-font-size: 16px;
 }
 
+/* Style cho phần mô tả sản phẩm */
+.text-area {
+    -fx-background-color: #f3f4f7;
+    -fx-border-color: #8e24aa;
+    -fx-border-radius: 5px;
+    -fx-padding: 5px;
+    -fx-font-size: 14px;
+    -fx-font-family: 'Segoe UI', sans-serif;
+    -fx-text-fill: #4a148c;
+}
+
+/* TextArea khi tập trung */
+.text-area:focused {
+    -fx-border-color: #4a148c;
+}
+
 /* Styling cho nút Thêm vào giỏ hàng */
 .add-to-cart-button {
     -fx-background-color: #5c6bc0; /* Màu xanh nhẹ */
