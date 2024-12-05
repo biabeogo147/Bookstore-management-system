@@ -31,7 +31,7 @@ public class CustomerService {
         return false;
     }
 
-    public void addOrder(Customer customer) {
+    public void addOrder(Customer customer, String address) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
             customer = session.createQuery("from Customer c left join fetch c.cart where c.id = :id", Customer.class)
@@ -39,6 +39,7 @@ public class CustomerService {
                     .uniqueResult();
 
             Order order = new Order();
+            order.setAddress(address);
             order.setCustomer(customer);
             order.setItems(new ArrayList<>(new HashSet<>(customer.getCart())));
             order.setTotalPrice(customer.getCart().stream().mapToDouble(Product::getPrice).sum());

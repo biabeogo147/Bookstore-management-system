@@ -8,10 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -75,6 +72,9 @@ public class CartController implements Initializable {
     @FXML
     private AnchorPane mainForm;
 
+    @FXML
+    private TextField txtShippingAddress;
+
     public void setCustomer(Customer customer) {
         this.customer = customer;
         populateCart();
@@ -90,7 +90,10 @@ public class CartController implements Initializable {
     }
 
     public void checkoutCart() {
-        customerService.addOrder(customer);
+        if (customer.getCart().isEmpty()) {
+            return;
+        }
+        customerService.addOrder(customer, txtShippingAddress.getText());
         clearCart();
     }
 

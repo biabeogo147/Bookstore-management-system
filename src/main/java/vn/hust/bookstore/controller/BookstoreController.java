@@ -155,6 +155,9 @@ public class BookstoreController implements Initializable {
     @FXML
     private VBox vbBook6;
 
+    @FXML
+    private TextArea taProductDescription;
+
     public void addProduct() {
         for (int i = 1; i <= 30; i++) {
             switch (i % 3) {
@@ -342,18 +345,18 @@ public class BookstoreController implements Initializable {
                     int productIndex = start + j;
                     Optional<Product> product = productService.getProduct((long) productIndex);
                     if (product.isPresent()) {
-                        String imagePath = "/images/" + (productIndex) + ".png";
-                        imageViews[j].setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream(imagePath))));
-                        nameLabels[j].setText(product.get().getName());
-                        priceLabels[j].setText(product.get().getPrice().toString());
                         int index = j;
+                        nameLabels[j].setText(product.get().getName());
+                        String imagePath = "/images/" + (productIndex) + ".png";
+                        priceLabels[j].setText(product.get().getPrice().toString());
+                        imageViews[j].setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream(imagePath))));
                         vBoxes[j].setOnMouseClicked(vbEvent -> {
                             Product selectedProduct = productService.getProduct((long) (start + index)).orElse(null);
                             if (selectedProduct != null) {
                                 ivBookImage.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream(imagePath))));
                                 lblBookName.setText(selectedProduct.getName());
                                 lblBookPrice.setText(selectedProduct.getPrice().toString());
-                                lblBookInfo.setText(selectedProduct.getDescription());
+                                taProductDescription.setText(selectedProduct.getDescription());
                             }
                         });
                     }
