@@ -45,8 +45,11 @@
                 </ComboBox>
 
                 <!-- Common Product Fields -->
+                <!-- Product Name/Selection -->
                 <Label layoutX="20.0" layoutY="130.0" text="Tên sản phẩm:" />
-                <TextField fx:id="tfProductName" layoutX="160.0" layoutY="124.0" prefWidth="400.0" />
+                <ComboBox fx:id="cbExistingProducts" layoutX="160.0" layoutY="119.0" onAction="#handleProductSelection" prefHeight="30.0" prefWidth="400.0" promptText="Chọn sản phẩm cũ hoặc nhập mới">
+                    <editable>true</editable>
+                </ComboBox>
 
                 <Label layoutX="20.0" layoutY="180.0" text="Giá sản phẩm:" />
                 <TextField fx:id="tfProductPrice" layoutX="160.0" layoutY="174.0" prefWidth="400.0" />
@@ -96,7 +99,7 @@
                 </AnchorPane>
 
                 <!-- Add/Update Product Button -->
-                <Button fx:id="btnUpdateProduct" layoutX="400.0" layoutY="518.0" mnemonicParsing="false" onAction="#updateProduct" text="Cập nhật sản phẩm" />
+                <Button fx:id="btnUpdateProduct" layoutX="400.0" layoutY="518.0" mnemonicParsing="false" onAction="#handleUpdateOrAddProduct" text="Cập nhật sản phẩm" />
                 <Label layoutX="20.0" layoutY="281.0" text="Số lượng" />
                 <TextField fx:id="tfProductQuantity" layoutX="160.0" layoutY="275.0" prefWidth="400.0" />
             </children>

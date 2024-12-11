@@ -131,6 +131,34 @@ public class UpdateproductController {
         }
     }
 
+    // Đây là code mà ChatGPT đề xuất, Thành chỉnh lại tương ưng với dự án đi
+//    @FXML
+//    public void handleProductSelection() {
+//        String selectedProduct = cbExistingProducts.getEditor().getText();
+//
+//        if (existingProducts.contains(selectedProduct)) {
+//            // Chọn sản phẩm cũ -> Hiển thị thông tin
+//            isAddingNewProduct = false;
+//            btnUpdateProduct.setText("Cập nhật sản phẩm");
+//            loadExistingProductData(selectedProduct);
+//        } else {
+//            // Nhập tên sản phẩm mới
+//            isAddingNewProduct = true;
+//            btnUpdateProduct.setText("Thêm sản phẩm mới");
+//            clearProductFields();
+//        }
+//    }
+
+//    @FXML
+//    public void handleUpdateOrAddProduct() {
+//        if (isAddingNewProduct) {
+//            System.out.println("Thêm sản phẩm mới: " + cbExistingProducts.getEditor().getText());
+//        } else {
+//            System.out.println("Cập nhật sản phẩm: " + cbExistingProducts.getValue());
+//        }
+//        // Thêm logic lưu thông tin vào DB
+//    }
+
     public void updateProduct() {
         String name = tfProductName.getText();
         String price = tfProductPrice.getText();

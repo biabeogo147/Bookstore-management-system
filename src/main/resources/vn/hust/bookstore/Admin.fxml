@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane stylesheets="@./admin.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vn.hust.bookstore.controller.AdminController">
+    <children>
+        <AnchorPane fx:id="mainPane" prefHeight="600.0" prefWidth="900.0">
+            <children>
+                <!-- Sidebar -->
+                <AnchorPane prefWidth="200.0" styleClass="sidebar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <Label layoutX="45.0" layoutY="20.0" styleClass="sidebar-title" text="Admin Menu" />
+                        <Button fx:id="btnViewRevenue" layoutX="41.0" layoutY="83.0" mnemonicParsing="false" onAction="#addEmployee" styleClass="sidebar-button" text="Thêm nhân viên" />
+                    </children>
+                </AnchorPane>
+
+                <!-- Main Content -->
+                <AnchorPane fx:id="contentPane" prefWidth="700.0" styleClass="main-content" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <Label fx:id="lblTitle" layoutX="20.0" layoutY="20.0" styleClass="title-label" text="Thống kê và Phân tích" />
+                          <!-- Pie Chart for Revenue -->
+                          <VBox layoutX="20.0" layoutY="70.0" prefWidth="300.0">
+                     <children>
+                                 <Label styleClass="chart-title" text="Doanh thu theo danh mục" />
+                                 <PieChart fx:id="pieChartRevenue" prefHeight="250.0" prefWidth="300.0" />
+                     </children>
+                          </VBox>
+
+                          <!-- Bar Chart for Profit -->
+                          <VBox layoutX="363.0" layoutY="70.0" prefHeight="275.0" prefWidth="349.0">
+                     <children>
+                                 <Label styleClass="chart-title" text="Lợi nhuận theo tháng" />
+                                 <BarChart fx:id="barChartProfit" prefHeight="250.0" prefWidth="363.0">
+                                     <xAxis>
+                                         <CategoryAxis fx:id="profitXAxis" />
+                                     </xAxis>
+                                     <yAxis>
+                                         <NumberAxis fx:id="profitYAxis" />
+                                     </yAxis>
+                                 </BarChart>
+                     </children>
+                          </VBox>
+
+                          <!-- Line Chart for Costs -->
+                          <VBox layoutX="113.0" layoutY="368.0" prefHeight="233.0" prefWidth="500.0">
+                              <Label styleClass="chart-title" text="Xu hướng chi phí" />
+                              <LineChart fx:id="lineChartCosts" prefHeight="208.0" prefWidth="491.0">
+                                  <xAxis>
+                                      <CategoryAxis fx:id="costXAxis" />
+                                  </xAxis>
+                                  <yAxis>
+                                      <NumberAxis fx:id="costYAxis" />
+                                  </yAxis>
+                              </LineChart>
+                          </VBox>
+                    </children>
+                </AnchorPane>
+            </children>
+        </AnchorPane>
+    </children>
+</StackPane>

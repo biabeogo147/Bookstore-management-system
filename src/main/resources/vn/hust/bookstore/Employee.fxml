@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+
+<StackPane stylesheets="@./employee.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vn.hust.bookstore.controller.EmployeeController">
+    <children>
+        <AnchorPane fx:id="mainPane" prefHeight="600.0" prefWidth="900.0">
+            <children>
+                <!-- Sidebar -->
+                <AnchorPane prefWidth="200.0" styleClass="sidebar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <Label layoutX="32.0" layoutY="20.0" styleClass="sidebar-title" text="Employee Menu" />
+                        <Button fx:id="btnViewOrders" layoutX="12.0" layoutY="80.0" mnemonicParsing="false" onAction="#viewOrders" styleClass="sidebar-button" text="Xem danh sách đơn hàng" />
+                        <Button fx:id="btnAddProduct" layoutX="41.0" layoutY="80.0" mnemonicParsing="false" onAction="#addProduct" styleClass="sidebar-button" text="Thêm sản phẩm" />
+                    </children>
+                </AnchorPane>
+
+                <!-- Main Content -->
+                <AnchorPane fx:id="contentPane" prefWidth="700.0" styleClass="main-content" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <!-- Employee Information -->
+                        <Label fx:id="lblTitle" layoutX="20.0" layoutY="20.0" styleClass="title-label" text="Thông tin nhân viên" />
+                        <Label layoutX="50.0" layoutY="80.0" text="Tên nhân viên:" />
+                        <Label fx:id="lblEmployeeName" layoutX="180.0" layoutY="80.0" text="--" />
+                        <Label layoutX="50.0" layoutY="120.0" text="Chức vụ:" />
+                        <Label fx:id="lblRole" layoutX="180.0" layoutY="120.0" text="--" />
+                        <Label layoutX="50.0" layoutY="160.0" text="Số giờ làm việc:" />
+                        <Label fx:id="lblWorkHours" layoutX="180.0" layoutY="160.0" text="--" />
+                        <Label layoutX="50.0" layoutY="200.0" text="Số giờ nghỉ:" />
+                        <Label fx:id="lblLeaveHours" layoutX="180.0" layoutY="200.0" text="--" />
+                        <Label layoutX="50.0" layoutY="240.0" text="Lương theo giờ:" />
+                        <Label fx:id="lblHourlyWage" layoutX="180.0" layoutY="240.0" text="--" />
+                    </children>
+                </AnchorPane>
+            </children>
+        </AnchorPane>
+    </children>
+</StackPane>
