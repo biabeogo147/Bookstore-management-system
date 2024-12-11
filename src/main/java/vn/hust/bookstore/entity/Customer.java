@@ -9,6 +9,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+@DiscriminatorValue("customer")
 public class Customer extends Account {
     private String address;
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)

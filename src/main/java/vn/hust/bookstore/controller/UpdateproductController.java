@@ -3,6 +3,7 @@ package vn.hust.bookstore.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -24,8 +25,11 @@ import java.util.Optional;
 public class UpdateproductController {
 
     ProductService productService = new ProductService();
-
     private File selectedFile;
+    private StockManager stockManager;
+    private Parent root;
+    private double x;
+    private double y;
 
     @FXML
     private AnchorPane bookPane;
@@ -43,7 +47,10 @@ public class UpdateproductController {
     private Button btnUploadImage;
 
     @FXML
-    private ComboBox<String> cbProductType;
+    private ComboBox<?> cbExistingProducts;
+
+    @FXML
+    private ComboBox<?> cbProductType;
 
     @FXML
     private AnchorPane imagePane;
@@ -67,9 +74,6 @@ public class UpdateproductController {
     private TextField tfProductDescription;
 
     @FXML
-    private TextField tfProductName;
-
-    @FXML
     private TextField tfProductPrice;
 
     @FXML
@@ -91,12 +95,13 @@ public class UpdateproductController {
     private AnchorPane toyPane;
 
     @FXML
-    public void initialize() {
-        handleProductTypeChange();
+    void handleProductSelection() {
+
     }
 
-    public void handleProductTypeChange() {
-        String selectedType = cbProductType.getValue();
+    @FXML
+    void handleProductTypeChange() {
+        String selectedType = (String) cbProductType.getValue();
 
         if ("Book".equals(selectedType)) {
             bookPane.setVisible(true);
@@ -111,6 +116,11 @@ public class UpdateproductController {
             stationeryPane.setVisible(false);
             toyPane.setVisible(true);
         }
+    }
+
+    @FXML
+    void handleUpdateOrAddProduct() {
+
     }
 
     public void chooseImage() {
@@ -160,11 +170,11 @@ public class UpdateproductController {
 //    }
 
     public void updateProduct() {
-        String name = tfProductName.getText();
+        String name = cbExistingProducts.getEditor().getText();
         String price = tfProductPrice.getText();
         String quantity = tfProductQuantity.getText();
         String description = tfProductDescription.getText();
-        String productType = cbProductType.getValue();
+        String productType = (String) cbProductType.getValue();
 
         Optional<Product> product = null;
         if ("Book".equals(productType)) {
@@ -229,4 +239,12 @@ public class UpdateproductController {
         stage.setIconified(true);
     }
 
+    public void setStockManager(StockManager stockManager) {
+        this.stockManager =  stockManager;
+    }
+
+    @FXML
+    public void initialize() {
+        handleProductTypeChange();
+    }
 }

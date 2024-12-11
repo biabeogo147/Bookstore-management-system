@@ -10,7 +10,7 @@ import java.sql.Date;
 @Getter
 @Setter
 @Inheritance(strategy = InheritanceType.JOINED)
-@DiscriminatorColumn(name = "account_type")
+@DiscriminatorColumn(name = "account_type", discriminatorType = DiscriminatorType.STRING)
 public abstract class Account {
     @Id
     @GeneratedValue(generator = "increment")

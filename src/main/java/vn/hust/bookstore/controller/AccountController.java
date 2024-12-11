@@ -23,7 +23,7 @@ import java.util.ResourceBundle;
 
 public class AccountController implements Initializable {
 
-    AccountService accountService = new AccountService();
+    public AccountService accountService = new AccountService();
     private Customer customer;
     private Parent root;
     private double x;
@@ -179,6 +179,4 @@ public class AccountController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
     }
-
-
 }

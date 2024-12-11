@@ -158,8 +158,8 @@ public class BookstoreController implements Initializable {
     @FXML
     private TextArea taProductDescription;
 
-    public void addProduct() {
-        for (int i = 1; i <= 30; i++) {
+    private void addProduct() {
+        for (int i = 1; i <= 6; i++) {
             switch (i % 3) {
                 case 0:
                     Book book = new Book();

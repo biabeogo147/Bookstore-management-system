@@ -6,12 +6,32 @@ import vn.hust.bookstore.entity.Order;
 import vn.hust.bookstore.entity.Product;
 import vn.hust.bookstore.util.HibernateUtil;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 
 public class CustomerService {
+    public void signup(String email, String phone, String password, String cfPassword) {
+        if (!password.equals(cfPassword)) {
+            throw new IllegalArgumentException("Password and confirm password do not match");
+        }
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            Customer account = new Customer();
+            account.setStatus(1L);
+            account.setEmail(email);
+            account.setPhone(phone);
+            account.setPassword(password);
+            account.setTimeCreated(new Date(System.currentTimeMillis()));
+            session.beginTransaction();
+            session.persist(account);
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public boolean addToCart(Customer customer, Product product) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();

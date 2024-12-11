@@ -1,6 +1,7 @@
 package vn.hust.bookstore.entity;
 
 import jakarta.persistence.*;
+import javafx.scene.image.Image;
 import lombok.Getter;
 import lombok.Setter;
 
