@@ -1,0 +1,47 @@
+/* Title Styling */
+.title-label {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #4a148c;
+}
+
+/* Table Styling */
+.table-view {
+    -fx-border-color: #8e24aa;
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+    -fx-background-color: white;
+}
+
+.table-view .column-header {
+    -fx-background-color: #ab47bc;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+.table-view .cell {
+    -fx-font-size: 12px;
+    -fx-padding: 5px;
+}
+
+/* Button Styling */
+.action-button {
+    -fx-background-color: #ab47bc;
+    -fx-text-fill: white;
+    -fx-font-family: 'Segoe UI', sans-serif;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 20px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+}
+
+.action-button:hover {
+    -fx-background-color: #9c27b0;
+}
+
+.action-button:pressed {
+    -fx-background-color: #6a1b9a;
+}

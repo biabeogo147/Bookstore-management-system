@@ -7,6 +7,7 @@ import javafx.scene.chart.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import vn.hust.bookstore.entity.Admin;
 import vn.hust.bookstore.entity.Cashier;
 import vn.hust.bookstore.entity.StockManager;
@@ -94,5 +95,14 @@ public class AdminController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         //addCashier();
         //addStockManager();
+    }
+
+    public void minimize() {
+        Stage stage = (Stage) mainPane.getScene().getWindow();
+        stage.setIconified(true);
+    }
+
+    public void close() {
+        System.exit(0);
     }
 }

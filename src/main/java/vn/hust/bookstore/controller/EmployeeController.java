@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -53,6 +54,12 @@ public class EmployeeController implements Initializable {
 
     @FXML
     private AnchorPane mainPane;
+
+    @FXML
+    private CheckBox cbFemale;
+
+    @FXML
+    private CheckBox cbMale;
 
     public void setEmployee(Employee employee) {
         this.employee = employee;
@@ -107,5 +114,27 @@ public class EmployeeController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+    }
+
+    public void minimize() {
+        Stage stage = (Stage) mainPane.getScene().getWindow();
+        stage.setIconified(true);
+    }
+
+    public void close() {
+        System.exit(0);
+    }
+
+    public void isMaleChecked() {
+        if (cbMale.isSelected()) {
+            cbFemale.setSelected(false);
+        }
+    }
+
+    public void isFemaleChecked() {
+
+    }
+
+    public void updateEmployeeInfo(ActionEvent actionEvent) {
     }
 }

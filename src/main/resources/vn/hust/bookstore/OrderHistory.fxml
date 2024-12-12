@@ -21,8 +21,8 @@
                         <TableColumn fx:id="colOrderID" prefWidth="100.0" text="Mã đơn hàng" />
                         <TableColumn fx:id="colOrderDate" prefWidth="105.0" text="Ngày đặt hàng" />
                         <TableColumn fx:id="colAddress" prefWidth="188.0" text="Địa chỉ giao hàng" />
-                        <TableColumn fx:id="colOrderTotal" prefWidth="111.0" text="Tổng tiền ($)" />
                         <TableColumn fx:id="colOrderItems" prefWidth="275.0" text="Danh sách sản phẩm" />
+                        <TableColumn fx:id="colOrderTotal" prefWidth="111.0" text="Tổng tiền ($)" />
                         <TableColumn fx:id="colOrderStatus" prefWidth="131.0" text="Trạng thái" />
                     </columns>
                 </TableView>

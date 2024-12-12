@@ -1,0 +1,46 @@
+/* Giao diện nền */
+.root {
+    -fx-background-color: #f8f9fa;
+    -fx-padding: 20px;
+}
+
+/* Tiêu đề */
+.title-label {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #4a148c;
+}
+
+/* Nhãn */
+.label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #252525;
+}
+
+/* Trường nhập liệu */
+.text-field, .combo-box {
+    -fx-background-color: white;
+    -fx-border-color: #8e24aa;
+    -fx-border-radius: 5px;
+    -fx-padding: 5px;
+    -fx-font-size: 14px;
+}
+
+/* Khi tập trung vào trường nhập liệu */
+.text-field:focused, .combo-box:focused {
+    -fx-border-color: #4a148c;
+}
+
+/* Nút hành động */
+.action-button {
+    -fx-background-color: #ab47bc;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-border-radius: 5px;
+    -fx-padding: 10px;
+}
+
+.action-button:hover {
+    -fx-background-color: #9c27b0;
+}

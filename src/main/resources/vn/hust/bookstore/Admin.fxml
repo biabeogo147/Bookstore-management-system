@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
@@ -10,13 +11,34 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <StackPane stylesheets="@./admin.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vn.hust.bookstore.controller.AdminController">
     <children>
         <AnchorPane fx:id="mainPane" prefHeight="600.0" prefWidth="900.0">
             <children>
+            <AnchorPane prefHeight="46.0" prefWidth="953.0">
+               <children>
+                  <FontAwesomeIcon glyphName="BOOK" layoutX="14.0" layoutY="39.0" size="3em" wrappingWidth="13.542851448059082" />
+                  <Label layoutX="55.0" layoutY="10.0" text="Book Store">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="btnClose" layoutX="931.0" layoutY="9.0" mnemonicParsing="false" onAction="#close" textAlignment="JUSTIFY" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="9.0">
+                     <graphic>
+                        <FontAwesomeIcon glyphName="CLOSE" selectionStart="30" textAlignment="CENTER" wrappingWidth="23.199771881103516" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnMinimize" layoutX="800.0" layoutY="9.0" mnemonicParsing="false" onAction="#minimize" textAlignment="JUSTIFY" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="9.0">
+                     <graphic>
+                        <FontAwesomeIcon glyphName="MINUS" selectionStart="30" textAlignment="CENTER" wrappingWidth="23.199771881103516" />
+                     </graphic>
+                  </Button>
+               </children>
+            </AnchorPane>
                 <!-- Sidebar -->
-                <AnchorPane prefWidth="200.0" styleClass="sidebar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <AnchorPane layoutY="44.0" prefHeight="598.0" prefWidth="200.0" styleClass="sidebar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="44.0">
                     <children>
                         <Label layoutX="45.0" layoutY="20.0" styleClass="sidebar-title" text="Admin Menu" />
                         <Button fx:id="btnViewRevenue" layoutX="41.0" layoutY="83.0" mnemonicParsing="false" onAction="#addEmployee" styleClass="sidebar-button" text="Thêm nhân viên" />
@@ -24,7 +46,7 @@
                 </AnchorPane>
 
                 <!-- Main Content -->
-                <AnchorPane fx:id="contentPane" prefWidth="700.0" styleClass="main-content" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <AnchorPane fx:id="contentPane" layoutY="42.4" prefHeight="644.0" prefWidth="753.0" styleClass="main-content" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="42.0">
                     <children>
                         <Label fx:id="lblTitle" layoutX="20.0" layoutY="20.0" styleClass="title-label" text="Thống kê và Phân tích" />
                           <!-- Pie Chart for Revenue -->
