@@ -101,7 +101,7 @@
                 <!-- Add/Update Product Button -->
                 <Button fx:id="btnUpdateProduct" layoutX="400.0" layoutY="518.0" mnemonicParsing="false" onAction="#handleUpdateOrAddProduct" text="Cập nhật sản phẩm" />
                 <Label layoutX="20.0" layoutY="281.0" text="Số lượng" />
-                <TextField fx:id="tfProductQuantity" layoutX="160.0" layoutY="275.0" prefWidth="400.0" />
+                <TextField fx:id="tfProductQuantity" editable="false" layoutX="160.0" layoutY="275.0" prefWidth="400.0" />
             </children>
         </AnchorPane>
     </children>

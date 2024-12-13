@@ -1,5 +1,6 @@
 package vn.hust.bookstore.controller;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -64,7 +65,7 @@ public class CartController implements Initializable {
     private TableColumn<?, ?> colPrice;
 
     @FXML
-    private TableColumn<?, ?> colDescription;
+    private TableColumn<Product, String> colDescription;
 
     @FXML
     private Label lblTotal;
@@ -197,6 +198,10 @@ public class CartController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         colItemName.setCellValueFactory(new PropertyValueFactory<>("name"));
         colPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
-        colDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
+        colDescription.setCellValueFactory(cellData -> {
+            Product product = (Product) cellData.getValue();
+            String descriptionWithToString = product.getDescription() + " " + product.toString();
+            return new SimpleStringProperty(descriptionWithToString);
+        });
     }
 }

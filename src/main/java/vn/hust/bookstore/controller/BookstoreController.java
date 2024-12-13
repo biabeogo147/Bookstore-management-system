@@ -357,8 +357,18 @@ public class BookstoreController implements Initializable {
                                 lblBookName.setText(selectedProduct.getName());
                                 lblBookPrice.setText(selectedProduct.getPrice().toString());
                                 taProductDescription.setText(selectedProduct.getDescription());
+                            } else {
+                                ivBookImage.setImage(null);
+                                lblBookName.setText("");
+                                lblBookPrice.setText("");
+                                taProductDescription.setText("");
                             }
                         });
+                    } else {
+                        nameLabels[j].setText("");
+                        priceLabels[j].setText("");
+                        imageViews[j].setImage(null);
+                        vBoxes[j].setOnMouseClicked(null);
                     }
                 }
             });

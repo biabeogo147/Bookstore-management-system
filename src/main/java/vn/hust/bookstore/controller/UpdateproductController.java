@@ -20,11 +20,16 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.sql.Date;
+import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class UpdateproductController {
 
     ProductService productService = new ProductService();
+
+    private boolean isAddingNewProduct;
     private File selectedFile;
     private StockManager stockManager;
     private Parent root;
@@ -47,10 +52,10 @@ public class UpdateproductController {
     private Button btnUploadImage;
 
     @FXML
-    private ComboBox<?> cbExistingProducts;
+    private ComboBox<String> cbExistingProducts;
 
     @FXML
-    private ComboBox<?> cbProductType;
+    private ComboBox<String> cbProductType;
 
     @FXML
     private AnchorPane imagePane;
@@ -94,35 +99,6 @@ public class UpdateproductController {
     @FXML
     private AnchorPane toyPane;
 
-    @FXML
-    void handleProductSelection() {
-
-    }
-
-    @FXML
-    void handleProductTypeChange() {
-        String selectedType = (String) cbProductType.getValue();
-
-        if ("Book".equals(selectedType)) {
-            bookPane.setVisible(true);
-            stationeryPane.setVisible(false);
-            toyPane.setVisible(false);
-        } else if ("Stationery".equals(selectedType)) {
-            bookPane.setVisible(false);
-            stationeryPane.setVisible(true);
-            toyPane.setVisible(false);
-        } else if ("Toy".equals(selectedType)) {
-            bookPane.setVisible(false);
-            stationeryPane.setVisible(false);
-            toyPane.setVisible(true);
-        }
-    }
-
-    @FXML
-    void handleUpdateOrAddProduct() {
-
-    }
-
     public void chooseImage() {
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().addAll(
@@ -134,97 +110,61 @@ public class UpdateproductController {
             try {
                 FileInputStream inputStream = new FileInputStream(selectedFile);
                 Image image = new Image(inputStream);
-                ivChoosePicture.setImage(image);  // Hiển thị ảnh trong ImageView
-            } catch (FileNotFoundException e) {
+                double aspectRatio = image.getHeight() / image.getWidth();
+                Image resizedImage = new Image(new FileInputStream(selectedFile), 189, 189 * aspectRatio, true, true);
+                ivChoosePicture.setImage(resizedImage);
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    // Đây là code mà ChatGPT đề xuất, Thành chỉnh lại tương ưng với dự án đi
-//    @FXML
-//    public void handleProductSelection() {
-//        String selectedProduct = cbExistingProducts.getEditor().getText();
-//
-//        if (existingProducts.contains(selectedProduct)) {
-//            // Chọn sản phẩm cũ -> Hiển thị thông tin
-//            isAddingNewProduct = false;
-//            btnUpdateProduct.setText("Cập nhật sản phẩm");
-//            loadExistingProductData(selectedProduct);
-//        } else {
-//            // Nhập tên sản phẩm mới
-//            isAddingNewProduct = true;
-//            btnUpdateProduct.setText("Thêm sản phẩm mới");
-//            clearProductFields();
-//        }
-//    }
-
-//    @FXML
-//    public void handleUpdateOrAddProduct() {
-//        if (isAddingNewProduct) {
-//            System.out.println("Thêm sản phẩm mới: " + cbExistingProducts.getEditor().getText());
-//        } else {
-//            System.out.println("Cập nhật sản phẩm: " + cbExistingProducts.getValue());
-//        }
-//        // Thêm logic lưu thông tin vào DB
-//    }
-
-    public void updateProduct() {
-        String name = cbExistingProducts.getEditor().getText();
-        String price = tfProductPrice.getText();
-        String quantity = tfProductQuantity.getText();
-        String description = tfProductDescription.getText();
-        String productType = (String) cbProductType.getValue();
-
-        Optional<Product> product = null;
-        if ("Book".equals(productType)) {
-            Book book = new Book();
-            book.setName(name);
-            book.setPrice(Double.parseDouble(price));
-            book.setQuantity(Long.parseLong(quantity));
-            book.setDescription(description);
-            book.setPublisher(tfBookPublisher.getText());
-            book.setGenre(tfBookGenre.getText());
-            book.setPublicationDate(Date.valueOf(tfBookPublicationDate.getValue()));
-            product = productService.addProduct(book);
-        } else if ("Stationery".equals(productType)) {
-            Stationery stationery = new Stationery();
-            stationery.setName(name);
-            stationery.setPrice(Double.parseDouble(price));
-            stationery.setQuantity(Long.parseLong(quantity));
-            stationery.setDescription(description);
-            stationery.setBrand(tfStationeryBrand.getText());
-            stationery.setType(tfStationeryType.getText());
-            product = productService.addProduct(stationery);
-        } else if ("Toy".equals(productType)) {
-            Toy toy = new Toy();
-            toy.setName(name);
-            toy.setPrice(Double.parseDouble(price));
-            toy.setQuantity(Long.parseLong(quantity));
-            toy.setDescription(description);
-            toy.setBrand(tfToyBrand.getText());
-            toy.setAgeGroup(tfToyAgeGroup.getText());
-            product = productService.addProduct(toy);
+    public void loadExistingProductData(Product product) {
+        cbProductType.setValue(product.getClass().getSimpleName());
+        tfProductPrice.setText(String.valueOf(product.getPrice()));
+        tfProductQuantity.setText(String.valueOf(product.getQuantity()));
+        tfProductDescription.setText(product.getDescription());
+        if (product instanceof Book book) {
+            tfBookPublisher.setText(book.getPublisher());
+            tfBookGenre.setText(book.getGenre());
+            tfBookPublicationDate.setValue(book.getPublicationDate().toLocalDate());
+        } else if (product instanceof Stationery stationery) {
+            tfStationeryBrand.setText(stationery.getBrand());
+            tfStationeryType.setText(stationery.getType());
+        } else if (product instanceof Toy toy) {
+            tfToyBrand.setText(toy.getBrand());
+            tfToyAgeGroup.setText(toy.getAgeGroup());
         }
-        Long id = product.get().getId();
+    }
 
-        if (selectedFile != null) {
-            File destDir = new File("src/main/resources/images");
-            if (!destDir.exists()) {
-                destDir.mkdirs(); // Tạo thư mục nếu chưa tồn tại
-            }
+    public void clearProductFields() {
+        tfProductPrice.clear();
+        tfProductQuantity.setText("0");
+        tfProductDescription.clear();
+        tfBookPublisher.clear();
+        tfBookGenre.clear();
+        tfBookPublicationDate.setValue(null);
+        tfStationeryBrand.clear();
+        tfStationeryType.clear();
+        tfToyBrand.clear();
+        tfToyAgeGroup.clear();
+    }
 
-            File destFile = new File(destDir, id + ".png");
-            try {
-                Files.copy(selectedFile.toPath(), destFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
-                System.out.println("Image saved to resources/images");
-            } catch (IOException e) {
-                e.printStackTrace();
-                System.out.println(e);
-            }
-        } else {
-            System.out.println("No images selected to save");
-        }
+    private Product createProduct(String productType) {
+        return switch (productType) {
+            case "Book" -> new Book();
+            case "Stationery" -> new Stationery();
+            case "Toy" -> new Toy();
+            default -> null;
+        };
+    }
+
+    private void loadProductsIntoComboBox() {
+        List<Product> products = productService.getAllProducts();
+        List<String> productNames = products.stream()
+                .map(Product::getName)
+                .collect(Collectors.toList());
+        cbExistingProducts.getItems().setAll(productNames);
     }
 
     public void closeWindow(ActionEvent event) {
@@ -244,7 +184,99 @@ public class UpdateproductController {
     }
 
     @FXML
+    void handleProductTypeChange() {
+        String selectedType = (String) cbProductType.getValue();
+        if ("Book".equals(selectedType)) {
+            bookPane.setVisible(true);
+            stationeryPane.setVisible(false);
+            toyPane.setVisible(false);
+        } else if ("Stationery".equals(selectedType)) {
+            bookPane.setVisible(false);
+            stationeryPane.setVisible(true);
+            toyPane.setVisible(false);
+        } else if ("Toy".equals(selectedType)) {
+            bookPane.setVisible(false);
+            stationeryPane.setVisible(false);
+            toyPane.setVisible(true);
+        }
+    }
+
+    @FXML
+    public void handleProductSelection() {
+        String selectedProduct = cbExistingProducts.getEditor().getText();
+        Optional<Product> productOptional = productService.getProduct(selectedProduct);
+        if (productOptional.isPresent()) {
+            isAddingNewProduct = false;
+            Product product = productOptional.get();
+            btnUpdateProduct.setText("Cập nhật sản phẩm");
+            loadExistingProductData(product);
+        } else {
+            isAddingNewProduct = true;
+            btnUpdateProduct.setText("Thêm sản phẩm mới");
+            clearProductFields();
+        }
+    }
+
+    @FXML
+    public void handleUpdateOrAddProduct() {
+        Product product = createProduct(cbProductType.getValue());
+        if (product != null) {
+            product.setName(cbExistingProducts.getEditor().getText());
+            product.setPrice(Double.parseDouble(tfProductPrice.getText()));
+            product.setQuantity(Long.parseLong(tfProductQuantity.getText()));
+            product.setDescription(tfProductDescription.getText());
+            switch (product) {
+                case Book book -> {
+                    book.setPublisher(tfBookPublisher.getText());
+                    book.setGenre(tfBookGenre.getText());
+                    book.setPublicationDate(Date.valueOf(tfBookPublicationDate.getValue()));
+                }
+                case Stationery stationery -> {
+                    stationery.setBrand(tfStationeryBrand.getText());
+                    stationery.setType(tfStationeryType.getText());
+                }
+                case Toy toy -> {
+                    toy.setBrand(tfToyBrand.getText());
+                    toy.setAgeGroup(tfToyAgeGroup.getText());
+                }
+                default -> {
+                }
+            }
+        }
+
+        System.out.println("Product: " + product);
+
+        if (isAddingNewProduct) {
+            productService.addProduct(product);
+        } else {
+            productService.updateProduct(product);
+        }
+
+        if (selectedFile != null) {
+            System.out.println("Copying image file to images folder");
+            if (selectedFile != null) {
+                File destDir = new File("src/main/resources/images");
+                if (!destDir.exists()) {
+                    destDir.mkdirs();
+                }
+
+                File destFile = new File(destDir, product.getId() + ".png");
+                try {
+                    Files.copy(selectedFile.toPath(), destFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                    System.out.println("Image saved to resources/images");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    System.out.println(e);
+                }
+            } else {
+                System.out.println("No images selected to save");
+            }
+        }
+    }
+
+    @FXML
     public void initialize() {
         handleProductTypeChange();
+        loadProductsIntoComboBox();
     }
 }

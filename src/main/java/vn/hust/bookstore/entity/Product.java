@@ -21,7 +21,4 @@ public abstract class Product {
     private String description;
     private Long quantity;
 
-    public String getDescription() {
-        return description + ' ' + this.toString();
-    }
 }
