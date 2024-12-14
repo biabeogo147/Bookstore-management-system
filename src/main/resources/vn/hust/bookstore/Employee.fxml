@@ -20,8 +20,9 @@
                         <Label layoutX="32.0" layoutY="20.0" styleClass="sidebar-title" text="Employee Menu" />
                         <Button fx:id="btnViewOrders" layoutX="12.0" layoutY="80.0" mnemonicParsing="false" onAction="#viewOrders" styleClass="sidebar-button" text="Xem danh sách đơn hàng" />
                         <Button fx:id="btnAddProduct" layoutX="11.0" layoutY="80.0" mnemonicParsing="false" onAction="#addProduct" prefHeight="39.0" prefWidth="178.0" styleClass="sidebar-button" text="Thêm sản phẩm" />
-                  <Button fx:id="btnAddProduct1" layoutX="69.0" layoutY="161.0" mnemonicParsing="false" onAction="#addProduct" prefHeight="39.0" prefWidth="64.0" styleClass="sidebar-button" />
-                  <Button fx:id="btnAddProduct11" layoutX="68.0" layoutY="236.0" mnemonicParsing="false" onAction="#addProduct" prefHeight="39.0" prefWidth="64.0" styleClass="sidebar-button" />
+                  <Button layoutX="12.0" layoutY="161.0" mnemonicParsing="false" onAction="#addProduct" prefHeight="39.0" prefWidth="177.0" styleClass="sidebar-button" />
+                  <Button layoutX="13.0" layoutY="241.0" mnemonicParsing="false" onAction="#addProduct" prefHeight="39.0" prefWidth="177.0" styleClass="sidebar-button" />
+                  <Button layoutX="13.0" layoutY="325.0" mnemonicParsing="false" onAction="#addProduct" prefHeight="39.0" prefWidth="177.0" styleClass="sidebar-button" />
                     </children>
                 </AnchorPane>
 
@@ -29,7 +30,7 @@
                 <AnchorPane fx:id="contentPane" layoutX="212.8" layoutY="48.0" prefHeight="526.0" prefWidth="694.0" styleClass="main-content" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="213.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="48.0">
                     <children>
                         <!-- Employee Information -->
-                        <Label fx:id="lblTitle" layoutX="20.0" layoutY="20.0" styleClass="title-label" text="Thông tin nhân viên" />
+                        <Label layoutX="20.0" layoutY="20.0" styleClass="title-label" text="Thông tin nhân viên" />
                         <Label layoutX="50.0" layoutY="80.0" text="Tên nhân viên:" />
                         <Label fx:id="lblEmployeeName" layoutX="180.0" layoutY="80.0" text="--" />
                         <Label layoutX="50.0" layoutY="120.0" text="Chức vụ:" />
@@ -62,7 +63,7 @@
       
                           <!-- Update Button -->
                           <Button fx:id="btnUpdateInfo" layoutX="80.0" layoutY="230.0" mnemonicParsing="false" onAction="#updateEmployeeInfo" prefHeight="30.0" prefWidth="160.0" text="Cập nhật thông tin" />
-                        <Label fx:id="lblTitle1" alignment="CENTER" layoutX="56.0" layoutY="-1.0" styleClass="title-label" text="Cập nhật thông tin" />
+                        <Label alignment="CENTER" layoutX="56.0" layoutY="-1.0" styleClass="title-label" text="Cập nhật thông tin" />
                       </children>
                   </AnchorPane>
                     </children>

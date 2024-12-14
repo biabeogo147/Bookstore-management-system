@@ -28,6 +28,9 @@ public class OrderHistoryController implements Initializable {
     private Button btnBackToCart;
 
     @FXML
+    private TableColumn<?, ?> colAddress;
+
+    @FXML
     private TableColumn<?, ?> colOrderDate;
 
     @FXML
@@ -35,6 +38,9 @@ public class OrderHistoryController implements Initializable {
 
     @FXML
     private TableColumn<?, ?> colOrderItems;
+
+    @FXML
+    private TableColumn<?, ?> colOrderStatus;
 
     @FXML
     private TableColumn<?, ?> colOrderTotal;
@@ -89,12 +95,13 @@ public class OrderHistoryController implements Initializable {
         }
     }
 
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         colOrderID.setCellValueFactory(new PropertyValueFactory<>("id"));
         colOrderItems.setCellValueFactory(new PropertyValueFactory<>("items"));
         colOrderTotal.setCellValueFactory(new PropertyValueFactory<>("totalPrice"));
         colOrderDate.setCellValueFactory(new PropertyValueFactory<>("orderDate"));
+        colOrderStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
+        colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
     }
 }

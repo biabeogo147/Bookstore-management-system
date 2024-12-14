@@ -356,7 +356,11 @@ public class BookstoreController implements Initializable {
                                 ivBookImage.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream(imagePath))));
                                 lblBookName.setText(selectedProduct.getName());
                                 lblBookPrice.setText(selectedProduct.getPrice().toString());
-                                taProductDescription.setText(selectedProduct.getDescription());
+                                if (selectedProduct.getDescription() != null) {
+                                    taProductDescription.setText(selectedProduct.getDescription() + '\n' + selectedProduct.toString());
+                                } else {
+                                    taProductDescription.setText(selectedProduct.toString());
+                                }
                             } else {
                                 ivBookImage.setImage(null);
                                 lblBookName.setText("");

@@ -11,12 +11,11 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-
-<StackPane prefHeight="347.0" prefWidth="655.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vn.hust.bookstore.controller.AddEmployeeController">
+<StackPane fx:id="mainForm" prefHeight="347.0" prefWidth="655.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vn.hust.bookstore.controller.AddEmployeeController">
    <children>
       <AnchorPane prefHeight="347.0" prefWidth="655.0">
          <children>
-              <AnchorPane layoutX="6.0" prefHeight="46.0" prefWidth="644.0">
+              <AnchorPane layoutX="-5.0" prefHeight="46.0" prefWidth="661.0">
                   <children>
                       <FontAwesomeIcon glyphName="BOOK" layoutX="14.0" layoutY="39.0" size="3em" wrappingWidth="13.542851448059082" />
                       <Label layoutX="55.0" layoutY="10.0" text="Book Store">

@@ -7,6 +7,7 @@ module vn.hust.bookstore {
     requires static lombok;
     requires org.hibernate.orm.core;
     requires java.naming;
+    requires java.desktop;
 
 
     opens vn.hust.bookstore.controller to javafx.fxml;

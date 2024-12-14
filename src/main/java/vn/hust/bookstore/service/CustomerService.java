@@ -63,8 +63,8 @@ public class CustomerService {
             order.setCustomer(customer);
             order.setItems(new ArrayList<>(new HashSet<>(customer.getCart())));
             order.setTotalPrice(customer.getCart().stream().mapToDouble(Product::getPrice).sum());
-            //order.setStatus("Pending");
-            //order.setPaymentMethod("Cash");
+            order.setStatus("Pending");
+            order.setPaymentMethod("Cash");
             //order.setPaymentDate(new java.sql.Date(System.currentTimeMillis()));
             order.setOrderDate(new java.sql.Date(System.currentTimeMillis()));
             session.persist(order);

@@ -94,6 +94,14 @@ public class CartController implements Initializable {
         if (customer.getCart().isEmpty()) {
             return;
         }
+        if (txtShippingAddress.getText().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Vui lòng nhập địa chỉ giao hàng");
+            alert.showAndWait();
+            return;
+        }
+        System.out.println(txtShippingAddress.getText());
         customerService.addOrder(customer, txtShippingAddress.getText());
         clearCart();
     }

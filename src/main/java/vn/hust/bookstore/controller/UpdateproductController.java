@@ -32,9 +32,6 @@ public class UpdateproductController {
     private boolean isAddingNewProduct;
     private File selectedFile;
     private StockManager stockManager;
-    private Parent root;
-    private double x;
-    private double y;
 
     @FXML
     private AnchorPane bookPane;

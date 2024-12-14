@@ -34,4 +34,9 @@ public class Order {
     private Date orderDate;
     private String paymentMethod;
     private Date paymentDate;
+    private boolean paid;
+
+    public String getCustomerName() {
+        return customer != null ? customer.getFirstName() + " " + customer.getLastName() : "";
+    }
 }
