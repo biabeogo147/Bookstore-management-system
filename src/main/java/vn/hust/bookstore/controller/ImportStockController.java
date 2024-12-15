@@ -4,13 +4,34 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
+import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.control.*;
+import javafx.stage.Stage;
+import vn.hust.bookstore.entity.BatchRecord;
+import vn.hust.bookstore.entity.Product;
+import vn.hust.bookstore.entity.StockManager;
+import vn.hust.bookstore.service.BatchRecordService;
+import vn.hust.bookstore.service.ProductService;
 
-public class ImportStockController {
+import java.net.URL;
+import java.util.List;
+import java.util.Optional;
+import java.util.ResourceBundle;
+import java.util.stream.Collectors;
+
+public class ImportStockController implements Initializable {
+
+    private ProductService productService = new ProductService();
+    private BatchRecordService batchRecordService = new BatchRecordService();
+
+    private StockManager stockManager;
+
+    @FXML
+    private Button btnClose;
+
+    @FXML
+    private Button btnSubmit;
 
     @FXML
     private ComboBox<String> cbProductName;
@@ -21,78 +42,82 @@ public class ImportStockController {
     @FXML
     private TextField tfAddQuantity;
 
-    public void closeWindow(ActionEvent actionEvent) {
+    @FXML
+    private TextField tfInPrice;
+
+
+    private void loadProductIntoComboBox() {
+        List<Product> products = productService.getAllProducts();
+        List<String> productNames = products.stream()
+                .map(Product::getName)
+                .collect(Collectors.toList());
+        cbProductName.getItems().setAll(productNames);
     }
 
-    public void minimizeWindow(ActionEvent actionEvent) {
+    private void loadExistingProductData(Product product) {
+        lblCurrentQuantity.setText(String.valueOf(product.getQuantity()));
     }
 
-    public void handleSubmit(ActionEvent actionEvent) {
-
+    public void closeWindow(ActionEvent event) {
+        Node source = (Node) event.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
     }
 
-    // Code ChatGPT
+    public void handleSubmit() {
+        String selectedProduct = cbProductName.getValue();
+        String addQuantityText = tfAddQuantity.getText();
 
-//    private ObservableList<Product> products;
+        if (selectedProduct == null || addQuantityText.isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Please fill in all fields!");
+            alert.showAndWait();
+            return;
+        }
 
-//    @FXML
-//    public void initialize() {
-//        // Load product list
-//        products = FXCollections.observableArrayList(
-//                new Product("Book1", 10),
-//                new Product("Stationery1", 5),
-//                new Product("Toy1", 20)
-//        );
-//
-//        // Populate ComboBox
-//        for (Product product : products) {
-//            cbProductName.getItems().add(product.getName());
-//        }
-//
-//        // Handle product selection
-//        cbProductName.setOnAction(event -> {
-//            String selectedProduct = cbProductName.getValue();
-//            if (selectedProduct != null) {
-//                Product product = findProductByName(selectedProduct);
-//                if (product != null) {
-//                    lblCurrentQuantity.setText(String.valueOf(product.getQuantity()));
-//                }
-//            }
-//        });
-//    }
-//
-//    @FXML
-//    public void handleSubmit() {
-//        String selectedProduct = cbProductName.getValue();
-//        String addQuantityText = tfAddQuantity.getText();
-//
-//        if (selectedProduct == null || addQuantityText.isEmpty()) {
-//            showAlert(AlertType.ERROR, "Lỗi", "Vui lòng chọn sản phẩm và nhập số lượng!");
-//            return;
-//        }
-//
-//        try {
-//            int addQuantity = Integer.parseInt(addQuantityText);
-//            Product product = findProductByName(selectedProduct);
-//
-//            if (product != null) {
-//                product.setQuantity(product.getQuantity() + addQuantity);
-//                lblCurrentQuantity.setText(String.valueOf(product.getQuantity()));
-//                showAlert(AlertType.INFORMATION, "Thành công", "Số lượng đã được cập nhật!");
-//            }
-//        } catch (NumberFormatException e) {
-//            showAlert(AlertType.ERROR, "Lỗi", "Vui lòng nhập số lượng hợp lệ!");
-//        }
-//    }
-//
-//    private Product findProductByName(String name) {
-//        return products.stream().filter(p -> p.getName().equals(name)).findFirst().orElse(null);
-//    }
-//
-//    private void showAlert(AlertType type, String title, String content) {
-//        Alert alert = new Alert(type);
-//        alert.setTitle(title);
-//        alert.setContentText(content);
-//        alert.showAndWait();
-//    }
+        try {
+            Long addQuantity = Long.parseLong(addQuantityText);
+            Optional<Product> product = productService.getProduct(selectedProduct);
+
+            if (product.isPresent()) {
+                Product p = product.get();
+                p.setQuantity(p.getQuantity() + addQuantity);
+                productService.updateProduct(p);
+
+                lblCurrentQuantity.setText(String.valueOf(p.getQuantity()));
+
+                BatchRecord batchRecord = new BatchRecord();
+                batchRecord.setProduct(p);
+                batchRecord.setInQuantity(addQuantity);
+                batchRecord.setInPrice(Double.parseDouble(tfInPrice.getText()));
+                batchRecord.setInDate(new java.sql.Date(System.currentTimeMillis()));
+                batchRecordService.addBatchRecord(batchRecord);
+            }
+        } catch (NumberFormatException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Invalid quantity!");
+            alert.showAndWait();
+        }
+    }
+
+    public void setStockManager(StockManager stockManager) {
+        this.stockManager = stockManager;
+    }
+
+    @FXML
+    public void handleProductSelection() {
+        String selectedProduct = cbProductName.getValue();;
+        Optional<Product> productOptional = productService.getProduct(selectedProduct);
+        if (productOptional.isPresent()) {
+            Product product = productOptional.get();
+            loadExistingProductData(product);
+        }
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        loadProductIntoComboBox();
+    }
 }

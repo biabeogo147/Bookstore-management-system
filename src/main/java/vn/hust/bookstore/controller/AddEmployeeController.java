@@ -4,22 +4,23 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import vn.hust.bookstore.entity.Admin;
 import vn.hust.bookstore.entity.Cashier;
+import vn.hust.bookstore.entity.Employee;
 import vn.hust.bookstore.entity.StockManager;
 import vn.hust.bookstore.service.AccountService;
 
 import java.net.URL;
+import java.sql.Date;
 import java.util.ResourceBundle;
 
 public class AddEmployeeController implements Initializable {
 
-    public AccountService accountService = new AccountService();
+    private AccountService accountService = new AccountService();
 
     private Admin admin;
 
@@ -36,24 +37,52 @@ public class AddEmployeeController implements Initializable {
     private ComboBox<?> cbEmployeeRole;
 
     @FXML
+    private StackPane mainPane;
+
+    @FXML
+    private TextField tfEmail;
+
+    @FXML
     private TextField tfEmployeeName;
 
     @FXML
     private TextField tfHourlyWage;
 
     @FXML
-    private AnchorPane mainPane;
+    private TextField tfPassword;
+
+    @FXML
+    private TextField tfPhone;
+
+    private void setCommonProperties(Employee employee) {
+        employee.setFirstName(tfEmployeeName.getText());
+        employee.setWorkingHours(0L);
+        employee.setLeaveHours(0L);
+        employee.setSalary(0.0);
+        employee.setHourlyWage(Double.parseDouble(tfHourlyWage.getText()));
+        employee.setEmail(tfEmail.getText());
+        employee.setPhone(tfPhone.getText());
+        employee.setPassword(tfPassword.getText());
+        employee.setStatus(1L);
+        employee.setTimeCreated(new Date(System.currentTimeMillis()));
+    }
 
     public void addEmployee() {
-        if (cbEmployeeRole.getValue().equals("Cashier")) {
+        if (accountService.getAccount(tfEmail.getText()) != null || accountService.getAccount(tfPhone.getText()) != null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Email or phone number already exists");
+            alert.showAndWait();
+            return;
+        }
+        String role = cbEmployeeRole.getValue().toString();
+        if (role.equals("Cashier")) {
             Cashier cashier = new Cashier();
-            cashier.setFirstName(tfEmployeeName.getText());
-            cashier.setHourlyWage(Double.parseDouble(tfHourlyWage.getText()));
+            setCommonProperties(cashier);
             accountService.addAccount(cashier);
-        } else if (cbEmployeeRole.getValue().equals("Stock Manager")) {
+        } else if (role.equals("Stock Manager")) {
             StockManager stockManager = new StockManager();
-            stockManager.setFirstName(tfEmployeeName.getText());
-            stockManager.setHourlyWage(Double.parseDouble(tfHourlyWage.getText()));
+            setCommonProperties(stockManager);
             accountService.addAccount(stockManager);
         }
     }
@@ -75,6 +104,5 @@ public class AddEmployeeController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
     }
 }

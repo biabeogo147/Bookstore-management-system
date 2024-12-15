@@ -20,9 +20,7 @@
                         <Label layoutX="32.0" layoutY="20.0" styleClass="sidebar-title" text="Employee Menu" />
                         <Button fx:id="btnViewOrders" layoutX="12.0" layoutY="80.0" mnemonicParsing="false" onAction="#viewOrders" styleClass="sidebar-button" text="Xem danh sách đơn hàng" />
                         <Button fx:id="btnAddProduct" layoutX="11.0" layoutY="80.0" mnemonicParsing="false" onAction="#addProduct" prefHeight="39.0" prefWidth="178.0" styleClass="sidebar-button" text="Thêm sản phẩm" />
-                  <Button layoutX="12.0" layoutY="161.0" mnemonicParsing="false" onAction="#addProduct" prefHeight="39.0" prefWidth="177.0" styleClass="sidebar-button" />
-                  <Button layoutX="13.0" layoutY="241.0" mnemonicParsing="false" onAction="#addProduct" prefHeight="39.0" prefWidth="177.0" styleClass="sidebar-button" />
-                  <Button layoutX="13.0" layoutY="325.0" mnemonicParsing="false" onAction="#addProduct" prefHeight="39.0" prefWidth="177.0" styleClass="sidebar-button" />
+                  <Button fx:id="btnImportStock" layoutX="12.0" layoutY="161.0" mnemonicParsing="false" onAction="#importStock" prefHeight="39.0" prefWidth="177.0" styleClass="sidebar-button" text="Nhập kho" />
                     </children>
                 </AnchorPane>
 

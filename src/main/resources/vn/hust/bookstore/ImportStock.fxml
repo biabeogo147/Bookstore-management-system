@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
 
-<StackPane prefHeight="304.0" prefWidth="600.0" stylesheets="@./importstock.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vn.hust.bookstore.controller.ImportStockController">
+<StackPane prefHeight="348.0" prefWidth="637.0" stylesheets="@./importstock.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vn.hust.bookstore.controller.ImportStockController">
     <children>
-        <AnchorPane prefHeight="400.0" prefWidth="600.0">
+        <AnchorPane prefHeight="400.0" prefWidth="627.0">
             <children>
                 <!-- Header Section -->
                 <Label layoutX="20.0" layoutY="20.0" style="-fx-font-size: 24px;" text="Nhập hàng vào kho" />
@@ -22,15 +22,10 @@
                         <FontAwesomeIcon glyphName="CLOSE" size="1.5em" />
                     </graphic>
                 </Button>
-                <Button fx:id="btnMinimize" layoutX="520.0" layoutY="10.0" mnemonicParsing="false" onAction="#minimizeWindow" textAlignment="JUSTIFY">
-                    <graphic>
-                        <FontAwesomeIcon glyphName="MINUS" size="1.5em" />
-                    </graphic>
-                </Button>
 
                 <!-- Product Selection -->
                 <Label layoutX="20.0" layoutY="80.0" text="Tên sản phẩm:" />
-                <ComboBox fx:id="cbProductName" layoutX="176.0" layoutY="70.0" prefHeight="30.0" prefWidth="400.0" promptText="Chọn sản phẩm">
+                <ComboBox fx:id="cbProductName" layoutX="176.0" layoutY="70.0" onAction="#handleProductSelection" prefHeight="30.0" prefWidth="400.0" promptText="Chọn sản phẩm">
                     <items>
                         <FXCollections fx:factory="observableArrayList">
                             <!-- Sẽ load danh sách sản phẩm từ controller -->
@@ -47,7 +42,8 @@
                 <TextField fx:id="tfAddQuantity" layoutX="176.0" layoutY="174.0" prefHeight="30.0" prefWidth="400.0" promptText="Nhập số lượng cần thêm" />
 
                 <!-- Submit Button -->
-                <Button fx:id="btnSubmit" layoutX="451.0" layoutY="238.0" mnemonicParsing="false" onAction="#handleSubmit" styleClass="action-button" text="Nhập hàng" />
+                <Button fx:id="btnSubmit" layoutX="506.0" layoutY="284.0" mnemonicParsing="false" onAction="#handleSubmit" styleClass="action-button" text="Nhập hàng" />
+            <TextField fx:id="tfInPrice" layoutX="169.0" layoutY="238.0" prefHeight="30.0" prefWidth="400.0" promptText="Nhập giá đầu vào" />
             </children>
         </AnchorPane>
     </children>

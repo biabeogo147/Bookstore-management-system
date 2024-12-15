@@ -90,15 +90,15 @@
                     <TextField fx:id="tfToyAgeGroup" layoutX="140.0" layoutY="50.0" prefHeight="30.0" prefWidth="400.0" />
                 </AnchorPane>
 
-                <!-- Product Image Section -->
-                <Button fx:id="btnUploadImage" layoutX="20.0" layoutY="584.0" mnemonicParsing="false" onAction="#chooseImage" text="Chọn ảnh" />
-
                 <!-- Image Preview with Border -->
                 <AnchorPane fx:id="imagePane" layoutX="160.0" layoutY="552.0" prefHeight="100.0" prefWidth="150.0" styleClass="image-pane">
                <children>
                   <ImageView fx:id="ivChoosePicture" fitHeight="100.0" fitWidth="205.0" pickOnBounds="true" smooth="false" />
                </children>
                 </AnchorPane>
+      
+                <!-- Product Image Section -->
+                <Button fx:id="btnUploadImage" layoutX="20.0" layoutY="584.0" mnemonicParsing="false" onAction="#chooseImage" text="Chọn ảnh" />
 
                 <!-- Add/Update Product Button -->
                 <Button fx:id="btnUpdateProduct" layoutX="400.0" layoutY="584.0" mnemonicParsing="false" onAction="#handleUpdateOrAddProduct" text="Cập nhật sản phẩm" />

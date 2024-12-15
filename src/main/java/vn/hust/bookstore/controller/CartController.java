@@ -17,6 +17,7 @@ import javafx.stage.StageStyle;
 import vn.hust.bookstore.entity.Customer;
 import vn.hust.bookstore.entity.Product;
 import vn.hust.bookstore.service.CustomerService;
+import vn.hust.bookstore.service.ProductService;
 
 import java.io.IOException;
 import java.net.URL;
@@ -24,7 +25,8 @@ import java.util.ResourceBundle;
 
 public class CartController implements Initializable {
 
-    public CustomerService customerService = new CustomerService();
+    private CustomerService customerService = new CustomerService();
+    private ProductService productService = new ProductService();
 
     private Customer customer;
     private Parent root;
@@ -103,6 +105,10 @@ public class CartController implements Initializable {
         }
         System.out.println(txtShippingAddress.getText());
         customerService.addOrder(customer, txtShippingAddress.getText());
+        for (Product product : customer.getCart()) {
+            product.setQuantity(product.getQuantity() - 1);
+            productService.updateProduct(product);
+        }
         clearCart();
     }
 

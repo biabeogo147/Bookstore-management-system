@@ -43,7 +43,7 @@
                             <TableColumn fx:id="colStatus" prefWidth="80.0" text="Trạng thái" />
             
                             <!-- Paid (CheckBox) -->
-                            <TableColumn fx:id="colPaid" prefWidth="108.0" text="Đã thanh toán" />
+                            <TableColumn fx:id="colPaid" prefWidth="112.0" text="Đã thanh toán" />
                         </columns>
                     </TableView>
             
@@ -59,14 +59,9 @@
                         <Font size="19.0" />
                      </font>
                   </Label>
-                  <Button fx:id="btnClose" styleClass="button" layoutX="931.0" layoutY="9.0" mnemonicParsing="false" onAction="#close" textAlignment="JUSTIFY" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="9.0">
+                  <Button fx:id="btnClose" layoutX="931.0" layoutY="9.0" mnemonicParsing="false" onAction="#close" styleClass="button" textAlignment="JUSTIFY" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="9.0">
                      <graphic>
                         <FontAwesomeIcon glyphName="CLOSE" selectionStart="30" textAlignment="CENTER" wrappingWidth="23.199771881103516" />
-                     </graphic>
-                  </Button>
-                  <Button fx:id="btnMinimize" styleClass="action-button" layoutX="836.0" layoutY="9.0" mnemonicParsing="false" onAction="#minimize" textAlignment="JUSTIFY" AnchorPane.rightAnchor="79.19999999999993" AnchorPane.topAnchor="9.0">
-                     <graphic>
-                        <FontAwesomeIcon glyphName="MINUS" selectionStart="30" textAlignment="CENTER" wrappingWidth="23.199771881103516" />
                      </graphic>
                   </Button>
                </children>

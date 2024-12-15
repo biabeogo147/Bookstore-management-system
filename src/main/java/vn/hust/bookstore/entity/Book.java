@@ -12,7 +12,6 @@ import java.sql.Date;
 @Setter
 @DiscriminatorValue("book")
 public class Book extends Product {
-    private String title;
     private String author;
     private String publisher;
     private String genre;
@@ -21,8 +20,7 @@ public class Book extends Product {
     @Override
     public String toString() {
         return "Book{" +
-                "title='" + title + '\'' +
-                ", author='" + author + '\'' +
+                "author='" + author + '\'' +
                 ", publisher='" + publisher + '\'' +
                 ", genre='" + genre + '\'' +
                 ", publicationDate=" + publicationDate +

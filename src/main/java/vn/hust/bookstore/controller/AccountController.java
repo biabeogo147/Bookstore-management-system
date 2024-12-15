@@ -23,7 +23,7 @@ import java.util.ResourceBundle;
 
 public class AccountController implements Initializable {
 
-    public AccountService accountService = new AccountService();
+    private AccountService accountService = new AccountService();
     private Customer customer;
     private Parent root;
     private double x;

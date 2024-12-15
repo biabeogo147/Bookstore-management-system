@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane prefHeight="511.0" prefWidth="655.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vn.hust.bookstore.controller.AddEmployeeController">
+<StackPane fx:id="mainPane" prefHeight="511.0" prefWidth="655.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vn.hust.bookstore.controller.AddEmployeeController">
    <children>
       <AnchorPane prefHeight="347.0" prefWidth="655.0">
          <children>
@@ -63,8 +63,8 @@
                     <Button fx:id="btnAddEmployee" layoutX="309.0" layoutY="411.0" mnemonicParsing="false" onAction="#addEmployee" prefHeight="40.0" prefWidth="150.0" styleClass="action-button" text="Thêm nhân viên" />
                   <Label layoutX="20.0" layoutY="179.0" text="Email" />
                   <TextField fx:id="tfEmail" layoutX="184.0" layoutY="168.0" prefHeight="42.4" prefWidth="400.0" />
-                  <Label fx:id="tfPhone" layoutX="20.0" layoutY="235.0" text="Số điện thoại" />
-                  <TextField fx:id="tfEmail1" layoutX="184.0" layoutY="224.0" prefHeight="42.4" prefWidth="400.0" />
+                  <Label layoutX="20.0" layoutY="235.0" text="Số điện thoại" />
+                  <TextField fx:id="tfPhone" layoutX="184.0" layoutY="224.0" prefHeight="42.4" prefWidth="400.0" />
                   <Label layoutX="20.0" layoutY="296.0" text="Mật khẩu" />
                   <TextField fx:id="tfPassword" layoutX="184.0" layoutY="285.0" prefHeight="42.4" prefWidth="400.0" />
                 </children>
