@@ -14,7 +14,7 @@
 
 <StackPane stylesheets="@updateproduct.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vn.hust.bookstore.controller.UpdateproductController">
     <children>
-        <AnchorPane prefHeight="600.0" prefWidth="600.0">
+        <AnchorPane prefHeight="673.0" prefWidth="600.0">
             <children>
                 <!-- Header Section -->
                 <Label layoutX="20.0" layoutY="20.0" style="-fx-font-size: 24px;" text="Cập nhật sản phẩm" />
@@ -59,15 +59,17 @@
                 <TextField fx:id="tfProductDescription" layoutX="160.0" layoutY="224.0" prefWidth="400.0" />
 
                 <!-- Book-specific Fields -->
-                <AnchorPane fx:id="bookPane" layoutX="20.0" layoutY="320.0" prefWidth="540.0" visible="false">
-                    <Label layoutY="18.0" text="Nhà xuất bản:" />
-                    <TextField fx:id="tfBookPublisher" layoutX="140.0" layoutY="12.0" prefWidth="400.0" />
+                <AnchorPane fx:id="bookPane" layoutX="17.0" layoutY="324.0" prefHeight="206.0" prefWidth="540.0" visible="false">
+                    <Label layoutY="109.0" text="Nhà xuất bản:" />
+                    <TextField fx:id="tfBookPublisher" layoutX="146.0" layoutY="103.0" prefWidth="400.0" />
 
-                    <Label layoutY="68.0" text="Thể loại:" />
-                    <TextField fx:id="tfBookGenre" layoutX="140.0" layoutY="64.0" prefWidth="400.0" />
+                    <Label layoutY="57.0" text="Thể loại:" />
+                    <TextField fx:id="tfBookGenre" layoutX="146.0" layoutY="51.0" prefWidth="400.0" />
 
-                    <Label layoutX="2.0" layoutY="120.0" text="Ngày xuất bản:" />
-               <DatePicker fx:id="tfBookPublicationDate" layoutX="140.0" layoutY="110.0" prefHeight="30.0" prefWidth="400.0" />
+                    <Label layoutX="1.0" layoutY="162.0" text="Ngày xuất bản:" />
+               <DatePicker fx:id="tfBookPublicationDate" layoutX="146.0" layoutY="156.0" prefHeight="30.0" prefWidth="400.0" />
+               <Label layoutY="4.0" text="Tác giả" />
+               <TextField fx:id="tfBookAuthors" layoutX="146.0" layoutY="-2.0" prefWidth="400.0" />
                 </AnchorPane>
 
                 <!-- Stationery-specific Fields (Initially Hidden) -->
@@ -89,17 +91,17 @@
                 </AnchorPane>
 
                 <!-- Product Image Section -->
-                <Button fx:id="btnUploadImage" layoutX="20.0" layoutY="513.0" mnemonicParsing="false" onAction="#chooseImage" text="Chọn ảnh" />
+                <Button fx:id="btnUploadImage" layoutX="20.0" layoutY="584.0" mnemonicParsing="false" onAction="#chooseImage" text="Chọn ảnh" />
 
                 <!-- Image Preview with Border -->
-                <AnchorPane fx:id="imagePane" layoutX="160.0" layoutY="480.0" prefHeight="100.0" prefWidth="150.0" styleClass="image-pane">
+                <AnchorPane fx:id="imagePane" layoutX="160.0" layoutY="552.0" prefHeight="100.0" prefWidth="150.0" styleClass="image-pane">
                <children>
                   <ImageView fx:id="ivChoosePicture" fitHeight="100.0" fitWidth="205.0" pickOnBounds="true" smooth="false" />
                </children>
                 </AnchorPane>
 
                 <!-- Add/Update Product Button -->
-                <Button fx:id="btnUpdateProduct" layoutX="400.0" layoutY="518.0" mnemonicParsing="false" onAction="#handleUpdateOrAddProduct" text="Cập nhật sản phẩm" />
+                <Button fx:id="btnUpdateProduct" layoutX="400.0" layoutY="584.0" mnemonicParsing="false" onAction="#handleUpdateOrAddProduct" text="Cập nhật sản phẩm" />
                 <Label layoutX="20.0" layoutY="281.0" text="Số lượng" />
                 <TextField fx:id="tfProductQuantity" editable="false" layoutX="160.0" layoutY="275.0" prefWidth="400.0" />
             </children>

@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
 
-
-<StackPane prefHeight="550.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vn.hust.bookstore.controller.OrderListController">
+<StackPane prefHeight="650.0" prefWidth="1045.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vn.hust.bookstore.controller.OrderListController">
    <children>
-      <AnchorPane prefHeight="512.0" prefWidth="900.0">
+      <AnchorPane prefHeight="647.0" prefWidth="1045.0">
          <children>
-            <AnchorPane prefHeight="599.0" prefWidth="1045.0" stylesheets="@./orderlist.css">
+            <AnchorPane layoutY="58.0" prefHeight="599.0" prefWidth="1045.0" stylesheets="@./orderlist.css">
                 <children>
                     <!-- Header Section -->
                     <Label layoutX="438.0" layoutY="18.0" styleClass="title-label" text="Danh sách đơn hàng" />
@@ -49,6 +50,26 @@
                     <!-- Footer Button -->
                     <Button fx:id="btnRefresh" layoutX="14.0" layoutY="13.0" mnemonicParsing="false" onAction="#refreshOrders" styleClass="action-button" text="Làm mới" />
                 </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="46.0" prefWidth="1045.0" stylesheets="@./orderlist.css">
+               <children>
+                  <FontAwesomeIcon glyphName="BOOK" layoutX="14.0" layoutY="39.0" size="3em" wrappingWidth="13.542851448059082" />
+                  <Label layoutX="55.0" layoutY="10.0" text="Book Store">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="btnClose" styleClass="button" layoutX="931.0" layoutY="9.0" mnemonicParsing="false" onAction="#close" textAlignment="JUSTIFY" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="9.0">
+                     <graphic>
+                        <FontAwesomeIcon glyphName="CLOSE" selectionStart="30" textAlignment="CENTER" wrappingWidth="23.199771881103516" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnMinimize" styleClass="action-button" layoutX="836.0" layoutY="9.0" mnemonicParsing="false" onAction="#minimize" textAlignment="JUSTIFY" AnchorPane.rightAnchor="79.19999999999993" AnchorPane.topAnchor="9.0">
+                     <graphic>
+                        <FontAwesomeIcon glyphName="MINUS" selectionStart="30" textAlignment="CENTER" wrappingWidth="23.199771881103516" />
+                     </graphic>
+                  </Button>
+               </children>
             </AnchorPane>
          </children>
       </AnchorPane>

@@ -34,7 +34,7 @@
     -fx-font-weight: bold;
     -fx-padding: 10px 20px;
     -fx-border-radius: 5px;
-    -fx-background-radius: 5px;
+    -fx-background-radius: 10px;
     -fx-cursor: hand;
 }
 

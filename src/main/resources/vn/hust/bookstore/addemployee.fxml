@@ -11,11 +11,11 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane fx:id="mainForm" prefHeight="347.0" prefWidth="655.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vn.hust.bookstore.controller.AddEmployeeController">
+<StackPane prefHeight="511.0" prefWidth="655.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vn.hust.bookstore.controller.AddEmployeeController">
    <children>
       <AnchorPane prefHeight="347.0" prefWidth="655.0">
          <children>
-              <AnchorPane layoutX="-5.0" prefHeight="46.0" prefWidth="661.0">
+              <AnchorPane layoutX="6.0" prefHeight="46.0" prefWidth="644.0">
                   <children>
                       <FontAwesomeIcon glyphName="BOOK" layoutX="14.0" layoutY="39.0" size="3em" wrappingWidth="13.542851448059082" />
                       <Label layoutX="55.0" layoutY="10.0" text="Book Store">
@@ -35,7 +35,7 @@
                       </Button>
                   </children>
               </AnchorPane>
-            <AnchorPane layoutY="46.0" prefHeight="293.0" prefWidth="655.0" stylesheets="@./addemployee.css">
+            <AnchorPane layoutY="46.0" prefHeight="466.0" prefWidth="655.0" stylesheets="@./addemployee.css">
                 <children>
                     <!-- Title -->
                     <Label layoutX="20.0" layoutY="14.0" styleClass="title-label" text="Thêm nhân viên mới" />
@@ -56,11 +56,17 @@
                     </ComboBox>
             
                     <!-- Hourly Wage -->
-                    <Label layoutX="20.0" layoutY="182.0" text="Lương theo giờ:" />
-                    <TextField fx:id="tfHourlyWage" layoutX="184.0" layoutY="171.0" prefHeight="42.4" prefWidth="400.0" />
+                    <Label layoutX="20.0" layoutY="358.0" text="Lương theo giờ:" />
+                    <TextField fx:id="tfHourlyWage" layoutX="184.0" layoutY="347.0" prefHeight="42.4" prefWidth="400.0" />
             
                     <!-- Buttons -->
-                    <Button fx:id="btnAddEmployee" layoutX="309.0" layoutY="228.0" mnemonicParsing="false" onAction="#addEmployee" prefHeight="40.0" prefWidth="150.0" styleClass="action-button" text="Thêm nhân viên" />
+                    <Button fx:id="btnAddEmployee" layoutX="309.0" layoutY="411.0" mnemonicParsing="false" onAction="#addEmployee" prefHeight="40.0" prefWidth="150.0" styleClass="action-button" text="Thêm nhân viên" />
+                  <Label layoutX="20.0" layoutY="179.0" text="Email" />
+                  <TextField fx:id="tfEmail" layoutX="184.0" layoutY="168.0" prefHeight="42.4" prefWidth="400.0" />
+                  <Label fx:id="tfPhone" layoutX="20.0" layoutY="235.0" text="Số điện thoại" />
+                  <TextField fx:id="tfEmail1" layoutX="184.0" layoutY="224.0" prefHeight="42.4" prefWidth="400.0" />
+                  <Label layoutX="20.0" layoutY="296.0" text="Mật khẩu" />
+                  <TextField fx:id="tfPassword" layoutX="184.0" layoutY="285.0" prefHeight="42.4" prefWidth="400.0" />
                 </children>
             </AnchorPane>
          </children>

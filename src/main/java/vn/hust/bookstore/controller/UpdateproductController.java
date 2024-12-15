@@ -64,6 +64,9 @@ public class UpdateproductController {
     private AnchorPane stationeryPane;
 
     @FXML
+    private TextField tfBookAuthors;
+
+    @FXML
     private TextField tfBookGenre;
 
     @FXML

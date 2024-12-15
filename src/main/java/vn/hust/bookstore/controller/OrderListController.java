@@ -1,5 +1,6 @@
 package vn.hust.bookstore.controller;
 
+<<<<<<< Updated upstream
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -94,5 +95,33 @@ public class OrderListController implements Initializable {
             }
         });
         refreshOrders();
+=======
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.stage.Stage;
+
+public class OrderListController {
+    @FXML
+    private Button btnClose;
+
+    @FXML
+    private Button btnMinimize;
+
+    public void refreshOrders(ActionEvent actionEvent) {
+    }
+
+    public void markAsPaid(ActionEvent actionEvent) {
+        
+    }
+
+    public void minimize() {
+        Stage stage = (Stage) mainForm.getScene().getWindow();
+        stage.setIconified(true);
+    }
+
+    public void close() {
+        System.exit(0);
+>>>>>>> Stashed changes
     }
 }

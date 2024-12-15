@@ -1,0 +1,60 @@
+/* Nền tổng thể */
+.stack-pane {
+    -fx-background-color: linear-gradient(to bottom, #f3e5f5, #e1bee7);
+    -fx-padding: 20px;
+}
+
+/* Tiêu đề chính */
+.label {
+    -fx-font-family: 'Segoe UI', sans-serif;
+    -fx-font-size: 16px;
+    -fx-text-fill: #4a148c;
+}
+
+/* Tiêu đề lớn */
+.label[style="-fx-font-size: 24px;"] {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #6a1b9a;
+    -fx-background-color: #d1c4e9;
+    -fx-padding: 10px;
+    -fx-border-radius: 10px;
+}
+
+/* ComboBox */
+.combo-box {
+    -fx-background-color: white;
+    -fx-border-color: #6a1b9a;
+    -fx-border-radius: 5px;
+    -fx-padding: 5px;
+    -fx-font-size: 14px;
+    -fx-font-family: 'Segoe UI', sans-serif;
+}
+
+/* TextField */
+.text-field {
+    -fx-background-color: white;
+    -fx-border-color: #6a1b9a;
+    -fx-border-radius: 5px;
+    -fx-padding: 5px;
+    -fx-font-size: 14px;
+}
+
+/* Button */
+.action-button {
+    -fx-background-color: #ab47bc;
+    -fx-text-fill: white;
+    -fx-font-family: 'Segoe UI', sans-serif;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+}
+
+.action-button:hover {
+    -fx-background-color: #9c27b0;
+}
+
+.action-button:pressed {
+    -fx-background-color: #6a1b9a;
+}
