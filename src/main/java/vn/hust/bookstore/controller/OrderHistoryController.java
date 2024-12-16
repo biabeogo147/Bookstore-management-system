@@ -24,6 +24,11 @@ import java.util.ResourceBundle;
 
 public class OrderHistoryController implements Initializable {
 
+    private Customer customer;
+    private Parent root;
+    private double x;
+    private double y;
+
     @FXML
     private Button btnBackToCart;
 
@@ -50,11 +55,6 @@ public class OrderHistoryController implements Initializable {
 
     @FXML
     private TableView<Order> orderTable;
-
-    private Customer customer;
-    private Parent root;
-    private double x;
-    private double y;
 
     public void goBackToCart() throws IOException {
         mainForm.getScene().getWindow().hide();

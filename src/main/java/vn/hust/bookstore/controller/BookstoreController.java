@@ -158,36 +158,23 @@ public class BookstoreController implements Initializable {
     @FXML
     private TextArea taProductDescription;
 
-    private void addProduct() {
-        for (int i = 1; i <= 6; i++) {
-            switch (i % 3) {
-                case 0:
-                    Book book = new Book();
-                    book.setName("Book " + i);
-                    book.setPrice((double) i * 1000);
-                    book.setGenre("Genre " + i);
-                    book.setAuthor("Author " + i);
-                    book.setPublisher("Publisher " + i);
-                    book.setPublicationDate(new Date(System.currentTimeMillis()));
-                    productService.addProduct(book);
-                    break;
-                case 1:
-                    Toy toy = new Toy();
-                    toy.setName("Toy " + i);
-                    toy.setPrice((double) i * 1000);
-                    toy.setBrand("Brand " + i);
-                    toy.setAgeGroup("Age Group " + i);
-                    productService.addProduct(toy);
-                    break;
-                case 2:
-                    Stationery stationery = new Stationery();
-                    stationery.setName("Stationery " + i);
-                    stationery.setPrice((double) i * 1000);
-                    stationery.setBrand("Brand " + i);
-                    stationery.setType("Type " + i);
-                    productService.addProduct(stationery);
-                    break;
+    private void handleProductClick(int index) {
+        Product selectedProduct = productService.getProduct((long) index).orElse(null);
+        if (selectedProduct != null) {
+            String imagePath = "/images/" + selectedProduct.getImage();
+            ivBookImage.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream(imagePath))));
+            lblBookName.setText(selectedProduct.getName());
+            lblBookPrice.setText(selectedProduct.getPrice().toString());
+            if (selectedProduct.getDescription() != null) {
+                taProductDescription.setText(selectedProduct.getDescription() + '\n' + selectedProduct);
+            } else {
+                taProductDescription.setText(selectedProduct.toString());
             }
+        } else {
+            ivBookImage.setImage(null);
+            lblBookName.setText("");
+            lblBookPrice.setText("");
+            taProductDescription.setText("");
         }
     }
 
@@ -292,7 +279,6 @@ public class BookstoreController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //addProduct();
         ImageView[] imageViews = {
                 ivBook1,
                 ivBook2,
@@ -345,29 +331,12 @@ public class BookstoreController implements Initializable {
                     int productIndex = start + j;
                     Optional<Product> product = productService.getProduct((long) productIndex);
                     if (product.isPresent()) {
-                        int index = j;
-                        nameLabels[j].setText(product.get().getName());
-                        String imagePath = "/images/" + (productIndex) + ".png";
-                        priceLabels[j].setText(product.get().getPrice().toString());
+                        Product currentProduct = product.get();
+                        nameLabels[j].setText(currentProduct.getName());
+                        String imagePath = "/images/" + currentProduct.getImage();
+                        priceLabels[j].setText(currentProduct.getPrice().toString());
                         imageViews[j].setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream(imagePath))));
-                        vBoxes[j].setOnMouseClicked(vbEvent -> {
-                            Product selectedProduct = productService.getProduct((long) (start + index)).orElse(null);
-                            if (selectedProduct != null) {
-                                ivBookImage.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream(imagePath))));
-                                lblBookName.setText(selectedProduct.getName());
-                                lblBookPrice.setText(selectedProduct.getPrice().toString());
-                                if (selectedProduct.getDescription() != null) {
-                                    taProductDescription.setText(selectedProduct.getDescription() + '\n' + selectedProduct.toString());
-                                } else {
-                                    taProductDescription.setText(selectedProduct.toString());
-                                }
-                            } else {
-                                ivBookImage.setImage(null);
-                                lblBookName.setText("");
-                                lblBookPrice.setText("");
-                                taProductDescription.setText("");
-                            }
-                        });
+                        vBoxes[j].setOnMouseClicked(vbEvent -> handleProductClick(productIndex));
                     } else {
                         nameLabels[j].setText("");
                         priceLabels[j].setText("");

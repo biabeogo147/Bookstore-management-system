@@ -63,32 +63,6 @@ public class AdminController implements Initializable {
     @FXML
     private NumberAxis profitYAxis;
 
-    private void addCashier() {
-        Cashier cashier = new Cashier();
-        cashier.setFirstName("Cashier");
-        cashier.setLastName("1");
-        cashier.setEmail("cashier@gmail.com");
-        cashier.setPhone("111");
-        cashier.setPassword("c");
-        cashier.setMale(true);
-        cashier.setStatus(1L);
-        cashier.setTimeCreated(new Date(System.currentTimeMillis()));
-        accountService.addAccount(cashier);
-    }
-
-    private void addStockManager() {
-        StockManager stockManager = new StockManager();
-        stockManager.setFirstName("Stock Manager");
-        stockManager.setLastName("1");
-        stockManager.setEmail("stockmanager@gmail.com");
-        stockManager.setPhone("222");
-        stockManager.setPassword("s");
-        stockManager.setMale(true);
-        stockManager.setStatus(1L);
-        stockManager.setTimeCreated(new Date(System.currentTimeMillis()));
-        accountService.addAccount(stockManager);
-    }
-
     public void setAdmin(Admin admin) {
         this.admin = admin;
     }
@@ -130,7 +104,5 @@ public class AdminController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //addCashier();
-        //addStockManager();
     }
 }

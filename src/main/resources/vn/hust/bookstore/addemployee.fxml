@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane fx:id="mainPane" prefHeight="511.0" prefWidth="655.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vn.hust.bookstore.controller.AddEmployeeController">
+<StackPane fx:id="mainPane" prefHeight="575.0" prefWidth="655.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vn.hust.bookstore.controller.AddEmployeeController">
    <children>
       <AnchorPane prefHeight="347.0" prefWidth="655.0">
          <children>
@@ -35,18 +35,18 @@
                       </Button>
                   </children>
               </AnchorPane>
-            <AnchorPane layoutY="46.0" prefHeight="466.0" prefWidth="655.0" stylesheets="@./addemployee.css">
+            <AnchorPane layoutY="46.0" prefHeight="538.0" prefWidth="655.0" stylesheets="@./addemployee.css">
                 <children>
                     <!-- Title -->
                     <Label layoutX="20.0" layoutY="14.0" styleClass="title-label" text="Thêm nhân viên mới" />
             
                     <!-- Employee Name -->
-                    <Label layoutX="20.0" layoutY="63.0" text="Tên nhân viên:" />
-                    <TextField fx:id="tfEmployeeName" layoutX="184.0" layoutY="52.0" prefHeight="42.4" prefWidth="400.0" />
+                    <Label layoutX="20.0" layoutY="63.0" text="Họ" />
+                    <TextField fx:id="tfLastName" layoutX="184.0" layoutY="52.0" prefHeight="42.4" prefWidth="400.0" />
             
                     <!-- Role -->
-                    <Label layoutX="20.0" layoutY="122.0" text="Chức vụ:" />
-                    <ComboBox fx:id="cbEmployeeRole" layoutX="184.0" layoutY="111.0" prefHeight="0.0" prefWidth="400.0">
+                    <Label layoutX="20.0" layoutY="180.0" text="Chức vụ:" />
+                    <ComboBox fx:id="cbEmployeeRole" layoutX="184.0" layoutY="169.0" prefHeight="0.0" prefWidth="400.0">
                         <items>
                             <FXCollections fx:factory="observableArrayList">
                                 <String fx:value="Stock Manager" />
@@ -56,17 +56,19 @@
                     </ComboBox>
             
                     <!-- Hourly Wage -->
-                    <Label layoutX="20.0" layoutY="358.0" text="Lương theo giờ:" />
-                    <TextField fx:id="tfHourlyWage" layoutX="184.0" layoutY="347.0" prefHeight="42.4" prefWidth="400.0" />
+                    <Label layoutX="20.0" layoutY="416.0" text="Lương theo giờ:" />
+                    <TextField fx:id="tfHourlyWage" layoutX="184.0" layoutY="405.0" prefHeight="42.4" prefWidth="400.0" />
             
                     <!-- Buttons -->
-                    <Button fx:id="btnAddEmployee" layoutX="309.0" layoutY="411.0" mnemonicParsing="false" onAction="#addEmployee" prefHeight="40.0" prefWidth="150.0" styleClass="action-button" text="Thêm nhân viên" />
-                  <Label layoutX="20.0" layoutY="179.0" text="Email" />
-                  <TextField fx:id="tfEmail" layoutX="184.0" layoutY="168.0" prefHeight="42.4" prefWidth="400.0" />
-                  <Label layoutX="20.0" layoutY="235.0" text="Số điện thoại" />
-                  <TextField fx:id="tfPhone" layoutX="184.0" layoutY="224.0" prefHeight="42.4" prefWidth="400.0" />
-                  <Label layoutX="20.0" layoutY="296.0" text="Mật khẩu" />
-                  <TextField fx:id="tfPassword" layoutX="184.0" layoutY="285.0" prefHeight="42.4" prefWidth="400.0" />
+                    <Button fx:id="btnAddEmployee" layoutX="309.0" layoutY="475.0" mnemonicParsing="false" onAction="#addEmployee" prefHeight="40.0" prefWidth="150.0" styleClass="action-button" text="Thêm nhân viên" />
+                  <Label layoutX="20.0" layoutY="237.0" text="Email" />
+                  <TextField fx:id="tfEmail" layoutX="184.0" layoutY="226.0" prefHeight="42.4" prefWidth="400.0" />
+                  <Label layoutX="20.0" layoutY="293.0" text="Số điện thoại" />
+                  <TextField fx:id="tfPhone" layoutX="184.0" layoutY="282.0" prefHeight="42.4" prefWidth="400.0" />
+                  <Label layoutX="20.0" layoutY="354.0" text="Mật khẩu" />
+                  <TextField fx:id="tfPassword" layoutX="184.0" layoutY="343.0" prefHeight="42.4" prefWidth="400.0" />
+                  <Label layoutX="20.0" layoutY="121.0" text="Tên" />
+                  <TextField fx:id="tfFirstName" layoutX="184.0" layoutY="110.0" prefHeight="42.4" prefWidth="400.0" />
                 </children>
             </AnchorPane>
          </children>

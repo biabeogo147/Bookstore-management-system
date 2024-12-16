@@ -43,10 +43,13 @@ public class AddEmployeeController implements Initializable {
     private TextField tfEmail;
 
     @FXML
-    private TextField tfEmployeeName;
+    private TextField tfFirstName;
 
     @FXML
     private TextField tfHourlyWage;
+
+    @FXML
+    private TextField tfLastName;
 
     @FXML
     private TextField tfPassword;
@@ -55,7 +58,8 @@ public class AddEmployeeController implements Initializable {
     private TextField tfPhone;
 
     private void setCommonProperties(Employee employee) {
-        employee.setFirstName(tfEmployeeName.getText());
+        employee.setFirstName(tfFirstName.getText());
+        employee.setLastName(tfLastName.getText());
         employee.setWorkingHours(0L);
         employee.setLeaveHours(0L);
         employee.setSalary(0.0);
