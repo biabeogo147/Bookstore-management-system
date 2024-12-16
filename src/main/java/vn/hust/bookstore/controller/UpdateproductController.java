@@ -259,7 +259,7 @@ public class UpdateproductController {
             try {
                 Files.copy(selectedFile.toPath(), destFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
                 System.out.println("Image saved to resources/images");
-                product.setImage(destFile.getPath());
+                product.setImage(product.getName() + ".png");
             } catch (IOException e) {
                 e.printStackTrace();
                 System.out.println(e);

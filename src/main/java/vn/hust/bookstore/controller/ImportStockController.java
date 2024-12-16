@@ -45,7 +45,6 @@ public class ImportStockController implements Initializable {
     @FXML
     private TextField tfInPrice;
 
-
     private void loadProductIntoComboBox() {
         List<Product> products = productService.getAllProducts();
         List<String> productNames = products.stream()
