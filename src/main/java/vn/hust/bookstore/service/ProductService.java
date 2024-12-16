@@ -8,7 +8,6 @@ import vn.hust.bookstore.entity.Toy;
 import vn.hust.bookstore.util.HibernateUtil;
 
 import java.util.List;
-import java.util.Optional;
 
 public class ProductService {
     public void addProduct(Product product) {
@@ -24,9 +23,8 @@ public class ProductService {
     public void updateProduct(Product product) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
-            Optional<Product> getProduct = getProduct(product.getName());
-            if (getProduct.isPresent()) {
-                Product existingProduct = getProduct.get();
+            Product existingProduct = getProduct(product.getName());
+            if (existingProduct != null) {
                 existingProduct.setName(product.getName());
                 existingProduct.setPrice(product.getPrice());
                 existingProduct.setQuantity(product.getQuantity());
@@ -59,28 +57,28 @@ public class ProductService {
         }
     }
 
-    public Optional<Product> getProduct(Long id) {
+    public Product getProduct(Long id) {
         Product product = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             product = session.get(Product.class, id);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return Optional.ofNullable(product);
+        return product;
     }
 
-    public Optional<Product> getProduct(String name) {
+    public Product getProduct(String name) {
         Product product = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             product = session.createQuery("from Product where name = :name", Product.class)
                     .setParameter("name", name)
                     .getSingleResult();
         } catch (jakarta.persistence.NoResultException e) {
-            return Optional.empty();
+            return null;
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return Optional.ofNullable(product);
+        return product;
     }
 
     public List<Product> getAllProducts() {

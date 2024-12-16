@@ -77,17 +77,16 @@ public class ImportStockController implements Initializable {
 
         try {
             Long addQuantity = Long.parseLong(addQuantityText);
-            Optional<Product> product = productService.getProduct(selectedProduct);
+            Product product = productService.getProduct(selectedProduct);
 
-            if (product.isPresent()) {
-                Product p = product.get();
-                p.setQuantity(p.getQuantity() + addQuantity);
-                productService.updateProduct(p);
+            if (product != null) {
+                product.setQuantity(product.getQuantity() + addQuantity);
+                productService.updateProduct(product);
 
-                lblCurrentQuantity.setText(String.valueOf(p.getQuantity()));
+                lblCurrentQuantity.setText(String.valueOf(product.getQuantity()));
 
                 BatchRecord batchRecord = new BatchRecord();
-                batchRecord.setProduct(p);
+                batchRecord.setProduct(product);
                 batchRecord.setInQuantity(addQuantity);
                 batchRecord.setInPrice(Double.parseDouble(tfInPrice.getText()));
                 batchRecord.setInDate(new java.sql.Date(System.currentTimeMillis()));
@@ -108,9 +107,8 @@ public class ImportStockController implements Initializable {
     @FXML
     public void handleProductSelection() {
         String selectedProduct = cbProductName.getValue();;
-        Optional<Product> productOptional = productService.getProduct(selectedProduct);
-        if (productOptional.isPresent()) {
-            Product product = productOptional.get();
+        Product product = productService.getProduct(selectedProduct);
+        if (product != null) {
             loadExistingProductData(product);
         }
     }

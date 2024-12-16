@@ -205,10 +205,9 @@ public class UpdateproductController {
     @FXML
     public void handleProductSelection() {
         String selectedProduct = cbExistingProducts.getEditor().getText();
-        Optional<Product> productOptional = productService.getProduct(selectedProduct);
-        if (productOptional.isPresent()) {
+        Product product = productService.getProduct(selectedProduct);
+        if (product != null) {
             isAddingNewProduct = false;
-            Product product = productOptional.get();
             btnUpdateProduct.setText("Cập nhật sản phẩm");
             loadExistingProductData(product);
         } else {

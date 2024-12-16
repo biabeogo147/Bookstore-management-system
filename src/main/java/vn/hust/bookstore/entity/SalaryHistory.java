@@ -16,6 +16,10 @@ public class SalaryHistory {
     private Long id;
     private Date date;
     private Double salary;
+    private Double hourlyWage;
+    private Long workingHours;
+    private Long leaveHours;
+    private boolean isPaid;
 
     @ManyToOne
     @JoinColumn(name = "employee_id")

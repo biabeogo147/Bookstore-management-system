@@ -8,7 +8,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public abstract class Employee extends Account {
-    private Double salary;
     private Double hourlyWage;
     private Long workingHours;
     private Long leaveHours;
