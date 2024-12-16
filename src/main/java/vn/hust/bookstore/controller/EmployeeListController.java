@@ -15,10 +15,6 @@ public class EmployeeListController {
 
     @FXML
     public void initialize() {
-        // Load data into the TableView
-        employeeData.add(new Employee("Nguyen", "Anh", "1995-01-01", true, "anh@gmail.com", "123456789", "Manager", 160, 5, 20.0, true));
-        employeeData.add(new Employee("Tran", "Binh", "1998-05-20", false, "binh@gmail.com", "987654321", "Cashier", 150, 3, 15.0, false));
-
         tableEmployee.setItems(employeeData);
     }
 

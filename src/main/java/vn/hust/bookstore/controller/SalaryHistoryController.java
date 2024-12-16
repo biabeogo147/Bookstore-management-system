@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
+import vn.hust.bookstore.entity.SalaryHistory;
 
 public class SalaryHistoryController {
     @FXML
