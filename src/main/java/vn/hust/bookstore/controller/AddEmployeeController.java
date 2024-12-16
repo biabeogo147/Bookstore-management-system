@@ -62,7 +62,6 @@ public class AddEmployeeController implements Initializable {
         employee.setLastName(tfLastName.getText());
         employee.setWorkingHours(0L);
         employee.setLeaveHours(0L);
-        employee.setSalary(0.0);
         employee.setHourlyWage(Double.parseDouble(tfHourlyWage.getText()));
         employee.setEmail(tfEmail.getText());
         employee.setPhone(tfPhone.getText());

@@ -16,7 +16,10 @@ import vn.hust.bookstore.entity.*;
 import vn.hust.bookstore.service.*;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.sql.Date;
 import java.util.Objects;
 import java.util.Optional;
@@ -159,10 +162,9 @@ public class BookstoreController implements Initializable {
     private TextArea taProductDescription;
 
     private void handleProductClick(int index) {
-        Product selectedProduct = productService.getProduct((long) index).orElse(null);
+        Product selectedProduct = productService.getProduct((long) index);
         if (selectedProduct != null) {
-            String imagePath = "/images/" + selectedProduct.getImage();
-            ivBookImage.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream(imagePath))));
+            ivBookImage.setImage(getProductImage(selectedProduct.getImage()));
             lblBookName.setText(selectedProduct.getName());
             lblBookPrice.setText(selectedProduct.getPrice().toString());
             if (selectedProduct.getDescription() != null) {
@@ -178,6 +180,29 @@ public class BookstoreController implements Initializable {
         }
     }
 
+    private Image getProductImage(String imagePath) {
+        URL imageUrl = getClass().getResource("/images/" + imagePath);
+        URL defaultImageUrl = getClass().getResource("/images/default.png");
+        try {
+            if (imageUrl != null && Files.exists(Paths.get(imageUrl.toURI()))) {
+                return new Image(Objects.requireNonNull(imageUrl).toString());
+            } else if (defaultImageUrl != null) {
+                return new Image(Objects.requireNonNull(defaultImageUrl).toString());
+            } else {
+                System.out.println("Default image not found");
+                return null;
+            }
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+            if (defaultImageUrl != null) {
+                return new Image(Objects.requireNonNull(defaultImageUrl).toString());
+            } else {
+                System.out.println("Default image not found");
+                return null;
+            }
+        }
+    }
+
     public void addToCart() {
         if (customer == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -188,7 +213,7 @@ public class BookstoreController implements Initializable {
             String name = lblBookName.getText();
             System.out.println(name);
 
-            Product product = productService.getProduct(name).orElse(null);
+            Product product = productService.getProduct(name);
             if (product != null) {
                 boolean canAdd = customerService.addToCart(customer, product);
                 if (!canAdd) {
@@ -329,13 +354,11 @@ public class BookstoreController implements Initializable {
                 int start = 6 * pageIndex + 1;
                 for (int j = 0; j < imageViews.length; j++) {
                     int productIndex = start + j;
-                    Optional<Product> product = productService.getProduct((long) productIndex);
-                    if (product.isPresent()) {
-                        Product currentProduct = product.get();
-                        nameLabels[j].setText(currentProduct.getName());
-                        String imagePath = "/images/" + currentProduct.getImage();
-                        priceLabels[j].setText(currentProduct.getPrice().toString());
-                        imageViews[j].setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream(imagePath))));
+                    Product product = productService.getProduct((long) productIndex);
+                    if (product != null) {
+                        nameLabels[j].setText(product.getName());
+                        priceLabels[j].setText(product.getPrice().toString());
+                        imageViews[j].setImage(getProductImage(product.getImage()));
                         vBoxes[j].setOnMouseClicked(vbEvent -> handleProductClick(productIndex));
                     } else {
                         nameLabels[j].setText("");
