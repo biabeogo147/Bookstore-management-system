@@ -20,4 +20,5 @@ public abstract class Product {
     private Double price;
     private String description;
     private Long quantity;
+    private String image;
 }

@@ -27,7 +27,7 @@ import java.util.stream.Collectors;
 
 public class UpdateproductController {
 
-    ProductService productService = new ProductService();
+    private ProductService productService = new ProductService();
 
     private boolean isAddingNewProduct;
     private File selectedFile;
@@ -62,6 +62,9 @@ public class UpdateproductController {
 
     @FXML
     private AnchorPane stationeryPane;
+
+    @FXML
+    private TextField tfBookAuthors;
 
     @FXML
     private TextField tfBookGenre;
@@ -122,6 +125,7 @@ public class UpdateproductController {
         tfProductQuantity.setText(String.valueOf(product.getQuantity()));
         tfProductDescription.setText(product.getDescription());
         if (product instanceof Book book) {
+            tfBookAuthors.setText(book.getAuthor());
             tfBookPublisher.setText(book.getPublisher());
             tfBookGenre.setText(book.getGenre());
             tfBookPublicationDate.setValue(book.getPublicationDate().toLocalDate());
@@ -224,6 +228,7 @@ public class UpdateproductController {
             product.setDescription(tfProductDescription.getText());
             switch (product) {
                 case Book book -> {
+                    book.setAuthor(tfBookAuthors.getText());
                     book.setPublisher(tfBookPublisher.getText());
                     book.setGenre(tfBookGenre.getText());
                     book.setPublicationDate(Date.valueOf(tfBookPublicationDate.getValue()));
@@ -243,31 +248,30 @@ public class UpdateproductController {
 
         System.out.println("Product: " + product);
 
+        if (selectedFile != null) {
+            System.out.println("Copying image file to images folder");
+            File destDir = new File("src/main/resources/images");
+            if (!destDir.exists()) {
+                destDir.mkdirs();
+            }
+
+            File destFile = new File(destDir, product.getName() + ".png");
+            try {
+                Files.copy(selectedFile.toPath(), destFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                System.out.println("Image saved to resources/images");
+                product.setImage(destFile.getPath());
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.out.println(e);
+            }
+        } else {
+            System.out.println("No images selected to save");
+        }
+
         if (isAddingNewProduct) {
             productService.addProduct(product);
         } else {
             productService.updateProduct(product);
-        }
-
-        if (selectedFile != null) {
-            System.out.println("Copying image file to images folder");
-            if (selectedFile != null) {
-                File destDir = new File("src/main/resources/images");
-                if (!destDir.exists()) {
-                    destDir.mkdirs();
-                }
-
-                File destFile = new File(destDir, product.getId() + ".png");
-                try {
-                    Files.copy(selectedFile.toPath(), destFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
-                    System.out.println("Image saved to resources/images");
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    System.out.println(e);
-                }
-            } else {
-                System.out.println("No images selected to save");
-            }
         }
     }
 

@@ -24,8 +24,8 @@ import java.util.ResourceBundle;
 
 public class BookstoreController implements Initializable {
 
-    public ProductService productService = new ProductService();
-    public CustomerService customerService = new CustomerService();
+    private ProductService productService = new ProductService();
+    private CustomerService customerService = new CustomerService();
 
     private Customer customer;
     private Parent root;

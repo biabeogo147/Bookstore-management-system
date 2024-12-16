@@ -19,7 +19,7 @@ import java.util.ResourceBundle;
 
 public class EmployeeController implements Initializable {
 
-    public AccountService accountService = new AccountService();
+    private AccountService accountService = new AccountService();
 
     private Employee employee;
     private Parent root;
@@ -40,6 +40,9 @@ public class EmployeeController implements Initializable {
 
     @FXML
     private Button btnViewOrders;
+
+    @FXML
+    private Button btnImportStock;
 
     @FXML
     private CheckBox cbFemale;
@@ -117,11 +120,14 @@ public class EmployeeController implements Initializable {
             btnViewOrders.setVisible(true);
             btnAddProduct.setDisable(true);
             btnAddProduct.setVisible(false);
+            btnImportStock.setDisable(true);
+            btnImportStock.setVisible(false);
         }
         else
         {
             lblRole.setText("Stock Manager");
             btnAddProduct.setVisible(true);
+            btnImportStock.setVisible(true);
             btnViewOrders.setDisable(true);
             btnViewOrders.setVisible(false);
         }
@@ -137,6 +143,32 @@ public class EmployeeController implements Initializable {
         } else {
             cbFemale.setSelected(true);
         }
+    }
+
+    @FXML
+    void importStock() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vn/hust/bookstore/importstock.fxml"));
+        root = fxmlLoader.load();
+
+        Stage stage = new Stage();
+        Scene scene = new Scene(root);
+
+        root.setOnMousePressed(event -> {
+            x = event.getSceneX();
+            y = event.getSceneY();
+        });
+
+        root.setOnMouseDragged(event -> {
+            stage.setX(event.getScreenX() - x);
+            stage.setY(event.getScreenY() - y);
+        });
+
+        ImportStockController importStockController = fxmlLoader.getController();
+        importStockController.setStockManager((StockManager) this.employee);
+
+        stage.initStyle(StageStyle.TRANSPARENT);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
@@ -193,8 +225,5 @@ public class EmployeeController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
     }
-
-
 }

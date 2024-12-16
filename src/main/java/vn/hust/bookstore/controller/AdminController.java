@@ -24,7 +24,7 @@ import java.util.ResourceBundle;
 
 public class AdminController implements Initializable {
 
-    public AccountService accountService = new AccountService();
+    private AccountService accountService = new AccountService();
 
     private Admin admin;
     private Parent root;
@@ -63,10 +63,6 @@ public class AdminController implements Initializable {
     @FXML
     private NumberAxis profitYAxis;
 
-    public void setAdmin(Admin admin) {
-        this.admin = admin;
-    }
-
     private void addCashier() {
         Cashier cashier = new Cashier();
         cashier.setFirstName("Cashier");
@@ -91,6 +87,10 @@ public class AdminController implements Initializable {
         stockManager.setStatus(1L);
         stockManager.setTimeCreated(new Date(System.currentTimeMillis()));
         accountService.addAccount(stockManager);
+    }
+
+    public void setAdmin(Admin admin) {
+        this.admin = admin;
     }
 
     public void minimize() {
@@ -133,6 +133,4 @@ public class AdminController implements Initializable {
         //addCashier();
         //addStockManager();
     }
-
-
 }

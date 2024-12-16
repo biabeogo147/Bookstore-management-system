@@ -2,10 +2,13 @@ package vn.hust.bookstore.controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import vn.hust.bookstore.entity.Cashier;
 import vn.hust.bookstore.entity.Order;
 import vn.hust.bookstore.service.OrderService;
@@ -16,7 +19,7 @@ import java.util.ResourceBundle;
 
 public class OrderListController implements Initializable {
 
-    public OrderService orderService = new OrderService();
+    private OrderService orderService = new OrderService();
 
     private Cashier cashier;
 
@@ -52,6 +55,12 @@ public class OrderListController implements Initializable {
 
     public void setCashier(Cashier cashier) {
         this.cashier = cashier;
+    }
+
+    public void close(ActionEvent event) {
+        Node source = (Node) event.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
     }
 
     @FXML

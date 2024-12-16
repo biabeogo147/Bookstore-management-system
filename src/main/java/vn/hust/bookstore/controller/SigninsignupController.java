@@ -20,8 +20,8 @@ import java.util.ResourceBundle;
 
 public class SigninsignupController implements Initializable {
 
-    public AccountService accountService = new AccountService();
-    public CustomerService customerService = new CustomerService();
+    private AccountService accountService = new AccountService();
+    private CustomerService customerService = new CustomerService();
 
     private Parent root;
     private double x;
@@ -174,7 +174,7 @@ public class SigninsignupController implements Initializable {
 
     private void addAdmin() {
         Admin admin = new Admin();
-        admin.setEmail("admin@gmail.com");
+        admin.setEmail("admin");
         admin.setPhone("000");
         admin.setFirstName("Admin");
         admin.setLastName("1");
@@ -186,7 +186,9 @@ public class SigninsignupController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-       //addAdmin();
+       if (accountService.getAccount("admin") == null) {
+           addAdmin();
+       }
     }
 
 }

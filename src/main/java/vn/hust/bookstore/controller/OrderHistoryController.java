@@ -56,7 +56,7 @@ public class OrderHistoryController implements Initializable {
     private double x;
     private double y;
 
-    public void goBackToCart(ActionEvent actionEvent) throws IOException {
+    public void goBackToCart() throws IOException {
         mainForm.getScene().getWindow().hide();
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vn/hust/bookstore/cart.fxml"));

@@ -1,14 +1,17 @@
 package vn.hust.bookstore.service;
 
 import org.hibernate.Session;
+import vn.hust.bookstore.entity.Book;
 import vn.hust.bookstore.entity.Product;
+import vn.hust.bookstore.entity.Stationery;
+import vn.hust.bookstore.entity.Toy;
 import vn.hust.bookstore.util.HibernateUtil;
 
 import java.util.List;
 import java.util.Optional;
 
 public class ProductService {
-    public Optional<Product> addProduct(Product product) {
+    public void addProduct(Product product) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
             session.persist(product);
@@ -16,18 +19,44 @@ public class ProductService {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return Optional.ofNullable(product);
     }
 
-    public Optional<Product> updateProduct(Product product) {
+    public void updateProduct(Product product) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
-            session.merge(product);
-            session.getTransaction().commit();
+            Optional<Product> getProduct = getProduct(product.getName());
+            if (getProduct.isPresent()) {
+                Product existingProduct = getProduct.get();
+                existingProduct.setName(product.getName());
+                existingProduct.setPrice(product.getPrice());
+                existingProduct.setQuantity(product.getQuantity());
+                existingProduct.setDescription(product.getDescription());
+
+                switch (existingProduct) {
+                    case Book book -> {
+                        book.setAuthor(((Book) product).getAuthor());
+                        book.setPublisher(((Book) product).getPublisher());
+                        book.setGenre(((Book) product).getGenre());
+                        book.setPublicationDate(((Book) product).getPublicationDate());
+                    }
+                    case Stationery stationery -> {
+                        stationery.setBrand(((Stationery) product).getBrand());
+                        stationery.setType(((Stationery) product).getType());
+                    }
+                    case Toy toy -> {
+                        toy.setBrand(((Toy) product).getBrand());
+                        toy.setAgeGroup(((Toy) product).getAgeGroup());
+                    }
+                    default -> {
+                    }
+                }
+
+                session.update(existingProduct);
+                session.getTransaction().commit();
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return Optional.ofNullable(product);
     }
 
     public Optional<Product> getProduct(Long id) {
