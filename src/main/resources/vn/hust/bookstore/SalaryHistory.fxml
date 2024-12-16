@@ -4,56 +4,28 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
 
-<StackPane prefHeight="668.0" prefWidth="1071.0" stylesheets="@./salaryhistory.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vn.hust.bookstore.controller.SalaryHistoryController">
+<StackPane prefHeight="680.0" prefWidth="1246.0" stylesheets="@./salaryhistory.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vn.hust.bookstore.controller.SalaryHistoryController">
     <children>
-        <AnchorPane prefHeight="600.0" prefWidth="900.0">
+        <AnchorPane fx:id="mainPane" prefHeight="670.0" prefWidth="1281.0">
             <children>
                 <!-- Header -->
                 <Label layoutX="20.0" layoutY="20.0" style="-fx-font-size: 24px;" text="Lịch sử trả lương" />
-                <Button fx:id="btnClose" layoutX="1013.0" layoutY="20.0" onAction="#closeWindow" prefHeight="30.0" prefWidth="42.0" styleClass="close-button" text="X" />
+                <Button fx:id="btnClose" layoutX="1176.0" layoutY="20.0" onAction="#closeWindow" prefHeight="30.0" prefWidth="42.0" styleClass="close-button" text="X" />
 
                 <!-- TableView -->
-                <TableView fx:id="tableSalaryHistory" layoutX="20.0" layoutY="70.0" prefHeight="570.0" prefWidth="1035.0">
+                <TableView fx:id="tableSalaryHistory" layoutX="20.0" layoutY="70.0" prefHeight="570.0">
                     <columns>
-                        <TableColumn fx:id="colFullName" prefWidth="176.0" text="Họ và tên">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="fullName" />
-                            </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn fx:id="colWorkHours" prefWidth="144.0" text="Số giờ làm việc">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="workHours" />
-                            </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn fx:id="colLeaveHours" prefWidth="137.0" text="Số giờ nghỉ">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="leaveHours" />
-                            </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn fx:id="colHourlyWage" prefWidth="145.0" text="Lương theo giờ">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="hourlyWage" />
-                            </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn fx:id="colTotalSalary" prefWidth="161.0" text="Lương trả">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="totalSalary" />
-                            </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn fx:id="colPayDate" prefWidth="148.0" text="Ngày trả lương">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="payDate" />
-                            </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn fx:id="colPaid" prefWidth="122.0" text="Đã trả lương">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="paid" />
-                            </cellValueFactory>
-                        </TableColumn>
+                        <TableColumn fx:id="colFullName" minWidth="-1.0" prefWidth="158.0" text="Họ và tên" />
+                        <TableColumn fx:id="colWorkHours" minWidth="-1.0" prefWidth="162.0" text="Số giờ làm" />
+                        <TableColumn fx:id="colLeaveHours" minWidth="-1.0" prefWidth="137.0" text="Số giờ nghỉ" />
+                        <TableColumn fx:id="colHourlyWage" minWidth="-1.0" prefWidth="145.0" text="Lương theo giờ" />
+                        <TableColumn fx:id="colTotalSalary" minWidth="-1.0" prefWidth="161.0" text="Lương trả" />
+                  <TableColumn fx:id="colSalaryMonth" minWidth="-1.0" prefWidth="161.0" text="Lương Tháng" />
+                        <TableColumn fx:id="colPayDate" minWidth="-1.0" prefWidth="148.0" text="Ngày trả lương" />
+                        <TableColumn fx:id="colPaid" minWidth="-1.0" prefWidth="122.0" text="Đã trả lương" />
                     </columns>
                 </TableView>
             </children>

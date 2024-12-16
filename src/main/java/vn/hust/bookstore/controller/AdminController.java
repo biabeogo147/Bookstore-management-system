@@ -15,7 +15,9 @@ import vn.hust.bookstore.entity.*;
 import vn.hust.bookstore.service.*;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.time.Month;
+import java.time.YearMonth;
 import java.util.HashMap;
 import java.util.Map;
 import java.net.URL;
@@ -37,7 +39,19 @@ public class AdminController implements Initializable {
     private BarChart<String, Number> barChartProfit;
 
     @FXML
-    private Button btnViewRevenue;
+    private Button btnAddEmployee;
+
+    @FXML
+    private Button btnClose;
+
+    @FXML
+    private Button btnEmployeeList;
+
+    @FXML
+    private Button btnMinimize;
+
+    @FXML
+    private Button btnSalaryHistory;
 
     @FXML
     private AnchorPane contentPane;
@@ -77,6 +91,31 @@ public class AdminController implements Initializable {
 
     public void close() {
         System.exit(0);
+    }
+
+    private void addSalaryHistory(YearMonth currentMonth) {
+        List<Employee> employees = new EmployeeService().getAllEmployees();
+        for (Employee employee : employees) {
+            SalaryHistory salaryHistory = new SalaryHistory();
+            salaryHistory.setDate(null);
+            salaryHistory.setPaid(false);
+            salaryHistory.setEmployee(employee);
+            salaryHistory.setHourlyWage(employee.getHourlyWage());
+            salaryHistory.setLeaveHours(employee.getLeaveHours());
+            salaryHistory.setWorkingHours(employee.getWorkingHours());
+            salaryHistory.setMonth((long) currentMonth.getMonthValue());
+            salaryHistory.setSalary(employee.getHourlyWage() * employee.getWorkingHours());
+            salaryHistoryService.addSalaryHistory(salaryHistory);
+        }
+    }
+
+    private void checkAndAddSalaryHistory() {
+        LocalDate today = LocalDate.now();
+        YearMonth currentMonth = YearMonth.from(today);
+        LocalDate lastDayOfMonth = currentMonth.atEndOfMonth();
+        if (today.isEqual(lastDayOfMonth)) {
+            addSalaryHistory(currentMonth);
+        }
     }
 
     private void updateCharts() {
@@ -150,7 +189,7 @@ public class AdminController implements Initializable {
             costsByMonth.put(month, costsByMonth.getOrDefault(month, 0.0) + batch.getInPrice());
         }
         for (SalaryHistory salaryHistory : salaryHistories) {
-            Month month = salaryHistory.getDate().toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate().getMonth();
+            Month month = Month.of(salaryHistory.getMonth().intValue());
             costsByMonth.put(month, costsByMonth.getOrDefault(month, 0.0) + salaryHistory.getSalary());
         }
 
@@ -162,6 +201,58 @@ public class AdminController implements Initializable {
 
         lineChartCosts.getData().clear();
         lineChartCosts.getData().add(costSeries);
+    }
+
+    @FXML
+    void showSalaryHistory() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vn/hust/bookstore/SalaryHistory.fxml"));
+        root = fxmlLoader.load();
+
+        Stage stage = new Stage();
+        Scene scene = new Scene(root);
+
+        root.setOnMousePressed(event -> {
+            x = event.getSceneX();
+            y = event.getSceneY();
+        });
+
+        root.setOnMouseDragged(event -> {
+            stage.setX(event.getScreenX() - x);
+            stage.setY(event.getScreenY() - y);
+        });
+
+        SalaryHistoryController salaryHistoryController = fxmlLoader.getController();
+        salaryHistoryController.setAdmin(this.admin);
+
+        stage.initStyle(StageStyle.TRANSPARENT);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    void showEmployees() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vn/hust/bookstore/EmployeeList.fxml"));
+        root = fxmlLoader.load();
+
+        Stage stage = new Stage();
+        Scene scene = new Scene(root);
+
+        root.setOnMousePressed(event -> {
+            x = event.getSceneX();
+            y = event.getSceneY();
+        });
+
+        root.setOnMouseDragged(event -> {
+            stage.setX(event.getScreenX() - x);
+            stage.setY(event.getScreenY() - y);
+        });
+
+        EmployeeListController employeeListController = fxmlLoader.getController();
+        employeeListController.setAdmin(this.admin);
+
+        stage.initStyle(StageStyle.TRANSPARENT);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
@@ -193,5 +284,6 @@ public class AdminController implements Initializable {
     @FXML
     public void initialize(URL location, ResourceBundle resources) {
         updateCharts();
+        checkAndAddSalaryHistory();
     }
 }

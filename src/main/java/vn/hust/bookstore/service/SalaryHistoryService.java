@@ -17,6 +17,16 @@ public class SalaryHistoryService {
         }
     }
 
+    public void updateSalaryHistory(SalaryHistory salaryHistory) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.beginTransaction();
+            session.update(salaryHistory);
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public List<SalaryHistory> getAllSalaryHistories() {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             return session.createQuery("from SalaryHistory", SalaryHistory.class).list();

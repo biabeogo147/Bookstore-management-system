@@ -41,8 +41,9 @@
                 <AnchorPane layoutY="44.0" prefHeight="598.0" prefWidth="200.0" styleClass="sidebar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="44.0">
                     <children>
                         <Label layoutX="45.0" layoutY="20.0" styleClass="sidebar-title" text="Admin Menu" />
-                        <Button fx:id="btnAddEmployee" layoutX="41.0" layoutY="83.0" mnemonicParsing="false" onAction="#addEmployee" styleClass="sidebar-button" text="Thêm nhân viên" />
-                  <Button fx:id="btnEmployeeList" layoutX="27.0" layoutY="145.0" mnemonicParsing="false" onAction="#addEmployee" styleClass="sidebar-button" text="Danh sách nhân viên" />
+                        <Button fx:id="btnAddEmployee" layoutX="27.0" layoutY="83.0" mnemonicParsing="false" onAction="#addEmployee" prefHeight="38.0" prefWidth="148.0" styleClass="sidebar-button" text="Thêm nhân viên" />
+                  <Button fx:id="btnEmployeeList" layoutX="27.0" layoutY="145.0" mnemonicParsing="false" onAction="#showEmployees" styleClass="sidebar-button" text="Danh sách nhân viên" />
+                  <Button fx:id="btnSalaryHistory" layoutX="26.0" layoutY="207.0" mnemonicParsing="false" onAction="#showSalaryHistory" prefHeight="38.0" prefWidth="148.0" styleClass="sidebar-button" text="Lịch trả lương" />
                     </children>
                 </AnchorPane>
 

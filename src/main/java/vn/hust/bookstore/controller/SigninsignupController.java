@@ -228,6 +228,7 @@ public class SigninsignupController implements Initializable {
         salaryHistory.setWorkingHours(51L);
         salaryHistory.setLeaveHours(1L);
         salaryHistory.setPaid(true);
+        salaryHistory.setMonth(11L);
         salaryHistory.setEmployee(cashier);
         salaryHistoryService.addSalaryHistory(salaryHistory);
 
@@ -238,6 +239,7 @@ public class SigninsignupController implements Initializable {
         salaryHistory.setWorkingHours(49L);
         salaryHistory.setLeaveHours(0L);
         salaryHistory.setPaid(true);
+        salaryHistory.setMonth(11L);
         salaryHistory.setEmployee(stockManager);
         salaryHistoryService.addSalaryHistory(salaryHistory);
     }
