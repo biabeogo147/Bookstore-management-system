@@ -242,7 +242,7 @@ public class BookstoreController implements Initializable {
     public void switchToAccount() throws IOException {
         mainForm.getScene().getWindow().hide();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vn/hust/bookstore/account.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vn/hust/bookstore/view/account.fxml"));
         root = fxmlLoader.load();
 
         Stage stage = new Stage();
@@ -269,7 +269,7 @@ public class BookstoreController implements Initializable {
     public void switchToCart() throws IOException {
         mainForm.getScene().getWindow().hide();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vn/hust/bookstore/cart.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vn/hust/bookstore/view/cart.fxml"));
         root = fxmlLoader.load();
 
         Stage stage = new Stage();

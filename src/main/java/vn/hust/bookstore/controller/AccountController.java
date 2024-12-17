@@ -116,7 +116,7 @@ public class AccountController implements Initializable {
     public void switchToShopping() throws IOException {
         mainForm.getScene().getWindow().hide();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vn/hust/bookstore/bookstore.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vn/hust/bookstore/view/bookstore.fxml"));
         root = fxmlLoader.load();
 
         Stage stage = new Stage();
@@ -143,7 +143,7 @@ public class AccountController implements Initializable {
     public void switchToCart() throws IOException {
         mainForm.getScene().getWindow().hide();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vn/hust/bookstore/cart.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vn/hust/bookstore/view/cart.fxml"));
         root = fxmlLoader.load();
 
         Stage stage = new Stage();

@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
 
-<StackPane stylesheets="@./orderHistory.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vn.hust.bookstore.controller.OrderHistoryController">
+<StackPane stylesheets="@orderHistory.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vn.hust.bookstore.controller.OrderHistoryController">
     <children>
         <AnchorPane fx:id="mainForm" prefHeight="666.0" prefWidth="957.0">
             <children>

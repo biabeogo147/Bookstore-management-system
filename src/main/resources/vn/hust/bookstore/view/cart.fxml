@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane stylesheets="@./cart.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vn.hust.bookstore.controller.CartController">
+<StackPane stylesheets="@cart.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vn.hust.bookstore.controller.CartController">
     <children>
         <AnchorPane fx:id="mainForm" prefHeight="600.0" prefWidth="900.0">
             <children>

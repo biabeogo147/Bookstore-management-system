@@ -205,7 +205,7 @@ public class AdminController implements Initializable {
 
     @FXML
     void showSalaryHistory() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vn/hust/bookstore/SalaryHistory.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vn/hust/bookstore/view/SalaryHistory.fxml"));
         root = fxmlLoader.load();
 
         Stage stage = new Stage();
@@ -231,7 +231,7 @@ public class AdminController implements Initializable {
 
     @FXML
     void showEmployees() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vn/hust/bookstore/EmployeeList.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vn/hust/bookstore/view/EmployeeList.fxml"));
         root = fxmlLoader.load();
 
         Stage stage = new Stage();
@@ -257,7 +257,7 @@ public class AdminController implements Initializable {
 
     @FXML
     void addEmployee() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vn/hust/bookstore/AddEmployee.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vn/hust/bookstore/view/addemployee.fxml"));
         root = fxmlLoader.load();
 
         Stage stage = new Stage();

@@ -147,7 +147,7 @@ public class EmployeeController implements Initializable {
 
     @FXML
     void importStock() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vn/hust/bookstore/importstock.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vn/hust/bookstore/view/ImportStock.fxml"));
         root = fxmlLoader.load();
 
         Stage stage = new Stage();
@@ -173,7 +173,7 @@ public class EmployeeController implements Initializable {
 
     @FXML
     void addProduct() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vn/hust/bookstore/updateproduct.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vn/hust/bookstore/view/updateproduct.fxml"));
         root = fxmlLoader.load();
 
         Stage stage = new Stage();
@@ -199,7 +199,7 @@ public class EmployeeController implements Initializable {
 
     @FXML
     void viewOrders() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vn/hust/bookstore/OrderList.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vn/hust/bookstore/view/OrderList.fxml"));
         root = fxmlLoader.load();
 
         Stage stage = new Stage();

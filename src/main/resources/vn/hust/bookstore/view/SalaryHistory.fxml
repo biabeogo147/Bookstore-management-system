@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
 
-<StackPane prefHeight="680.0" prefWidth="1246.0" stylesheets="@./salaryhistory.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vn.hust.bookstore.controller.SalaryHistoryController">
+<StackPane prefHeight="680.0" prefWidth="1246.0" stylesheets="@salaryhistory.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vn.hust.bookstore.controller.SalaryHistoryController">
     <children>
         <AnchorPane fx:id="mainPane" prefHeight="670.0" prefWidth="1281.0">
             <children>

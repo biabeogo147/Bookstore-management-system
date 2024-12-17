@@ -151,9 +151,9 @@ public class SigninsignupController implements Initializable {
     public void login() throws IOException {
         long role = accountService.login(tfEmailorPhoneSignin.getText(), tfPasswordSignin.getText());
         String fxmlPath = switch ((int) role) {
-            case 1 -> "/vn/hust/bookstore/bookstore.fxml";
-            case 2 -> "/vn/hust/bookstore/employee.fxml";
-            case 3 -> "/vn/hust/bookstore/admin.fxml";
+            case 1 -> "/vn/hust/bookstore/view/bookstore.fxml";
+            case 2 -> "/vn/hust/bookstore/view/employee.fxml";
+            case 3 -> "/vn/hust/bookstore/view/admin.fxml";
             default -> "";
         };
         if (role == 1)

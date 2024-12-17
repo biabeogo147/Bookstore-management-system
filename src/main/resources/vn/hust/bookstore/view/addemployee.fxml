@@ -35,7 +35,7 @@
                       </Button>
                   </children>
               </AnchorPane>
-            <AnchorPane layoutY="46.0" prefHeight="538.0" prefWidth="655.0" stylesheets="@./addemployee.css">
+            <AnchorPane layoutY="46.0" prefHeight="538.0" prefWidth="655.0" stylesheets="@addemployee.css">
                 <children>
                     <!-- Title -->
                     <Label layoutX="20.0" layoutY="14.0" styleClass="title-label" text="Thêm nhân viên mới" />

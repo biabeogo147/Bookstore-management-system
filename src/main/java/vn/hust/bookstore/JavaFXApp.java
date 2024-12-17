@@ -22,7 +22,7 @@ public class JavaFXApp extends Application {
 
     @Override
     public void init() throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vn/hust/bookstore/signinsignup.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vn/hust/bookstore/view/signinsignup.fxml"));
         root = fxmlLoader.load();
     }
 

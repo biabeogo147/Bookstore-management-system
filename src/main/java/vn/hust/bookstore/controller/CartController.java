@@ -121,7 +121,7 @@ public class CartController implements Initializable {
     public void switchToShopping() throws IOException {
         mainForm.getScene().getWindow().hide();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vn/hust/bookstore/bookstore.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vn/hust/bookstore/view/bookstore.fxml"));
         root = fxmlLoader.load();
 
         Stage stage = new Stage();
@@ -148,7 +148,7 @@ public class CartController implements Initializable {
     public void switchToAccount() throws IOException {
         mainForm.getScene().getWindow().hide();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vn/hust/bookstore/account.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vn/hust/bookstore/view/account.fxml"));
         root = fxmlLoader.load();
 
         Stage stage = new Stage();
@@ -175,7 +175,7 @@ public class CartController implements Initializable {
     public void viewOrderHistory() throws IOException {
         mainForm.getScene().getWindow().hide();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vn/hust/bookstore/OrderHistory.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vn/hust/bookstore/view/OrderHistory.fxml"));
         root = fxmlLoader.load();
 
         Stage stage = new Stage();

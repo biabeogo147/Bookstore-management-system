@@ -44,7 +44,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<StackPane prefHeight="774.0" prefWidth="978.0" styleClass="stack-pane" stylesheets="@./bookstore.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vn.hust.bookstore.controller.BookstoreController">
+<StackPane prefHeight="774.0" prefWidth="978.0" styleClass="stack-pane" stylesheets="@bookstore.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vn.hust.bookstore.controller.BookstoreController">
    <children>
       <AnchorPane fx:id="mainForm" prefHeight="774.0" prefWidth="978.0">
          <children>
