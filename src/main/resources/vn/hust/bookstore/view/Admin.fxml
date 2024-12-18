@@ -44,6 +44,7 @@
                         <Button fx:id="btnAddEmployee" layoutX="27.0" layoutY="83.0" mnemonicParsing="false" onAction="#addEmployee" prefHeight="38.0" prefWidth="148.0" styleClass="sidebar-button" text="Thêm nhân viên" />
                   <Button fx:id="btnEmployeeList" layoutX="27.0" layoutY="145.0" mnemonicParsing="false" onAction="#showEmployees" styleClass="sidebar-button" text="Danh sách nhân viên" />
                   <Button fx:id="btnSalaryHistory" layoutX="26.0" layoutY="207.0" mnemonicParsing="false" onAction="#showSalaryHistory" prefHeight="38.0" prefWidth="148.0" styleClass="sidebar-button" text="Lịch trả lương" />
+                  <Button fx:id="btnViewIncurredCost" layoutX="27.0" layoutY="269.0" mnemonicParsing="false" onAction="#showSalaryHistory" prefHeight="38.0" prefWidth="148.0" styleClass="sidebar-button" text="Chi phí phát sinh" />
                     </children>
                 </AnchorPane>
 

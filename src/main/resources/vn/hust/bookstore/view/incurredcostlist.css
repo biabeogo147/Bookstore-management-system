@@ -1,0 +1,25 @@
+.main-pane {
+    -fx-background-color: #f3e5f5;
+    -fx-border-color: #8e24aa;
+    /*-fx-border-radius: 10;*/
+    -fx-padding: 10;
+}
+
+.title-label {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #4a148c;
+}
+
+/* Close Button */
+.close-button {
+    -fx-background-color: #d32f2f;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-background-radius: 5;
+}
+
+.close-button:hover {
+    -fx-background-color: #b71c1c;
+}

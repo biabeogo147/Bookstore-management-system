@@ -1,0 +1,23 @@
+.main-pane {
+    -fx-background-color: #f3e5f5;
+    -fx-border-color: #ab47bc;
+    /*-fx-border-radius: 10;*/
+    -fx-padding: 10;
+}
+
+.title-label {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #4a148c;
+}
+
+.submit-button {
+    -fx-background-color: #ab47bc;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-background-radius: 5px;
+}
+
+.submit-button:hover {
+    -fx-background-color: #8e24aa;
+}
