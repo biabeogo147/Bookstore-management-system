@@ -33,16 +33,19 @@ public class EmployeeController implements Initializable {
     private Button btnClose;
 
     @FXML
+    private Button btnImportStock;
+
+    @FXML
     private Button btnMinimize;
+
+    @FXML
+    private Button btnReportCostIncurred;
 
     @FXML
     private Button btnUpdateInfo;
 
     @FXML
     private Button btnViewOrders;
-
-    @FXML
-    private Button btnImportStock;
 
     @FXML
     private CheckBox cbFemale;
@@ -165,6 +168,32 @@ public class EmployeeController implements Initializable {
 
         ImportStockController importStockController = fxmlLoader.getController();
         importStockController.setStockManager((StockManager) this.employee);
+
+        stage.initStyle(StageStyle.TRANSPARENT);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    void reportCost() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vn/hust/bookstore/view/ReportIncurredCost.fxml"));
+        root = fxmlLoader.load();
+
+        Stage stage = new Stage();
+        Scene scene = new Scene(root);
+
+        root.setOnMousePressed(event -> {
+            x = event.getSceneX();
+            y = event.getSceneY();
+        });
+
+        root.setOnMouseDragged(event -> {
+            stage.setX(event.getScreenX() - x);
+            stage.setY(event.getScreenY() - y);
+        });
+
+        ReportIncurredCostController reportIncurredCostController = fxmlLoader.getController();
+        reportIncurredCostController.setEmployee(this.employee);
 
         stage.initStyle(StageStyle.TRANSPARENT);
         stage.setScene(scene);

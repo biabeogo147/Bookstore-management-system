@@ -54,6 +54,9 @@ public class AdminController implements Initializable {
     private Button btnSalaryHistory;
 
     @FXML
+    private Button btnViewIncurredCost;
+
+    @FXML
     private AnchorPane contentPane;
 
     @FXML
@@ -201,6 +204,32 @@ public class AdminController implements Initializable {
 
         lineChartCosts.getData().clear();
         lineChartCosts.getData().add(costSeries);
+    }
+
+    @FXML
+    void showIncurredCostList() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vn/hust/bookstore/view/IncurredCostList.fxml"));
+        root = fxmlLoader.load();
+
+        Stage stage = new Stage();
+        Scene scene = new Scene(root);
+
+        root.setOnMousePressed(event -> {
+            x = event.getSceneX();
+            y = event.getSceneY();
+        });
+
+        root.setOnMouseDragged(event -> {
+            stage.setX(event.getScreenX() - x);
+            stage.setY(event.getScreenY() - y);
+        });
+
+        IncurredCostListController incurredCostListController = fxmlLoader.getController();
+        incurredCostListController.setAdmin(this.admin);
+
+        stage.initStyle(StageStyle.TRANSPARENT);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML

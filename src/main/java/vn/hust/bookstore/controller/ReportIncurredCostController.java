@@ -1,14 +1,34 @@
 package vn.hust.bookstore.controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import vn.hust.bookstore.entity.Employee;
+import vn.hust.bookstore.entity.IncurredCost;
+import vn.hust.bookstore.service.EmployeeService;
+import vn.hust.bookstore.service.IncurredCostService;
 
-public class ReportIncurredCostController {
+import java.net.URL;
+import java.sql.Date;
+import java.util.ResourceBundle;
+
+public class ReportIncurredCostController implements Initializable {
+
+    private IncurredCostService incurredCostService = new IncurredCostService();
+    private Employee employee;
+
+    @FXML
+    private Button btnSubmit;
 
     @FXML
     private DatePicker dpDate;
+
+    @FXML
+    private AnchorPane mainPane;
 
     @FXML
     private TextArea taDescription;
@@ -16,18 +36,44 @@ public class ReportIncurredCostController {
     @FXML
     private TextField tfCost;
 
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
     @FXML
     public void submitReport() {
-//        String date = dpDate.getValue() != null ? dpDate.getValue().toString() : "N/A";
-//        String description = taDescription.getText();
-//        String cost = tfCost.getText();
-//
-//        // In dữ liệu ra console hoặc xử lý logic gửi đến cơ sở dữ liệu
-//        System.out.println("Thời điểm: " + date);
-//        System.out.println("Mô tả: " + description);
-//        System.out.println("Chi phí: " + cost);
-//
-//        // Thông báo thành công
-//        System.out.println("Báo cáo đã được gửi thành công.");
+        Date date = java.sql.Date.valueOf(dpDate.getValue());
+        String description = taDescription.getText();
+        Double cost = Double.parseDouble(tfCost.getText());
+
+        if (description.isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Please fill in all fields");
+            alert.showAndWait();
+        } else {
+            IncurredCost incurredCost = new IncurredCost();
+            incurredCost.setDate(date);
+            incurredCost.setDescription(description);
+            incurredCost.setCost(cost);
+            incurredCost.setEmployee(employee);
+            incurredCostService.addIncurredCost(incurredCost);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Success");
+            alert.setHeaderText("Report incurred cost successfully");
+            alert.showAndWait();
+        }
+    }
+
+    @FXML
+    void closeWindow(ActionEvent event) {
+        Node source = (Node) event.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        dpDate.setValue(java.time.LocalDate.now());
     }
 }

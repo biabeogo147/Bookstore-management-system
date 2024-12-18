@@ -10,7 +10,7 @@
 
 <StackPane prefHeight="367.0" prefWidth="500.0" stylesheets="@reportincurredcost.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vn.hust.bookstore.controller.ReportIncurredCostController">
     <children>
-        <AnchorPane prefHeight="400.0" prefWidth="500.0" styleClass="main-pane">
+        <AnchorPane fx:id="mainPane" prefHeight="400.0" prefWidth="500.0" styleClass="main-pane">
             <children>
                 <Label layoutX="20.0" layoutY="20.0" styleClass="title-label" text="Báo cáo chi phí phát sinh" />
 
@@ -28,6 +28,7 @@
 
                 <!-- Submit Button -->
                 <Button fx:id="btnSubmit" layoutX="367.0" layoutY="301.0" mnemonicParsing="false" onAction="#submitReport" styleClass="submit-button" text="Gửi báo cáo" />
+            <Button layoutX="434.0" layoutY="14.0" mnemonicParsing="false" onAction="#closeWindow" text="Button" />
             </children>
         </AnchorPane>
     </children>

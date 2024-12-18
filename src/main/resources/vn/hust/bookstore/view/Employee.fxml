@@ -21,7 +21,7 @@
                         <Button fx:id="btnViewOrders" layoutX="12.0" layoutY="80.0" mnemonicParsing="false" onAction="#viewOrders" styleClass="sidebar-button" text="Xem danh sách đơn hàng" />
                         <Button fx:id="btnAddProduct" layoutX="11.0" layoutY="80.0" mnemonicParsing="false" onAction="#addProduct" prefHeight="39.0" prefWidth="178.0" styleClass="sidebar-button" text="Thêm sản phẩm" />
                   <Button fx:id="btnImportStock" layoutX="12.0" layoutY="161.0" mnemonicParsing="false" onAction="#importStock" prefHeight="39.0" prefWidth="177.0" styleClass="sidebar-button" text="Nhập kho" />
-                  <Button fx:id="btnReportCostIncurred" layoutX="12.0" layoutY="240.0" mnemonicParsing="false" onAction="#importStock" prefHeight="39.0" prefWidth="177.0" styleClass="sidebar-button" text="Báo cáo chi phí phát sinh" />
+                  <Button fx:id="btnReportCostIncurred" layoutX="12.0" layoutY="240.0" mnemonicParsing="false" onAction="#reportCost" prefHeight="39.0" prefWidth="177.0" styleClass="sidebar-button" text="Báo cáo chi phí phát sinh" />
                     </children>
                 </AnchorPane>
 

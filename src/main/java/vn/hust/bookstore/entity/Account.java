@@ -24,4 +24,8 @@ public abstract class Account {
     private Date birthday;
     private Long status;
     private Date timeCreated;
+
+    public String getName() {
+        return lastName + " " + firstName;
+    }
 }
