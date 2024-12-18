@@ -28,7 +28,7 @@
 
                 <!-- Submit Button -->
                 <Button fx:id="btnSubmit" layoutX="367.0" layoutY="301.0" mnemonicParsing="false" onAction="#submitReport" styleClass="submit-button" text="Gửi báo cáo" />
-            <Button layoutX="434.0" layoutY="14.0" mnemonicParsing="false" onAction="#closeWindow" text="Button" />
+            <Button fx:id="btnClose" layoutX="436.0" layoutY="11.0" onAction="#closeWindow" prefHeight="30.0" prefWidth="42.0" styleClass="close-button" text="X" />
             </children>
         </AnchorPane>
     </children>

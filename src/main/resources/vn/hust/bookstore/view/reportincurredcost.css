@@ -21,3 +21,16 @@
 .submit-button:hover {
     -fx-background-color: #8e24aa;
 }
+
+/* Close Button */
+.close-button {
+    -fx-background-color: #d32f2f;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-background-radius: 5;
+}
+
+.close-button:hover {
+    -fx-background-color: #b71c1c;
+}
