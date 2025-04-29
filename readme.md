@@ -23,21 +23,17 @@ Below is a screenshot of the Admin dashboard, showcasing the management interfac
 <img src="app_ui/admin1.png" alt="Admin Dashboard" width="500" />
 
 <br>
-<br>
 
 <img src="app_ui/admin2.png" alt="Admin Dashboard" width="500" />
 
-<br>
 <br>
 
 <img src="app_ui/admin3.png" alt="Admin Dashboard" width="500" />
 
 <br>
-<br>
 
 <img src="app_ui/admin4.png" alt="Admin Dashboard" width="500" />
 
-<br>
 <br>
 
 <img src="app_ui/admin5.png" alt="Admin Dashboard" width="500" />
@@ -56,21 +52,17 @@ The following screenshot displays the Employee interface for handling sales and 
 <img src="app_ui/employee1.png" alt="Employee Dashboard" width="500" />
 
 <br>
-<br>
 
 <img src="app_ui/employee2.png" alt="Employee Dashboard" width="500" />
 
-<br>
 <br>
 
 <img src="app_ui/employee3.png" alt="Employee Dashboard" width="500" />
 
 <br>
-<br>
 
 <img src="app_ui/employee4.png" alt="Employee Dashboard" width="500" />
 
-<br>
 <br>
 
 <img src="app_ui/employee5.png" alt="Employee Dashboard" width="500" />
@@ -89,16 +81,13 @@ This screenshot shows the Customer interface for browsing products and managing 
 <img src="app_ui/customer1.png" alt="Customer Interface" width="500" />
 
 <br>
-<br>
 
 <img src="app_ui/customer2.png" alt="Customer Interface" width="500" />
 
 <br>
-<br>
 
 <img src="app_ui/customer3.png" alt="Customer Interface" width="500" />
 
-<br>
 <br>
 
 <img src="app_ui/customer4.png" alt="Customer Interface" width="500" />
